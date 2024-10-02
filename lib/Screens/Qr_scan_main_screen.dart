@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -7,6 +8,7 @@ import 'package:prove/Screens/Saved_main_screen.dart';
 import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Search_main_screen.dart';
 import 'package:prove/Screens/Settings_main_screen.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 
 class QrScanMainScreen extends StatefulWidget {
@@ -15,6 +17,10 @@ class QrScanMainScreen extends StatefulWidget {
 }
 
 class _QrScanMainScreen extends State<QrScanMainScreen> {
+
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  Barcode? result;
+  QRViewController? controller;
 
   int _selectedIndex = 2;
 
@@ -60,45 +66,47 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
 
 
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Necessario per più di 3 icone
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: QRView(
+              key: qrKey,
+              onQRViewCreated: _onQRViewCreated,
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner),
-            label: 'Qr Scan',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.save_rounded),
-            label: 'Saved',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
+          Expanded(
+            flex: 1,
+            child: Center(
+              child: (result != null)
+                  ? Text(
+                  'Barcode Type: ${(result!.format).name}   Data: ${result!.code}')
+                  : Text('Scan a code'),
+            ),
+          )
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
       ),
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-      ),
-
-      extendBodyBehindAppBar: true,
-      body: Text("Qr Page")
     );
   }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
 }
+
+
