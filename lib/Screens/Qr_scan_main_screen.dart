@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:prove/Navigation_component/Navigation.dart';
-import 'package:prove/Screens/Qr_scan_main_screen.dart';
-import 'package:prove/Screens/Saved_main_screen.dart';
-import 'package:prove/Screens/Home_Screen.dart';
-import 'package:prove/Screens/Search_main_screen.dart';
-import 'package:prove/Screens/Settings_main_screen.dart';
 
 
 class QrScanMainScreen extends StatefulWidget {
@@ -16,89 +10,77 @@ class QrScanMainScreen extends StatefulWidget {
 
 class _QrScanMainScreen extends State<QrScanMainScreen> {
 
-  int _selectedIndex = 2;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  String scannedResult = "Nessun risultato";
 
-    // Naviga alla pagina giusta in base all'indice
-    switch (index) {
-      case 0:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-        );
-        break;
-      case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SearchMainScreen()),
-        );
-        break;
-      case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => QrScanMainScreen()),
-        );
-        break;
-      case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SavedMainScreen()),
-        );
-        break;
-      case 4:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SettingsMainScreen()),
-        );
-        break;
+
+  Future<void> scanBarcode() async {
+    try {
+      var result = await BarcodeScanner.scan(); // Esegue la scansione
+      setState(() {
+        scannedResult = result.rawContent.isEmpty ? "Nessun codice QR trovato" : result.rawContent; // Mostra il risultato della scansione
+      });
+    } catch (e) {
+      setState(() {
+        scannedResult = "Errore nella scansione: $e";
+      });
     }
   }
-
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Necessario per più di 3 icone
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner),
-            label: 'Qr Scan',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.save_rounded),
-            label: 'Saved',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-      ),
 
+      appBar: AppBar(),
       extendBodyBehindAppBar: true,
-      body: Text("Qr Page")
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: scanBarcode,
+                child: Text('Scansiona QR Code'),
+              ),
+              Text(
+                scannedResult,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Padding(padding: const EdgeInsets.all(20),
+                child: Container(
+                  decoration: ShapeDecoration(shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 2, color: Color(0xFF25344D)),
+                      borderRadius: BorderRadius.circular(20)
+                  )),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Insert code", // Placeholder del campo di ricerca
+                      border: InputBorder.none, // Nessun bordo predefinito
+                      contentPadding: EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+                      suffixIcon: Row(
+                        mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
+                        children: <Widget>[
+                          SizedBox(width: 5,),
+                          IconButton(onPressed: (){
+                              setState(() {
+                              scannedResult = " "; // Mostra il risultato della scansione
+                            });
+                            }, icon: Icon(Icons.backspace_outlined,color: Color(0xFF25344D))),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ), // code manual
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
