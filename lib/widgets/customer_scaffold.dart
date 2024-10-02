@@ -35,11 +35,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     // da collegare meglio al file home
     Column(
       children: <Widget>[
-        Image.network(
-          'https://www.selmi-group.it/img/sede-selmi.jpg', // replace with actual image URL
-          height: 250,
-          width: double.infinity,
-          fit: BoxFit.cover,
+        Image.asset(
+          'assets/images/selmi_logo.png', // replace with actual image URL
+          height: 200,
         ),
         SizedBox(height: 10),
         Container(
