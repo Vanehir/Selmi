@@ -24,7 +24,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
             decoration: InputDecoration(
               hintText: "Search...", // Placeholder del campo di ricerca
               border: InputBorder.none, // Nessun bordo predefinito
-              contentPadding: EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+              contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),  // Padding verticale
               suffixIcon: Row(
                 mainAxisSize: MainAxisSize.min,// Minimizza la larghezza della Row
                 children: <Widget>[
