@@ -1,13 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:prove/Navigation_component/Navigation.dart';
-import 'package:prove/Screens/Qr_scan_main_screen.dart';
-import 'package:prove/Screens/Saved_main_screen.dart';
-import 'package:prove/Screens/Search_main_screen.dart';
-import 'package:prove/Screens/Home_Screen.dart';
-import 'package:prove/Screens/Settings_main_screen.dart';
-
 
 class SavedMainScreen extends StatefulWidget {
   @override
@@ -15,75 +6,127 @@ class SavedMainScreen extends StatefulWidget {
 }
 
 class _SavedMainScreen extends State<SavedMainScreen> {
-
-  int _selectedIndex = 3;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    // Naviga alla pagina giusta in base all'indice
-    switch (index) {
-      case 0:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-        );
-        break;
-      case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SearchMainScreen()),
-        );
-        break;
-      case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => QrScanMainScreen()),
-        );
-        break;
-      case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SavedMainScreen()),
-        );
-        break;
-      case 4:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SettingsMainScreen()),
-        );
-        break;
-    }
-  }
-
-
+  // Variabile per tracciare il tab selezionato
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 100,),
-        Center(
-          child: Text("Saved", style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),),
-        ),
-        SizedBox(height: 40,),
-        Container(
-          width: double.infinity,
-          height: 600,
+        SizedBox(height: 50),
+        Padding(padding: const EdgeInsets.all(20),
+        child: Container(
           decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-            side: BorderSide(
-              width: 2
-            )
+            side: BorderSide(width: 2, color: Color(0xFF25344D)),
+            borderRadius: BorderRadius.circular(40)
           )),
-          child: Column(
-            children: [
-
-            ],
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: "Search...", // Placeholder del campo di ricerca
+              border: InputBorder.none, // Nessun bordo predefinito
+              contentPadding: EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+              suffixIcon: Row(
+                mainAxisSize: MainAxisSize.min,// Minimizza la larghezza della Row
+                children: <Widget>[
+                  SizedBox(width: 5,),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Color(0xFF25344D))),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: Color(0xFF25344D))),
+                ],
+              ),
+              ),
+            ),
+          ),
+        ), // Search bar
+        SizedBox(height: 40),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Tab "Owned"
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = 0; // Imposta "Owned" come selezionato
+                });
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.5,
+                decoration: BoxDecoration(
+                  color: selectedIndex == 0 ? Color(0xFF25344D) : Colors.transparent,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(5), // Arrotonda solo l'angolo in alto a destra
+                  ),
+                  border: Border.all(
+                    color: Color(0xFF25344D),
+                    width: 2,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Text(
+                      "Owned",
+                      style: TextStyle(
+                        color: selectedIndex == 0 ? Color(0xFFF8F9FA) : Color(0xFF25344D),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            // Tab "Favourites"
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = 1; // Imposta "Favourites" come selezionato
+                });
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.5,
+                decoration: BoxDecoration(
+                  color: selectedIndex == 1 ? Color(0xFF25344D) : Colors.transparent,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5), // Arrotonda solo l'angolo in alto a sinistra
+                  ),
+                  border: Border.all(
+                    color: Color(0xFF25344D),
+                    width: 2,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Text(
+                      "Favourites",
+                      style: TextStyle(
+                        color: selectedIndex == 1 ? Color(0xFFF8F9FA) : Color(0xFF25344D),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ), // fa la stessa cosa di InkWell
+          ],
+        ),
+        // Contenuto dinamico basato sul tab selezionato
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF25344D),
+              borderRadius: BorderRadius.circular(0),
+            ),
+            child: Center(
+              child: selectedIndex == 0
+                  ? Text(
+                "Owned content",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              )
+                  : Text(
+                "Favourites content",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
           ),
         ),
       ],

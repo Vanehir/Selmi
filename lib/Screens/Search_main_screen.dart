@@ -68,27 +68,29 @@ class _SearchMainScreen extends State<SearchMainScreen> {
         body: Column(
           children: [
             SizedBox(height: 50,),
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Expanded(child:
-                      TextField(
-                        decoration: InputDecoration(
-                        hintText: 'Search...',
-                      ),
-                        controller: _search,
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                    )),
-                    InkWell(onTap: (){}, child: Icon(Icons.search)),
-                    InkWell(onTap: (){}, child: Icon(Icons.qr_code_scanner)),
-                  ],
+            Padding(padding: const EdgeInsets.all(20),
+              child: Container(
+                decoration: ShapeDecoration(shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 2, color: Color(0xFF25344D)),
+                    borderRadius: BorderRadius.circular(40)
+                )),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Search...", // Placeholder del campo di ricerca
+                    border: InputBorder.none, // Nessun bordo predefinito
+                    contentPadding: EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+                    suffixIcon: Row(
+                      mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
+                      children: <Widget>[
+                        SizedBox(width: 5,),
+                        IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Color(0xFF25344D))),
+                        IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: Color(0xFF25344D))),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ), // search bar
+            ), // Search bar // search bar
             Container(), // lista
           ],
         ),
