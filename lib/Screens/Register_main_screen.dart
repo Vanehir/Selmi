@@ -11,12 +11,12 @@ class RegisterMainScreen extends StatefulWidget {
 
 class _RegisterMainScreenState extends State<RegisterMainScreen> {
 
-  final TextEditingController _nameInput = TextEditingController(); // recupera l'imput del name dal TextField
-  final TextEditingController _surnameInput = TextEditingController(); // recupera l'imput del surname dal textField
-  final TextEditingController _usernameInputR = TextEditingController(); // recupera l'imput del surname dal textField
-  final TextEditingController _emailInput = TextEditingController(); // recupera l'imput del surname dal textField
-  final TextEditingController _passwordInputR = TextEditingController(); // recupera l'imput del surname dal textField
-  final TextEditingController _serialCodeInput = TextEditingController(); // recupera l'imput del surname dal textField
+  final TextEditingController _nameInput = TextEditingController(); // recupera l'input del name dal TextField
+  final TextEditingController _surnameInput = TextEditingController(); // recupera l'input del surname dal textField
+  final TextEditingController _usernameInputR = TextEditingController(); // recupera l'input del surname dal textField
+  final TextEditingController _emailInput = TextEditingController(); // recupera l'input del surname dal textField
+  final TextEditingController _passwordInputR = TextEditingController(); // recupera l'input del surname dal textField
+  final TextEditingController _serialCodeInput = TextEditingController(); // recupera l'input del surname dal textField
 
   bool _obscureText = true; // Controlla se il testo è oscurato o no
 
@@ -225,7 +225,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
-                      child: Text("Singn Up", style: TextStyle(
+                      child: Text("Sign Up", style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w200,
                           color: Color(0xFFF8F9FA),

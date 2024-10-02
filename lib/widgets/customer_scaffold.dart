@@ -32,6 +32,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
 
   // Lista delle pagine che verranno mostrate nel body
   final List<Widget> _pages = [
+    // da collegare meglio al file home
     Column(
       children: <Widget>[
         Image.network(

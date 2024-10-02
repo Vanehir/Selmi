@@ -163,6 +163,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
               ],
             ),
             Positioned(
+              bottom: 20,
               child: Padding(
                 padding: const EdgeInsets.only(left: 150, right: 150),
                 child: InkWell(

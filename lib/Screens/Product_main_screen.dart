@@ -25,7 +25,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
             child: Stack(
               children: [
                 Center(child: Image.network('https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png', height: 300,)),
-                Positioned(
+                Positioned( //absolute position
                   top: 20, right: 20,
                     child: InkWell(
                       onTap: (){},
@@ -66,6 +66,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                                   children: [
                                     Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color(0xFF59729D)),),
                                     Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         SizedBox(width: 50,),
                                         Text("Data Upload", style: TextStyle( color: Color(0xFF59729D)),),
