@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prove/Screens/Document_main_screen.dart';
 import 'package:prove/Screens/Product_main_screen.dart';
 import 'package:prove/Screens/Home_Screen.dart';
+import 'package:prove/Screens/Saved_main_screen.dart';
 import 'package:prove/Screens/Search_main_screen.dart';
 import 'package:prove/model/Richiesta_Model.dart';
 import 'package:prove/Screens/Settings_main_screen.dart';
@@ -183,7 +184,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     ),// home page
     Center(child: SearchMainScreen()),
     Center(child: Text('Qr Page')),
-    Center(child: Text('Saved Page')),
+    Center(child: SavedMainScreen()),
     Center(child: SettingsMainScreen()),
   ];
 

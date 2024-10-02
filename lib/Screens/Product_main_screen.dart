@@ -16,7 +16,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
           color: Color(0xFFF8F9FA),
         ),
         title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color(0xFFC44536)),),
-        backgroundColor: Color(0xFFF8F9FA),
+        backgroundColor: Color(0xFF25344D),
       ),
       body: Column(
         children: [
@@ -27,13 +27,19 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                 Center(child: Image.network('https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png', height: 300,)),
                 Positioned(
                   top: 20, right: 20,
-                    child: Icon(Icons.star)),
+                    child: InkWell(
+                      onTap: (){},
+                        child: Icon(Icons.star))),
                 Positioned(
                   bottom: 20, left: 20,
-                    child: Icon(Icons.qr_code_scanner)),
+                    child: InkWell(
+                      onTap: (){},
+                        child: Icon(Icons.qr_code_scanner))),
                 Positioned(
                   bottom: 20, right: 20,
-                    child: Image.asset("assets/images/language_icon.png")),
+                    child: InkWell(
+                      onTap: (){},
+                        child: Image.asset("assets/images/language_icon.png"))),
               ],
             ),
           ), // immagine e icone

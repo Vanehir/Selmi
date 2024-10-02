@@ -31,7 +31,7 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFFF8F9FA)),
         backgroundColor: Color(0xFF25344D),
-        title: Text("Documento", style: TextStyle(fontSize: 30, color: Color(0xFFF8F9FA)),),
+        title: Text("Documento", style: TextStyle(fontSize: 30, color: Color(0xFFC44536)),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -43,8 +43,8 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
                   child: Stack(
                     children: [
                       Center(child: Image.asset("assets/images/pdf_icon.png",scale: 0.2,)),
-                      Positioned( top:20, right: 20, child: Image.asset("assets/images/language_icon.png")),
-                      Positioned(bottom: 20, right: 20, child: Icon(Icons.remove_red_eye_outlined)),
+                      Positioned( top:20, right: 20, child: InkWell(onTap: (){}, child: Image.asset("assets/images/language_icon.png"))),
+                      Positioned(bottom: 20, right: 20, child: InkWell(onTap: (){}, child: Icon(Icons.remove_red_eye_outlined))),
                     ],
                   ),
               ),
@@ -58,10 +58,10 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
                     SizedBox(height: 100,),
                     Row(
                       children: [
-                        SizedBox(width: 50,),
-                        Text("upload" , style: TextStyle(fontSize: 20),),
+                        SizedBox(width: 40,),
+                        Text("20/04/2010" , style: TextStyle(fontSize: 20),),
                         SizedBox(width: 150,),
-                        Text("Type", style: TextStyle(fontSize: 20)),
+                        Text("pdf", style: TextStyle(fontSize: 20)),
                       ],
                     ),
                     SizedBox(height: 100,),

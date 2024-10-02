@@ -62,43 +62,31 @@ class _SavedMainScreen extends State<SavedMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Necessario per più di 3 icone
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner),
-            label: 'Qr Scan',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.save_rounded),
-            label: 'Saved',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-      ),
+    return Column(
+      children: [
+        SizedBox(height: 100,),
+        Center(
+          child: Text("Saved", style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),),
+        ),
+        SizedBox(height: 40,),
+        Container(
+          width: double.infinity,
+          height: 600,
+          decoration: ShapeDecoration(shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 2
+            )
+          )),
+          child: Column(
+            children: [
 
-      extendBodyBehindAppBar: true,
-      body: Text("Saved Page")
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

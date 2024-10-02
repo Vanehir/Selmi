@@ -45,8 +45,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
               Container(
                 child: Column(
                   children: [
-                    Text("Name"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     Container(
                       width: MediaQuery
                           .of(context)
@@ -56,7 +55,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Colors.blue,
+                                  color: Color(0xFF25344D),
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -64,14 +63,16 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _nameInput,
                         style: TextStyle(
-                            color: Colors.blue.shade900,
-                            fontSize: 23
+                            color: Color(0xFF25344D),
+                            fontSize: 23,
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "Name"
                         ),
                       ),
                     ), // name input
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
-                    Text("surname"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     Container(
                       width: MediaQuery
                           .of(context)
@@ -81,22 +82,24 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Colors.blue,
+                                  color: Color(0xFF25344D),
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: TextField(
-                        controller: _nameInput,
+                        controller: _surnameInput,
                         style: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Color(0xFF25344D),
                             fontSize: 23
+                        ),
+                        decoration: InputDecoration(
+                            hintText: "Surname"
                         ),
                       ),
                     ), // surname input
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
-                    Text("username"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     Container(
                       width: MediaQuery
                           .of(context)
@@ -106,22 +109,24 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Colors.blue,
+                                  color: Color(0xFF25344D),
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: TextField(
-                        controller: _nameInput,
+                        controller: _usernameInputR,
                         style: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Color(0xFF25344D),
                             fontSize: 23
+                        ),
+                        decoration: InputDecoration(
+                            hintText: "Username"
                         ),
                       ),
                     ), // username input
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
-                    Text("email"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     Container(
                       width: MediaQuery
                           .of(context)
@@ -131,22 +136,24 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Colors.blue,
+                                  color: Color(0xFF25344D),
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: TextField(
-                        controller: _nameInput,
+                        controller: _emailInput,
                         style: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Color(0xFF25344D),
                             fontSize: 23
+                        ),
+                        decoration: InputDecoration(
+                            hintText: "Email"
                         ),
                       ),
                     ), // email input
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
-                    Text("password"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     Container(
                       width: MediaQuery
                           .of(context)
@@ -156,7 +163,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Colors.blue,
+                                  color: Color(0xFF25344D),
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -165,17 +172,17 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                         obscureText: _obscureText,
                         controller: _passwordInputR,
                         style: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Color(0xFF25344D),
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
+                          hintText: "Password",
                           suffixIcon: IconButton(onPressed: _see, icon: _obscureText ? Image.asset('assets/images/eye_off_icon.png',width: 24,height: 24,) : Image.asset('assets/images/eye_on_icon.png',width: 24,height: 24,)),
                         ),
                       ),
                     ), // input password // password input
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
-                    Text("serial code"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     Container(
                       width: MediaQuery
                           .of(context)
@@ -185,16 +192,19 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Colors.blue,
+                                  color: Color(0xFF25344D),
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: TextField(
-                        controller: _nameInput,
+                        controller: _serialCodeInput,
                         style: TextStyle(
-                            color: Colors.blue.shade900,
+                            color: Color(0xFF25344D),
                             fontSize: 23
+                        ),
+                        decoration: InputDecoration(
+                            hintText: "Serial code"
                         ),
                       ),
                     ), // serial code input
@@ -208,24 +218,24 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                   color: Colors.transparent,
                   child: ElevatedButton(onPressed: _login,
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue.shade600,
+                          backgroundColor: Color(0xFF25344D),
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2, style: BorderStyle
-                                  .solid, color: Colors.blue.shade900),
+                                  .solid, color: Color(0xFF25344D)),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: Text("Singn Up", style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w200,
-                          color: Colors.white
+                          color: Color(0xFFF8F9FA),
                       ),)),
                 ),
               ), // button
-              TextButton(onPressed: (){}, child: Text("Register",
+              TextButton(onPressed: (){}, child: Text("Login",
                 style: TextStyle(
-                    color: Colors.indigo.shade700,
-                    fontSize: 17
+                    color: Color(0xFF59729D),
+                    fontSize: 20
                 ),)), // password dimanticata
             ],
           ),
