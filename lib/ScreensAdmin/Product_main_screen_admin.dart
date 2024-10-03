@@ -18,7 +18,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
           color: light,
         ),
         title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
-        backgroundColor: Color(0xFF25344D),
+        backgroundColor: darklue,
       ),
       body: SingleChildScrollView(
         child: Column(
