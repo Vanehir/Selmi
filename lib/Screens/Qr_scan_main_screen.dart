@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:http/http.dart' as http;
+import 'package:prove/Colors/color_palette.dart';
 
 
 class QrScanMainScreen extends StatefulWidget {
@@ -54,7 +55,7 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
               Padding(padding: const EdgeInsets.all(20),
                 child: Container(
                   decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 2, color: Color(0xFF25344D)),
+                      side: BorderSide(width: 2, color: darklue),
                       borderRadius: BorderRadius.circular(20)
                   )),
                   child: TextField(
@@ -70,7 +71,7 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
                               setState(() {
                               scannedResult = " "; // Mostra il risultato della scansione
                             });
-                            }, icon: Icon(Icons.backspace_outlined,color: Color(0xFF25344D))),
+                            }, icon: Icon(Icons.backspace_outlined,color: darklue)),
                         ],
                       ),
                     ),

@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:prove/Navigation_component/Navigation.dart';
-
+import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/model/Richiesta_Model.dart';
-import 'package:prove/Screens/Qr_scan_main_screen.dart';
-import 'package:prove/Screens/Saved_main_screen.dart';
-import 'package:prove/Screens/Search_main_screen.dart';
-import 'package:prove/Screens/Settings_main_screen.dart';
 import 'package:prove/widgets/customer_scaffold.dart';
 
 
@@ -18,47 +12,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreen extends State<HomeScreen> {
 
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    // Naviga alla pagina giusta in base all'indice
-    switch (index) {
-      case 0:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-        );
-        break;
-      case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SearchMainScreen()),
-        );
-        break;
-      case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => QrScanMainScreen()),
-        );
-        break;
-      case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SavedMainScreen()),
-        );
-        break;
-      case 4:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SettingsMainScreen()),
-        );
-        break;
-    }
-  }
 
 
   @override
@@ -94,9 +47,9 @@ class _HomeScreen extends State<HomeScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
                     } else if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: Color(0xFFC44536)),));
+                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: rederror),));
                     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return Center(child: Text('No data found',style: TextStyle(color: Color(0xFFC44536))));
+                      return Center(child: Text('No data found',style: TextStyle(color: rederror)));
                     } else {
                       return ListView.builder(
                         itemCount: snapshot.data!.length,
@@ -114,12 +67,12 @@ class _HomeScreen extends State<HomeScreen> {
                                     ),
                                     Column(
                                       children: [
-                                        Text(item['name'], style: TextStyle(fontSize: 18, color: Color(0xFF59729D)),),
+                                        Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
                                         Row(
                                           children: [
-                                            Text(item['category'], style: TextStyle(color: Color(0xFF59729D)),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                            Text(item['category'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
                                             SizedBox(width: 20,),
-                                            Text(item['year'], style: TextStyle(color: Color(0xFF59729D)),),
+                                            Text(item['year'], style: TextStyle(color: lightblue),),
                                           ],
                                         ),
                                       ],
@@ -144,7 +97,7 @@ class _HomeScreen extends State<HomeScreen> {
                         bottom: BorderSide(width: 2)
                     )
                 ),
-                child: Text("Last documents opened", style: TextStyle(color: Color(0xFF25344D), fontSize: 25),),
+                child: Text("Last documents opened", style: TextStyle(color: darklue, fontSize: 25),),
               ), // last opened
               SizedBox(height: 10),
               Expanded(
@@ -154,9 +107,9 @@ class _HomeScreen extends State<HomeScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
                     } else if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: Color(0xFFC44536)),));
+                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: rederror),));
                     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return Center(child: Text('No data found',style: TextStyle(color: Color(0xFFC44536))));
+                      return Center(child: Text('No data found',style: TextStyle(color: rederror)));
                     } else {
                       return ListView.builder(
                         itemCount: snapshot.data!.length,
@@ -181,12 +134,12 @@ class _HomeScreen extends State<HomeScreen> {
                                     ),
                                     Column(
                                       children: [
-                                        Text(item['name'], style: TextStyle(fontSize: 18, color: Color(0xFF59729D)),),
+                                        Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
                                         Row(
                                           children: [
-                                            Text(item['data'], style: TextStyle(color: Color(0xFF59729D)),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                            Text(item['data'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
                                             SizedBox(width: 20,),
-                                            Text(item['tipo'], style: TextStyle(color: Color(0xFF59729D)),),
+                                            Text(item['tipo'], style: TextStyle(color: lightblue),),
                                           ],
                                         ),
                                       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prove/Colors/color_palette.dart';
 
 class ProductMainScreen extends StatefulWidget {
   const ProductMainScreen({super.key});
@@ -13,10 +14,10 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Color(0xFFF8F9FA),
+          color: light,
         ),
-        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color(0xFFC44536)),),
-        backgroundColor: Color(0xFF25344D),
+        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
+        backgroundColor: darklue,
       ),
       body: Column(
         children: [
@@ -55,7 +56,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Specs", style: TextStyle(fontSize: 25, color: Color(0xFF25344D)),),
+                        Text("Specs", style: TextStyle(fontSize: 25, color: darklue),),
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -64,14 +65,14 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color(0xFF59729D)),),
+                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue),),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: Color(0xFF59729D)),),
+                                        Text("Data Upload", style: TextStyle( color: lightblue),),
                                         SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: Color(0xFF59729D)),),
+                                        Text("Type",style: TextStyle( color: lightblue),),
                                       ],
                                     )
                                   ],
@@ -91,7 +92,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Manual", style: TextStyle(fontSize: 25, color: Color(0xFF25344D)),),
+                        Text("Manual", style: TextStyle(fontSize: 25, color: darklue),),
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -100,13 +101,13 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color(0xFF59729D)),),
+                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue),),
                                     Row(
                                       children: [
                                         SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: Color(0xFF59729D)),),
+                                        Text("Data Upload", style: TextStyle( color: lightblue),),
                                         SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: Color(0xFF59729D)),),
+                                        Text("Type",style: TextStyle( color: lightblue),),
                                       ],
                                     )
                                   ],
@@ -126,7 +127,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Other", style: TextStyle(fontSize: 25, color: Color(0xFF25344D)),),
+                        Text("Other", style: TextStyle(fontSize: 25, color: darklue),),
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -135,13 +136,13 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color(0xFF59729D)),),
+                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue),),
                                     Row(
                                       children: [
                                         SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: Color(0xFF59729D)),),
+                                        Text("Data Upload", style: TextStyle( color: lightblue),),
                                         SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: Color(0xFF59729D)),),
+                                        Text("Type",style: TextStyle( color: lightblue),),
                                       ],
                                     )
                                   ],

@@ -7,6 +7,7 @@ import 'package:prove/Screens/Saved_main_screen.dart';
 import 'package:prove/Screens/Search_main_screen.dart';
 import 'package:prove/model/Richiesta_Model.dart';
 import 'package:prove/Screens/Settings_main_screen.dart';
+import 'package:prove/Colors/color_palette.dart';
 
 
 class CustomScaffold extends StatefulWidget {
@@ -48,7 +49,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                   bottom: BorderSide(width: 2)
               )
           ),
-          child: Text("Last scanned machine", style: TextStyle(color: Color(0xFF25344D), fontSize: 25),),
+          child: Text("Last scanned machine", style: TextStyle(color: darklue, fontSize: 25),),
         ), // last scan
         SizedBox(height: 0),
         // Fetch and display the list from JSON
@@ -59,9 +60,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
-                return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: Color(0xFFC44536)),));
+                return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: rederror),));
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return Center(child: Text('No data found',style: TextStyle(color: Color(0xFFC44536))));
+                return Center(child: Text('No data found',style: TextStyle(color: rederror)));
               } else {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
@@ -84,12 +85,12 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                                 ),
                                 Column(
                                   children: [
-                                    Text(item['name'], style: TextStyle(fontSize: 18, color: Color(0xFF59729D)),),
+                                    Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
                                     Row(
                                       children: [
-                                        Text(item['category'], style: TextStyle(color: Color(0xFF59729D)),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                        Text(item['category'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
                                         SizedBox(width: 20,),
-                                        Text(item['year'], style: TextStyle(color: Color(0xFF59729D)),),
+                                        Text(item['year'], style: TextStyle(color: lightblue),),
                                       ],
                                     ),
                                   ],
@@ -115,7 +116,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                   bottom: BorderSide(width: 2)
               )
           ),
-          child: Text("Last documents opened", style: TextStyle(color: Color(0xFF25344D), fontSize: 25),),
+          child: Text("Last documents opened", style: TextStyle(color: darklue, fontSize: 25),),
         ), // last opened
         SizedBox(height: 10),
         Expanded(
@@ -125,9 +126,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
-                return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: Color(0xFFC44536)),));
+                return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: rederror),));
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return Center(child: Text('No data found',style: TextStyle(color: Color(0xFFC44536))));
+                return Center(child: Text('No data found',style: TextStyle(color: rederror)));
               } else {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
@@ -157,12 +158,12 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                                 ),
                                 Column(
                                   children: [
-                                    Text(item['name'], style: TextStyle(fontSize: 18, color: Color(0xFF59729D)),),
+                                    Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
                                     Row(
                                       children: [
-                                        Text(item['data'], style: TextStyle(color: Color(0xFF59729D)),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                        Text(item['data'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
                                         SizedBox(width: 20,),
-                                        Text(item['tipo'], style: TextStyle(color: Color(0xFF59729D)),),
+                                        Text(item['tipo'], style: TextStyle(color: lightblue),),
                                       ],
                                     ),
                                   ],
@@ -202,10 +203,10 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       ),
       extendBodyBehindAppBar: true,
       body: _pages[_currentIndex],
-      backgroundColor: Color(0xFFF8F9FA),// Il body cambia dinamicamente in base all'indice
+      backgroundColor: light,// Il body cambia dinamicamente in base all'indice
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF25344D), // Necessario per più di 3 icone
+        backgroundColor: darklue, // Necessario per più di 3 icone
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,),
@@ -229,8 +230,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Color(0xFF59729D),
-        unselectedItemColor: Color(0xFFF8F9FA),
+        selectedItemColor: lightblue,
+        unselectedItemColor: light,
         onTap: _ontap,
       ),
     );

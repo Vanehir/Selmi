@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prove/Colors/color_palette.dart';
 
 
 class DocumentMainScreens extends StatelessWidget {
@@ -29,9 +30,9 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Color(0xFFF8F9FA)),
-        backgroundColor: Color(0xFF25344D),
-        title: Text("Documento", style: TextStyle(fontSize: 30, color: Color(0xFFC44536)),),
+        iconTheme: IconThemeData(color: light),
+        backgroundColor: darklue,
+        title: Text("Documento", style: TextStyle(fontSize: 30, color: rederror),),
       ),
       body: SingleChildScrollView(
         child: Column(

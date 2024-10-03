@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: darklue,
                       fontWeight: FontWeight.bold,
                       fontSize: 50
-                  ),), // Selmi
+                  ),),  // Selmi
                   SizedBox(height: MediaQuery
                       .of(context)
                       .size

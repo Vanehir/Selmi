@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:prove/Colors/color_palette.dart';
 import 'Home_Screen.dart';
 
 class RegisterMainScreen extends StatefulWidget {
@@ -55,7 +55,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Color(0xFF25344D),
+                                  color: darklue,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -63,7 +63,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _nameInput,
                         style: TextStyle(
-                            color: Color(0xFF25344D),
+                            color: darklue,
                             fontSize: 23,
                         ),
                         decoration: InputDecoration(
@@ -82,7 +82,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Color(0xFF25344D),
+                                  color: darklue,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -90,7 +90,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _surnameInput,
                         style: TextStyle(
-                            color: Color(0xFF25344D),
+                            color: darklue,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -109,7 +109,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Color(0xFF25344D),
+                                  color: darklue,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -117,7 +117,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _usernameInputR,
                         style: TextStyle(
-                            color: Color(0xFF25344D),
+                            color: darklue,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -133,10 +133,10 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           .size
                           .width * 0.7,
                       decoration: ShapeDecoration(
-                          color: Colors.white70,
+                          color: light,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Color(0xFF25344D),
+                                  color: darklue,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -144,7 +144,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _emailInput,
                         style: TextStyle(
-                            color: Color(0xFF25344D),
+                            color: darklue,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -163,7 +163,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: Color(0xFF25344D),
+                                  color: darklue,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -172,7 +172,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                         obscureText: _obscureText,
                         controller: _passwordInputR,
                         style: TextStyle(
-                            color: Color(0xFF25344D),
+                            color: darklue,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -189,7 +189,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           .size
                           .width * 0.7,
                       decoration: ShapeDecoration(
-                          color: Colors.white70,
+                          color: light,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
                                   color: Color(0xFF25344D),
@@ -200,7 +200,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _serialCodeInput,
                         style: TextStyle(
-                            color: Color(0xFF25344D),
+                            color: darklue,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -218,23 +218,23 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                   color: Colors.transparent,
                   child: ElevatedButton(onPressed: _login,
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF25344D),
+                          backgroundColor: darklue,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2, style: BorderStyle
-                                  .solid, color: Color(0xFF25344D)),
+                                  .solid, color: darklue),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: Text("Sign Up", style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w200,
-                          color: Color(0xFFF8F9FA),
+                          color: light,
                       ),)),
                 ),
               ), // button
               TextButton(onPressed: (){}, child: Text("Login",
                 style: TextStyle(
-                    color: Color(0xFF59729D),
+                    color: lightblue,
                     fontSize: 20
                 ),)), // password dimanticata
             ],
