@@ -3,7 +3,7 @@ import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Register_main_screen.dart';
 import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
 import 'package:prove/ScreensGuest/Qr_scan_main_screen_guest.dart';
-//import 'package:prove/Navigation_component/Navigation.dart';
+import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Document_main_screen.dart';
 import 'package:flutter/services.dart';
 
@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .height * 0.05,),
                   Text('Selmi', style:
                   TextStyle(
-                      color: Color(0xFF25344D),
+                      color: darklue,
                       fontWeight: FontWeight.bold,
                       fontSize: 50
                   ),), // Selmi
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.white70,
                         shape: RoundedRectangleBorder(
                             side: BorderSide(width: 2,
-                                color: Color(0xFF25344D),
+                                color: darklue,
                                 style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)
                         )
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       autofocus: false,
                       controller: _usernameInput,
                       style: TextStyle(
-                          color: Color(0xFF25344D),
+                          color: darklue,
                           fontSize: 23
                       ),
                       decoration: InputDecoration(
@@ -153,10 +153,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         .size
                         .width * 0.7,
                     decoration: ShapeDecoration(
-                        color: Colors.white70,
+                        color: light,
                         shape: RoundedRectangleBorder(
                             side: BorderSide(width: 2,
-                                color: Color(0xFF25344D),
+                                color: darklue,
                                 style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)
                         )
@@ -186,27 +186,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.transparent,
                     child: ElevatedButton(onPressed: _checkInput,
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF25344D),
+                            backgroundColor: darklue,
                             shape: RoundedRectangleBorder(
                                 side: BorderSide(width: 2, style: BorderStyle
-                                    .solid, color: Color(0xFF25344D)),
+                                    .solid, color: darklue),
                                 borderRadius: BorderRadius.circular(10)
                             )
                         ),
                         child: Text("Login", style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w200,
-                            color: Color(0xFFF8F9FA)
+                            color: light
                         ),)),
                   ), // login button
                   TextButton(onPressed: () {}, child: Text("Forgot Password?",
                     style: TextStyle(
-                        color: Color(0xFF59729D),
+                        color: lightblue,
                         fontSize: 17
                     ),)), // forgot password
                   TextButton(onPressed: _register, child: Text("Register",
                     style: TextStyle(
-                        color: Color(0xFF59729D),
+                        color: lightblue,
                         fontSize: 17
                     ),)), // password dimanticata
                   SizedBox(height: MediaQuery
@@ -215,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .height * 0.05,),
                   TextButton(onPressed: _login, child: Text("Skip",
                     style: TextStyle(
-                        color: Color(0xFF59729D),
+                        color: lightblue,
                         fontWeight: FontWeight.bold,
                         fontSize: 30
                     ),)), // Skip login
@@ -223,7 +223,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          backgroundColor: Color(0xFFF8F9FA), // This trailing comma makes auto-formatting nicer for build methods.
+          backgroundColor: light, // This trailing comma makes auto-formatting nicer for build methods.
         );
       }
     }
