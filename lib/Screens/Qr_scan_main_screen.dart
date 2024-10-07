@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:http/http.dart' as http;
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Product_main_screen.dart';
 
 
 class QrScanMainScreen extends StatefulWidget {
@@ -14,12 +15,15 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
 
   String scannedResult = "Nessun risultato";
 
+  /// i Qr hanno un testo che è il nome del prodotto, così il nome viene inviato al nuovo
+  /// Widget e lo viene messo come titolo della scheda prototto
+
 
   Future<void> scanBarcode() async {
     try {
       var result = await BarcodeScanner.scan(); // Esegue la scansione
-      setState(() {
-        scannedResult = result.rawContent.isEmpty ? "Nessun codice QR trovato" : result.rawContent; // Mostra il risultato della scansione
+      setState(() {  // ogni volta che viene scansionato un qr, il testo viene portato nella pagina nuova
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductMainScreen(nome: result.rawContent,)));
       });
     } catch (e) {
       setState(() {
@@ -69,7 +73,8 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
                           SizedBox(width: 5,),
                           IconButton(onPressed: (){
                               setState(() {
-                              scannedResult = " "; // Mostra il risultato della scansione
+                                scanBarcode();
+                              scannedResult = " ";
                             });
                             }, icon: Icon(Icons.backspace_outlined,color: darklue)),
                         ],

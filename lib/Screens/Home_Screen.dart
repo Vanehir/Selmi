@@ -4,6 +4,9 @@ import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/model/Richiesta_Model.dart';
 import 'package:prove/widgets/customer_scaffold.dart';
 
+import 'Document_main_screen.dart';
+import 'Product_main_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -22,11 +25,9 @@ class _HomeScreen extends State<HomeScreen> {
         pages: [
           Column(
             children: <Widget>[
-              Image.network(
-                'https://www.selmi-group.it/img/sede-selmi.jpg', // replace with actual image URL
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.cover,
+              Image.asset(
+                'assets/images/selmi_logo.png', // replace with actual image URL
+                height: 200,
               ),
               SizedBox(height: 10),
               Container(
@@ -36,7 +37,7 @@ class _HomeScreen extends State<HomeScreen> {
                         bottom: BorderSide(width: 2)
                     )
                 ),
-                child: Text("Last scanned machine", style: TextStyle(color: Color(0xFF25344D), fontSize: 25),),
+                child: Text("Last scanned machine", style: TextStyle(color: darklue, fontSize: 25),),
               ), // last scan
               SizedBox(height: 0),
               // Fetch and display the list from JSON
@@ -59,26 +60,32 @@ class _HomeScreen extends State<HomeScreen> {
                             width: double.infinity,
                             child: ListTile(
                               title: Container(
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.network(item['image'], height: 80, width: 50, fit: BoxFit.cover,),
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
-                                        Row(
-                                          children: [
-                                            Text(item['category'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
-                                            SizedBox(width: 20,),
-                                            Text(item['year'], style: TextStyle(color: lightblue),),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 80,)
-                                  ],
+                                child: InkWell(
+                                  onTap: (){
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => ProductMainScreen(nome: 'Prodotto',)));
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Image.network(item['Image'], height: 80, width: 50, fit: BoxFit.cover,),
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(item['nome'], style: TextStyle(fontSize: 18, color: lightblue),),
+                                          Row(
+                                            children: [
+                                              Text(item['category'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                              SizedBox(width: 20,),
+                                              Text(item['year'], style: TextStyle(color: lightblue),),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 80,)
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -126,26 +133,32 @@ class _HomeScreen extends State<HomeScreen> {
                             width: double.infinity,
                             child: ListTile(
                               title: Container(
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.asset('assets/images/pdf_icon.png'),
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
-                                        Row(
-                                          children: [
-                                            Text(item['data'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
-                                            SizedBox(width: 20,),
-                                            Text(item['tipo'], style: TextStyle(color: lightblue),),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 80,)
-                                  ],
+                                child: InkWell(
+                                  onTap: (){
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => DocumentMainScreen()));
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Image.asset('assets/images/pdf_icon.png'),
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
+                                          Row(
+                                            children: [
+                                              Text(item['data'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                              SizedBox(width: 20,),
+                                              Text(item['tipo'], style: TextStyle(color: lightblue),),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 80,)
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -157,7 +170,7 @@ class _HomeScreen extends State<HomeScreen> {
                 ),
               ),
             ],
-          ),
+          ),// home page
           Center(child: Text('Search Page')),
           Center(child: Text('Qr Page')),
           Center(child: Text('Saved Page')),

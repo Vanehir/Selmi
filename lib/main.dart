@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -56,10 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     else if (_usernameInput.text == AdminValue &&
         _passwordInput.text == AdminValue) {
-      // Naviga verso la nuova pagina senza possibilità di tornare indietro
-      Navigator.push(
+
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ProductMainScreenAdmin()),
+        MaterialPageRoute(builder: (context) => const ProductMainScreenAdmin()),
       );
     }
     else {
@@ -81,12 +81,19 @@ class _MyHomePageState extends State<MyHomePage> {
     void _register() {
       setState(() {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => RegisterMainScreen()));
+            MaterialPageRoute(builder: (context) => const RegisterMainScreen()));
       });
     }
     void _see() {
       setState(() {
         _obscureText = !_obscureText; // Cambia lo stato della visibilità
+      });
+    }
+
+    void _skippa(){
+      setState(() {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const QrScanMainScreenGuest()));
       });
     }
 
@@ -106,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .of(context)
                       .size
                       .height * 0.05,),
-                  Text('Selmi', style:
+                  const Text('Selmi', style:
                   TextStyle(
                       color: darklue,
                       fontWeight: FontWeight.bold,
@@ -124,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: ShapeDecoration(
                         color: Colors.white70,
                         shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 2,
+                            side: const BorderSide(width: 2,
                                 color: darklue,
                                 style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)
@@ -133,11 +140,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: TextField(
                       autofocus: false,
                       controller: _usernameInput,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: darklue,
                           fontSize: 23
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Username',
 
                       ),
@@ -155,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: ShapeDecoration(
                         color: light,
                         shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 2,
+                            side: const BorderSide(width: 2,
                                 color: darklue,
                                 style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)
@@ -164,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: TextField(
                       obscureText: _obscureText,
                       controller: _passwordInput,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Color(0xFF25344D),
                           fontSize: 23
                       ),
@@ -188,23 +195,23 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: darklue,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(width: 2, style: BorderStyle
+                                side: const BorderSide(width: 2, style: BorderStyle
                                     .solid, color: darklue),
                                 borderRadius: BorderRadius.circular(10)
                             )
                         ),
-                        child: Text("Login", style: TextStyle(
+                        child: const Text("Login", style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w200,
                             color: light
                         ),)),
                   ), // login button
-                  TextButton(onPressed: () {}, child: Text("Forgot Password?",
+                  TextButton(onPressed: () {}, child: const Text("Forgot Password?",
                     style: TextStyle(
                         color: lightblue,
                         fontSize: 17
                     ),)), // forgot password
-                  TextButton(onPressed: _register, child: Text("Register",
+                  TextButton(onPressed: _register, child: const Text("Register",
                     style: TextStyle(
                         color: lightblue,
                         fontSize: 17
@@ -213,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .of(context)
                       .size
                       .height * 0.05,),
-                  TextButton(onPressed: _login, child: Text("Skip",
+                  TextButton(onPressed: _skippa, child: const Text("Skip",
                     style: TextStyle(
                         color: lightblue,
                         fontWeight: FontWeight.bold,

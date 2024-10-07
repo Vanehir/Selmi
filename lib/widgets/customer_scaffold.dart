@@ -75,17 +75,17 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                           child: InkWell(
                             onTap: (){
                               Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => ProductMainScreen()));
+                                  MaterialPageRoute(builder: (context) => ProductMainScreen(nome: 'Prodotto',)));
                             },
                             child: Row(
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Image.network(item['image'], height: 80, width: 50, fit: BoxFit.cover,),
+                                  child: Image.network(item['Image'], height: 80, width: 50, fit: BoxFit.cover,),
                                 ),
                                 Column(
                                   children: [
-                                    Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
+                                    Text(item['nome'], style: TextStyle(fontSize: 18, color: lightblue),),
                                     Row(
                                       children: [
                                         Text(item['category'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),

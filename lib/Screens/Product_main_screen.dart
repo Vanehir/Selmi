@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 
 class ProductMainScreen extends StatefulWidget {
-  const ProductMainScreen({super.key});
+  final String nome;
+  const ProductMainScreen({required this.nome, super.key});
 
   @override
   State<ProductMainScreen> createState() => _ProductMainScreenState();
@@ -16,7 +17,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
         iconTheme: IconThemeData(
           color: light,
         ),
-        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
+        title: Text(widget.nome, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
         backgroundColor: darklue,
       ),
       body: Column(

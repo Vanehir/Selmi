@@ -1,20 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:prove/Colors/color_palette.dart';
-import 'package:prove/ScreensAdmin/Product_edit_screen_admin.dart';
+import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
 
-class ProductMainScreenAdmin extends StatefulWidget {
-  const ProductMainScreenAdmin({super.key});
+import '../Colors/color_palette.dart';
+
+class ProductEditScreenAdmin extends StatefulWidget {
+  const ProductEditScreenAdmin({super.key});
 
   @override
-  State<ProductMainScreenAdmin> createState() => _ProductMainScreenAdminState();
+  State<ProductEditScreenAdmin> createState() => _ProductEditScreenAdminState();
 }
-//sus
 
-class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
+class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
 
-  void _edit(){
+  bool _isCheck = false;
+  bool _isCheckManual = false;
+  bool _isCheckOther = false; // Controlla se il ceck_box è ceccato o meno
+
+  void _selezione(){
     setState(() {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const ProductEditScreenAdmin()));
+      _isCheck = !_isCheck;
+    });
+  }
+  void _selezioneManual(){
+    setState(() {
+      _isCheckManual = !_isCheckManual;
+    });
+  }
+  void _selezioneOther(){
+    setState(() {
+      _isCheckOther = !_isCheckOther;
+    });
+  }
+
+  void _back(){
+    setState(() {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ProductMainScreenAdmin()));
     });
   }
 
@@ -25,7 +45,20 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
         iconTheme: IconThemeData(
           color: light,
         ),
-        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
+            InkWell(
+              onTap: (){
+
+              },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.edit),
+                ))
+          ],
+        ),
         backgroundColor: darklue,
       ),
       body: SingleChildScrollView(
@@ -35,7 +68,10 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
               width: double.infinity,
               child: Stack(
                 children: [
-                  Center(child: Image.network('https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png', height: 300,)),
+                  Center(
+                      child: Container(
+                        height: 300,
+                          child: Icon(Icons.add_a_photo_outlined,size: 100,))),
                   Positioned(
                       top: 20, right: 20,
                       child: Icon(Icons.star)),
@@ -65,6 +101,13 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                             width: double.infinity,
                             child: Row(
                               children: [
+                                Container(
+                                  child: InkWell(
+                                      onTap: (){
+                                        _selezione();
+                                      },
+                                      child: _isCheck ? Image.asset("assets/images/check-box_si.png") : Image.asset("assets/images/ceck_no.png")),
+                                ),
                                 Image.asset("assets/images/pdf_icon.png"),
                                 Container(
                                   child: Column(
@@ -100,6 +143,13 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                             width: double.infinity,
                             child: Row(
                               children: [
+                                Container(
+                                  child: InkWell(
+                                      onTap: (){
+                                        _selezioneManual();
+                                      },
+                                      child: _isCheckManual ? Image.asset("assets/images/check-box_si.png") : Image.asset("assets/images/ceck_no.png")),
+                                ),
                                 Image.asset("assets/images/pdf_icon.png"),
                                 Container(
                                   child: Column(
@@ -135,6 +185,13 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                             width: double.infinity,
                             child: Row(
                               children: [
+                                Container(
+                                  child: InkWell(
+                                      onTap: (){
+                                        _selezioneOther();
+                                      },
+                                      child: _isCheckOther ? Image.asset("assets/images/check-box_si.png") : Image.asset("assets/images/ceck_no.png")),
+                                ),
                                 Image.asset("assets/images/pdf_icon.png"),
                                 Container(
                                   child: Column(
@@ -160,14 +217,41 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                   ),
                   Container(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 140,right: 140),
-                      child: InkWell(
-                        onTap: _edit,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          width: double.infinity,
-                          decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(width: 2, color: darklue))),
-                          child: Icon(Icons.mode_edit),
+                      padding: const EdgeInsets.only(left: 120,right: 120),
+                      child: Container(
+                        height: 40,
+                        width: double.infinity,
+                        decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(width: 2, color: darklue))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: (){
+                                _back();
+                              },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Icon(Icons.chevron_left),
+                                )),
+                            InkWell(
+                              onTap: (){
+
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(Icons.restore_from_trash),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: (){
+
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(Icons.add),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
