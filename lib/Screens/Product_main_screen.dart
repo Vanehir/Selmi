@@ -33,7 +33,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
         iconTheme: IconThemeData(
           color: neutral,
         ),
-        title: Text(widget.nome, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: error),),
+        title: Text(widget.nome, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: neutral),),
         backgroundColor: primary,
       ),
       body: Column(
