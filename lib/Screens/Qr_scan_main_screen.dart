@@ -21,16 +21,19 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
 
   Future<void> scanBarcode() async {
     try {
-      var result = await BarcodeScanner.scan(); // Esegue la scansione
+      var result = await BarcodeScanner.scan();
+      var risultato = result.rawContent; // Esegue la scansione
       setState(() {  // ogni volta che viene scansionato un qr, il testo viene portato nella pagina nuova
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductMainScreen(nome: result.rawContent,)));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductMainScreen(nome: result.rawContent, immagine: "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png")));
       });
+
     } catch (e) {
       setState(() {
         scannedResult = "Errore nella scansione: $e";
       });
     }
   }
+
 
 
   @override

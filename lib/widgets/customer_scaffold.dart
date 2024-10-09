@@ -75,7 +75,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                           child: InkWell(
                             onTap: (){
                               Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => ProductMainScreen(nome: 'Prodotto',)));
+                                  MaterialPageRoute(builder: (context) => ProductMainScreen(nome: 'Prodotto', immagine: "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png",)));
                             },
                             child: Row(
                               children: [

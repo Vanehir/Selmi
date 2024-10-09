@@ -3,13 +3,29 @@ import 'package:prove/Colors/color_palette.dart';
 
 class ProductMainScreen extends StatefulWidget {
   final String nome;
-  const ProductMainScreen({required this.nome, super.key});
+  final String immagine;
+  const ProductMainScreen({required this.nome,required this.immagine, super.key});
 
   @override
   State<ProductMainScreen> createState() => _ProductMainScreenState();
 }
 
 class _ProductMainScreenState extends State<ProductMainScreen> {
+/*
+  late String appBarTitle;
+  late String bodyImage;
+
+  @override
+  void initState() {
+    super.initState();
+    // Dividi la stringa e assegna i valori a variabili di stato
+    List<String> parti = widget.nome.split(',');
+    appBarTitle = parti.length > 0 ? parti[0] : '';
+    bodyImage = parti.length > 1 ? parti[1] : '';
+  }
+*/
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +42,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
             width: double.infinity,
             child: Stack(
               children: [
-                Center(child: Image.network('https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png', height: 300,)),
+                Center(child: Image.network(widget.immagine, height: 300,)),
                 Positioned( //absolute position
                   top: 20, right: 20,
                     child: InkWell(
