@@ -203,7 +203,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       ),
       extendBodyBehindAppBar: true,
       body: _pages[_currentIndex],
-      backgroundColor: neutral,// Il body cambia dinamicamente in base all'indice
+      backgroundColor: variant,// Il body cambia dinamicamente in base all'indice
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: primary, // Necessario per più di 3 icone
