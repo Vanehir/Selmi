@@ -30,9 +30,9 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: light),
-        backgroundColor: darklue,
-        title: Text("Documento", style: TextStyle(fontSize: 30, color: rederror),),
+        iconTheme: IconThemeData(color: neutral),
+        backgroundColor: primary,
+        title: Text("Documento", style: TextStyle(fontSize: 30, color: error),),
       ),
       body: SingleChildScrollView(
         child: Column(

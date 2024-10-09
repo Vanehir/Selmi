@@ -37,7 +37,7 @@ class _HomeScreen extends State<HomeScreen> {
                         bottom: BorderSide(width: 2)
                     )
                 ),
-                child: Text("Last scanned machine", style: TextStyle(color: darklue, fontSize: 25),),
+                child: Text("Last scanned machine", style: TextStyle(color: primary, fontSize: 25),),
               ), // last scan
               SizedBox(height: 0),
               // Fetch and display the list from JSON
@@ -48,9 +48,9 @@ class _HomeScreen extends State<HomeScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
                     } else if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: rederror),));
+                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: error),));
                     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return Center(child: Text('No data found',style: TextStyle(color: rederror)));
+                      return Center(child: Text('No data found',style: TextStyle(color: error)));
                     } else {
                       return ListView.builder(
                         itemCount: snapshot.data!.length,
@@ -73,12 +73,12 @@ class _HomeScreen extends State<HomeScreen> {
                                       ),
                                       Column(
                                         children: [
-                                          Text(item['nome'], style: TextStyle(fontSize: 18, color: lightblue),),
+                                          Text(item['nome'], style: TextStyle(fontSize: 18, color: secondary),),
                                           Row(
                                             children: [
-                                              Text(item['category'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                              Text(item['category'], style: TextStyle(color: secondary),maxLines: 1, overflow: TextOverflow.ellipsis),
                                               SizedBox(width: 20,),
-                                              Text(item['year'], style: TextStyle(color: lightblue),),
+                                              Text(item['year'], style: TextStyle(color: secondary),),
                                             ],
                                           ),
                                         ],
@@ -104,7 +104,7 @@ class _HomeScreen extends State<HomeScreen> {
                         bottom: BorderSide(width: 2)
                     )
                 ),
-                child: Text("Last documents opened", style: TextStyle(color: darklue, fontSize: 25),),
+                child: Text("Last documents opened", style: TextStyle(color: primary, fontSize: 25),),
               ), // last opened
               SizedBox(height: 10),
               Expanded(
@@ -114,9 +114,9 @@ class _HomeScreen extends State<HomeScreen> {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
                     } else if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: rederror),));
+                      return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: error),));
                     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return Center(child: Text('No data found',style: TextStyle(color: rederror)));
+                      return Center(child: Text('No data found',style: TextStyle(color: error)));
                     } else {
                       return ListView.builder(
                         itemCount: snapshot.data!.length,
@@ -146,12 +146,12 @@ class _HomeScreen extends State<HomeScreen> {
                                       ),
                                       Column(
                                         children: [
-                                          Text(item['name'], style: TextStyle(fontSize: 18, color: lightblue),),
+                                          Text(item['name'], style: TextStyle(fontSize: 18, color: secondary),),
                                           Row(
                                             children: [
-                                              Text(item['data'], style: TextStyle(color: lightblue),maxLines: 1, overflow: TextOverflow.ellipsis),
+                                              Text(item['data'], style: TextStyle(color: secondary),maxLines: 1, overflow: TextOverflow.ellipsis),
                                               SizedBox(width: 20,),
-                                              Text(item['tipo'], style: TextStyle(color: lightblue),),
+                                              Text(item['tipo'], style: TextStyle(color: secondary),),
                                             ],
                                           ),
                                         ],

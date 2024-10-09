@@ -18,7 +18,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
         Padding(padding: const EdgeInsets.all(20),
         child: Container(
           decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-            side: BorderSide(width: 2, color: darklue),
+            side: BorderSide(width: 2, color: primary),
             borderRadius: BorderRadius.circular(40)
           )),
           child: TextField(
@@ -30,8 +30,8 @@ class _SavedMainScreen extends State<SavedMainScreen> {
                 mainAxisSize: MainAxisSize.min,// Minimizza la larghezza della Row
                 children: <Widget>[
                   SizedBox(width: 5,),
-                  IconButton(onPressed: (){}, icon: Icon(Icons.search,color: darklue)),
-                  IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: darklue)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.search,color: primary)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: primary)),
                 ],
               ),
               ),
@@ -52,12 +52,12 @@ class _SavedMainScreen extends State<SavedMainScreen> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.5,
                 decoration: BoxDecoration(
-                  color: selectedIndex == 0 ? darklue : Colors.transparent,
+                  color: selectedIndex == 0 ? primary : Colors.transparent,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(5), // Arrotonda solo l'angolo in alto a destra
                   ),
                   border: Border.all(
-                    color: darklue,
+                    color: primary,
                     width: 2,
                   ),
                 ),
@@ -67,7 +67,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
                     child: Text(
                       "Owned",
                       style: TextStyle(
-                        color: selectedIndex == 0 ? light : darklue,
+                        color: selectedIndex == 0 ? neutral : primary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -85,12 +85,12 @@ class _SavedMainScreen extends State<SavedMainScreen> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.5,
                 decoration: BoxDecoration(
-                  color: selectedIndex == 1 ? darklue : Colors.transparent,
+                  color: selectedIndex == 1 ? primary : Colors.transparent,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(5), // Arrotonda solo l'angolo in alto a sinistra
                   ),
                   border: Border.all(
-                    color: darklue,
+                    color: primary,
                     width: 2,
                   ),
                 ),
@@ -100,7 +100,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
                     child: Text(
                       "Favourites",
                       style: TextStyle(
-                        color: selectedIndex == 1 ? light : darklue,
+                        color: selectedIndex == 1 ? neutral : primary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -114,7 +114,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-              color: darklue,
+              color: primary,
               borderRadius: BorderRadius.circular(0),
             ),
             child: Center(

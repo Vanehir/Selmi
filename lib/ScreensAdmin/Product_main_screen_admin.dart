@@ -23,10 +23,10 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: light,
+          color: neutral,
         ),
-        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
-        backgroundColor: darklue,
+        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: error),),
+        backgroundColor: primary,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -60,7 +60,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Specs", style: TextStyle(fontSize: 25, color: darklue)),
+                          Text("Specs", style: TextStyle(fontSize: 25, color: primary)),
                           Container(
                             width: double.infinity,
                             child: Row(
@@ -69,13 +69,13 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                                 Container(
                                   child: Column(
                                     children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue)),
+                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
                                       Row(
                                         children: [
                                           SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: lightblue)),
+                                          Text("Data Upload", style: TextStyle( color: secondary)),
                                           SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: lightblue)),
+                                          Text("Type",style: TextStyle( color: secondary)),
                                         ],
                                       )
                                     ],
@@ -95,7 +95,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Manual", style: TextStyle(fontSize: 25, color: darklue)),
+                          Text("Manual", style: TextStyle(fontSize: 25, color: primary)),
                           Container(
                             width: double.infinity,
                             child: Row(
@@ -104,13 +104,13 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                                 Container(
                                   child: Column(
                                     children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue)),
+                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
                                       Row(
                                         children: [
                                           SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: lightblue)),
+                                          Text("Data Upload", style: TextStyle( color: secondary)),
                                           SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: lightblue)),
+                                          Text("Type",style: TextStyle( color: secondary)),
                                         ],
                                       )
                                     ],
@@ -130,7 +130,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Other", style: TextStyle(fontSize: 25, color: darklue)),
+                          Text("Other", style: TextStyle(fontSize: 25, color: primary)),
                           Container(
                             width: double.infinity,
                             child: Row(
@@ -139,13 +139,13 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                                 Container(
                                   child: Column(
                                     children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue)),
+                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
                                       Row(
                                         children: [
                                           SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: lightblue)),
+                                          Text("Data Upload", style: TextStyle( color: secondary)),
                                           SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: lightblue)),
+                                          Text("Type",style: TextStyle( color: secondary)),
                                         ],
                                       )
                                     ],
@@ -166,7 +166,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
                           width: double.infinity,
-                          decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(width: 2, color: darklue))),
+                          decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(width: 2, color: primary))),
                           child: Icon(Icons.mode_edit),
                         ),
                       ),

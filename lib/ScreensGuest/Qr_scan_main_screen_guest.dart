@@ -94,7 +94,7 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
               Padding(padding: const EdgeInsets.all(20),
                 child: Container(
                   decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 2, color: darklue),
+                      side: BorderSide(width: 2, color: primary),
                       borderRadius: BorderRadius.circular(20)
                   )),
                   child: TextField(
@@ -109,7 +109,7 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
                           SizedBox(width: 5,),
                           IconButton(onPressed: (){
                             //SerialCode();
-                          }, icon: Icon(Icons.backspace_outlined,color: darklue)),
+                          }, icon: Icon(Icons.backspace_outlined,color: primary)),
                         ],
                       ),
                     ),

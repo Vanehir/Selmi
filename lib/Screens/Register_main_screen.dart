@@ -55,7 +55,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: darklue,
+                                  color: primary,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -63,7 +63,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _nameInput,
                         style: TextStyle(
-                            color: darklue,
+                            color: primary,
                             fontSize: 23,
                         ),
                         decoration: InputDecoration(
@@ -82,7 +82,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: darklue,
+                                  color: primary,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -90,7 +90,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _surnameInput,
                         style: TextStyle(
-                            color: darklue,
+                            color: primary,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -109,7 +109,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: darklue,
+                                  color: primary,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -117,7 +117,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _usernameInputR,
                         style: TextStyle(
-                            color: darklue,
+                            color: primary,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -133,10 +133,10 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           .size
                           .width * 0.7,
                       decoration: ShapeDecoration(
-                          color: light,
+                          color: neutral,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: darklue,
+                                  color: primary,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -144,7 +144,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _emailInput,
                         style: TextStyle(
-                            color: darklue,
+                            color: primary,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -163,7 +163,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
-                                  color: darklue,
+                                  color: primary,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(10)
                           )
@@ -172,7 +172,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                         obscureText: _obscureText,
                         controller: _passwordInputR,
                         style: TextStyle(
-                            color: darklue,
+                            color: primary,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -189,7 +189,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                           .size
                           .width * 0.7,
                       decoration: ShapeDecoration(
-                          color: light,
+                          color: neutral,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2,
                                   color: Color(0xFF25344D),
@@ -200,7 +200,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                       child: TextField(
                         controller: _serialCodeInput,
                         style: TextStyle(
-                            color: darklue,
+                            color: primary,
                             fontSize: 23
                         ),
                         decoration: InputDecoration(
@@ -218,23 +218,23 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                   color: Colors.transparent,
                   child: ElevatedButton(onPressed: _login,
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: darklue,
+                          backgroundColor: primary,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2, style: BorderStyle
-                                  .solid, color: darklue),
+                                  .solid, color: primary),
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
                       child: Text("Sign Up", style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w200,
-                          color: light,
+                          color: neutral,
                       ),)),
                 ),
               ), // button
               TextButton(onPressed: (){}, child: Text("Login",
                 style: TextStyle(
-                    color: lightblue,
+                    color: secondary,
                     fontSize: 20
                 ),)), // password dimanticata
             ],

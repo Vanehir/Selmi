@@ -22,7 +22,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
             Padding(padding: const EdgeInsets.all(20),
               child: Container(
                 decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: darklue),
+                    side: BorderSide(width: 2, color: primary),
                     borderRadius: BorderRadius.circular(40)
                 )),
                 child: TextField(
@@ -34,8 +34,8 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                       mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
                       children: <Widget>[
                         SizedBox(width: 5,),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.search,color: darklue)),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: darklue)),
+                        IconButton(onPressed: (){}, icon: Icon(Icons.search,color: primary)),
+                        IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: primary)),
                       ],
                     ),
                   ),

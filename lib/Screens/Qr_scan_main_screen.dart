@@ -62,7 +62,7 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
               Padding(padding: const EdgeInsets.all(20),
                 child: Container(
                   decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 2, color: darklue),
+                      side: BorderSide(width: 2, color: primary),
                       borderRadius: BorderRadius.circular(20)
                   )),
                   child: TextField(
@@ -79,7 +79,7 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
                                 scanBarcode();
                               scannedResult = " ";
                             });
-                            }, icon: Icon(Icons.backspace_outlined,color: darklue)),
+                            }, icon: Icon(Icons.backspace_outlined,color: primary)),
                         ],
                       ),
                     ),

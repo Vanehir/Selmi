@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .height * 0.05,),
                   const Text('Selmi', style:
                   TextStyle(
-                      color: darklue,
+                      color: primary,
                       fontWeight: FontWeight.bold,
                       fontSize: 50
                   ),),  // Selmi
@@ -132,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.white70,
                         shape: RoundedRectangleBorder(
                             side: const BorderSide(width: 2,
-                                color: darklue,
+                                color: primary,
                                 style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)
                         )
@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       autofocus: false,
                       controller: _usernameInput,
                       style: const TextStyle(
-                          color: darklue,
+                          color: primary,
                           fontSize: 23
                       ),
                       decoration: const InputDecoration(
@@ -160,10 +160,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         .size
                         .width * 0.7,
                     decoration: ShapeDecoration(
-                        color: light,
+                        color: neutral,
                         shape: RoundedRectangleBorder(
                             side: const BorderSide(width: 2,
-                                color: darklue,
+                                color: primary,
                                 style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)
                         )
@@ -193,27 +193,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.transparent,
                     child: ElevatedButton(onPressed: _checkInput,
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: darklue,
+                            backgroundColor: primary,
                             shape: RoundedRectangleBorder(
                                 side: const BorderSide(width: 2, style: BorderStyle
-                                    .solid, color: darklue),
+                                    .solid, color: primary),
                                 borderRadius: BorderRadius.circular(10)
                             )
                         ),
                         child: const Text("Login", style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w200,
-                            color: light
+                            color: neutral
                         ),)),
                   ), // login button
                   TextButton(onPressed: () {}, child: const Text("Forgot Password?",
                     style: TextStyle(
-                        color: lightblue,
+                        color: secondary,
                         fontSize: 17
                     ),)), // forgot password
                   TextButton(onPressed: _register, child: const Text("Register",
                     style: TextStyle(
-                        color: lightblue,
+                        color: secondary,
                         fontSize: 17
                     ),)), // password dimanticata
                   SizedBox(height: MediaQuery
@@ -222,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       .height * 0.05,),
                   TextButton(onPressed: _skippa, child: const Text("Skip",
                     style: TextStyle(
-                        color: lightblue,
+                        color: secondary,
                         fontWeight: FontWeight.bold,
                         fontSize: 30
                     ),)), // Skip login
@@ -230,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          backgroundColor: light, // This trailing comma makes auto-formatting nicer for build methods.
+          backgroundColor: neutral, // This trailing comma makes auto-formatting nicer for build methods.
         );
       }
     }

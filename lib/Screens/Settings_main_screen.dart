@@ -20,7 +20,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
         Text("Settings", style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
-          color: darklue,
+          color: primary,
         ),),
         SizedBox(height: 50,),
         Container(
@@ -31,7 +31,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                 padding: const EdgeInsets.only(left: 25,top: 20,right: 0, bottom: 5),
                 child: Text("Acount", style:
                 TextStyle(
-                  color: lightblue,
+                  color: secondary,
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),),
@@ -52,7 +52,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                               children: [
                                 Image.asset("assets/images/user_icon_settings.png"), // immagine
                                 SizedBox(width: 20,),
-                                Text("Account Management", style: TextStyle(fontSize: 25, color: darklue),),
+                                Text("Account Management", style: TextStyle(fontSize: 25, color: primary),),
                                 Spacer(),
                                 Image.asset('assets/images/right_icon.png'),
                               ],
@@ -71,7 +71,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                               children: [
                                 Image.asset("assets/images/notification_icon.png"), // immagine
                                 SizedBox(width: 20,),
-                                Text("Notifications", style: TextStyle(fontSize: 25, color: darklue),),
+                                Text("Notifications", style: TextStyle(fontSize: 25, color: primary),),
                                 Spacer(),
                                 Image.asset("assets/images/right_icon.png"),
                               ],
@@ -90,7 +90,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                               children: [
                                 Image.asset("assets/images/log_out_icon.png"), // immagine
                                 SizedBox(width: 20,),
-                                Text("Sing Out", style: TextStyle(fontSize: 25, color: darklue),),
+                                Text("Sing Out", style: TextStyle(fontSize: 25, color: primary),),
                                 Spacer(),
                                 Image.asset("assets/images/right_icon.png"),
                               ],
@@ -114,7 +114,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                 padding: const EdgeInsets.only(left: 25,top: 20,right: 0, bottom: 5),
                 child: Text("General", style:
                 TextStyle(
-                  color: lightblue,
+                  color: secondary,
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),),
@@ -135,7 +135,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                               children: [
                                 Icon(Icons.display_settings), // immagine
                                 SizedBox(width: 20,),
-                                Text("Display", style: TextStyle(fontSize: 25, color: darklue),),
+                                Text("Display", style: TextStyle(fontSize: 25, color: primary),),
                                 Spacer(),
                                 Image.asset('assets/images/right_icon.png'),
                               ],
@@ -154,7 +154,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                               children: [
                                 Image.asset("assets/images/language_icon.png"), // immagine
                                 SizedBox(width: 20,),
-                                Text("App Language", style: TextStyle(fontSize: 25, color: darklue),),
+                                Text("App Language", style: TextStyle(fontSize: 25, color: primary),),
                                 Spacer(),
                                 Image.asset("assets/images/right_icon.png"),
                               ],
@@ -173,7 +173,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                               children: [
                                 Image.asset("assets/images/lock_icon.png"), // immagine
                                 SizedBox(width: 20,),
-                                Text("Security", style: TextStyle(fontSize: 25, color: darklue),),
+                                Text("Security", style: TextStyle(fontSize: 25, color: primary),),
                                 Spacer(),
                                 Image.asset("assets/images/right_icon.png"),
                               ],

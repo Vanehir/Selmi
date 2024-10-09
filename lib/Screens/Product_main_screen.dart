@@ -31,10 +31,10 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: light,
+          color: neutral,
         ),
-        title: Text(widget.nome, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
-        backgroundColor: darklue,
+        title: Text(widget.nome, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: error),),
+        backgroundColor: primary,
       ),
       body: Column(
         children: [
@@ -73,7 +73,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Specs", style: TextStyle(fontSize: 25, color: darklue),),
+                        Text("Specs", style: TextStyle(fontSize: 25, color: primary),),
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -82,14 +82,14 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue),),
+                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: lightblue),),
+                                        Text("Data Upload", style: TextStyle( color: secondary),),
                                         SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: lightblue),),
+                                        Text("Type",style: TextStyle( color: secondary),),
                                       ],
                                     )
                                   ],
@@ -109,7 +109,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Manual", style: TextStyle(fontSize: 25, color: darklue),),
+                        Text("Manual", style: TextStyle(fontSize: 25, color: primary),),
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -118,13 +118,13 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue),),
+                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
                                     Row(
                                       children: [
                                         SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: lightblue),),
+                                        Text("Data Upload", style: TextStyle( color: secondary),),
                                         SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: lightblue),),
+                                        Text("Type",style: TextStyle( color: secondary),),
                                       ],
                                     )
                                   ],
@@ -144,7 +144,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Other", style: TextStyle(fontSize: 25, color: darklue),),
+                        Text("Other", style: TextStyle(fontSize: 25, color: primary),),
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -153,13 +153,13 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                               Container(
                                 child: Column(
                                   children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue),),
+                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
                                     Row(
                                       children: [
                                         SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: lightblue),),
+                                        Text("Data Upload", style: TextStyle( color: secondary),),
                                         SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: lightblue),),
+                                        Text("Type",style: TextStyle( color: secondary),),
                                       ],
                                     )
                                   ],
