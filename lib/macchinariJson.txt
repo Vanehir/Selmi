@@ -1,0 +1,593 @@
+EndPoint
+https://mockapi.io/projects/66f4790377b5e88970999b7d
+
+
+
+{
+  "categorie": [
+    {
+      "nome": "Temperaggio",
+      "id": 0,
+      "macchine": [
+        {
+          "titolo": "Selmi One Temperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png",
+          "descrizione": "Rapidità nello scioglimento e nella tempera del cioccolato.Misure d'ingombro minime.Tavola vibrante riscaldata in bassa tensione.Pulizia facilitata della macchina.Dosatore volumetrico, pedaliera per il controllo del flusso del cioccolato.Gruppo refrigerante a circuito chiuso con scambiatore in controcorrente.",
+          "data_upload": "2024-01-15",
+          "data_pubblicazione": "2024-01-20"
+        },
+        {
+          "titolo": "Legend Temperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/legend-temperatrice-cioccolato/legend-temperatrice-cioccolato.png",
+          "descrizione": "Nuova versione della temperatrice per cioccolato Ghana, capostipite della Selmi, con pannello dei comandi digitale che aumentano la versatilità d'impiego e l'economicità di esercizio.Dosatore volumetrico con pedaliera per il controllo del flusso del cioccolato.Tavola vibrante riscaldata in bassa tensione.Temperatrice in grado di produrre fino a 90 kg di cioccolato temperato all'ora.Rinnovata in tutte le sue parti con applicazione dei più moderni sistemi costruttivi.",
+          "data_upload": "2024-02-05",
+          "data_pubblicazione": "2024-02-10"
+        },
+        {
+          "titolo": "Color ExTemperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/color-ex-temperatrice-cioccolato/color-ex-temperatrice-cioccolato.png",
+          "descrizione": "Nuova versione della temperatrice per cioccolato con coclea estraibile e pannello dei comandi digitale. Questa temperatrice si differenzia sul mercato per un nuovo sistema brevettato che consente l'estrazione della coclea temperante in pochi minuti.I vantaggi di utilizzo di questa nuova macchina temperatrice per cioccolato sono innumerevoli: in primo luogo la possibilità di inserire granella di nocciola, gruè di cacao e qualsivoglia prodotto all'interno del cioccolato per consentirne l'aromatizzazione.In caso di lavorazioni speciali la temperatrice per cioccolato è in grado di mantenere la cristallizzazione anche a temperature di tempera nettamente inferiori alle usuali. Versatilità d'impiego ed economicità di esercizio. Dosatore volumetrico con pedaliera per il controllo del flusso del cioccolato. Tavola vibrante riscaldata in bassa",
+          "data_upload": "2024-02-05",
+          "data_pubblicazione": "2024-02-10"
+        },
+        {
+          "titolo": "Plus ExTemperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/plus-ex-temperatrice-cioccolato/plus-ex-temperatrice-cioccolato.png",
+          "descrizione": "Temperatrice professionale per cioccolato Plus Ex, con coclea estraibile e pannello dei comandi digitale.Tra le sue caratteristiche:Versatilità d'impiego ed economicità di esercizio.Dosatore volumetrico, pedaliera per il controllo del flusso del cioccolato.Tavola vibrante riscaldata in bassa tensione.I vantaggi di utilizzo di questa macchina sono innumerevoli, in primo luogo la possibilità di inserire granella di nocciola, gruè di cacao e qualsivoglia prodotto all'interno del cioccolato per consentirne l'aromatizzazione.",
+          "data_upload": "2024-02-05",
+          "data_pubblicazione": "2024-02-10"
+        },
+        {
+          "titolo": "Futura ExTemperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/futura-ex-temperatrice-cioccolato/futura-ex-temperatrice-cioccolato.png",
+          "descrizione": "I vantaggi di utilizzo di questa nuova macchina temperatrice sono innumerevoli: in primo luogo la possibilità di inserire granella di nocciola, gruè di cacao e qualsivoglia prodotto all'interno del cioccolato per consentirne l'aromatizzazione.In caso di lavorazioni speciali la macchina è in grado di mantenere la cristallizzazione anche a temperature di tempera nettamente inferiori alle usuali.",
+          "data_upload": "2024-02-05",
+          "data_pubblicazione": "2024-02-10"
+        },
+        {
+          "titolo": "Top ExTemperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/top-ex-temperatrice-cioccolato/top-ex-temperatrice-cioccolato.png",
+          "descrizione": "I vantaggi di utilizzo di questa nuova macchina temperatrice sono innumerevoli: in primo luogo la possibilità di inserire granella di nocciola, gruè di cacao e qualsivoglia prodotto all'interno del cioccolato per consentirne l'aromatizzazione.Temperatrice ideata per soddisfare al meglio le esigenze del medio/grande laboratorio, risulta essere un ottimo connubio tra versatilità d'impiego ed economicità di esercizio.",
+          "data_upload": "2024-02-05",
+          "data_pubblicazione": "2024-02-10"
+        },
+        {
+          "titolo": "Cento Temperatrice Cioccolato",
+          "categoria": "Temperaggio",
+          "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/cento-temperatrice-cioccolato/cento-temperatrice-cioccolato.png",
+          "descrizione": "La temperatrice modello CENTO si allinea alle versioni TOP EX e FUTURA EX conservandone le caratteristiche innovative delle stesse ma potenziando notevolmente la quantità produttiva grazie alla vasca da 100 kg che consentirà la ricopertura in tunnel di larghezza fino a 600 mm.",
+          "data_upload": "2024-02-05",
+          "data_pubblicazione": "2024-02-10"
+        }
+      ]
+    },
+    {
+      "nome": "Ricopertura_Prodotti",
+      "id": 1,
+      "macchine": [
+        {
+          "titolo": "R200 Legend",
+          "categoria": "Ricopertura_Prodotti",
+          "immagine": "https://www.selmi-group.it/img/r200-legend-nastro-ricopritore-cioccolato/r200-legend-nastro-ricopritore-cioccolato.png",
+          "descrizione": "Soffiante di sgrondamento con regolazione del flusso d'aria. Velocità di ricopertura cioccolato regolata elettronicamente.Ricopertura parziale di cioccolato sulla base del prodotto (supplementare).Avanzamento e arresto meccanico della carta di supporto.",
+          "data_upload": "2024-03-01",
+          "data_pubblicazione": "2024-03-05"
+        },
+        {
+          "titolo": "RS200",
+          "categoria": "Ricopertura_Prodotti",
+          "immagine": "https://www.selmi-group.it/img/rs200-nastro-ricopritore-cioccolato/rs200-nastro-ricopritore-cioccolato.png",
+          "descrizione": "Quest'ultima è dotata di un filtro alimentare e di regolazione millimetrica dell'altezza di lavoro. La velocità di ricopertura cioccolato è variabile attraverso il pannello operatore con regolazione elettronica.Questo ricopritore è stato messo a punto per i laboratori e i cioccolatieri più esigenti, in quanto permette la ripetitività di lavorazione di qualisivoglia prodotto, mantenendo invariati pesi e spessori.",
+          "data_upload": "2024-03-10",
+          "data_pubblicazione": "2024-03-15"
+        },
+        {
+          "titolo": "Truffle",
+          "categoria": "Ricopertura_Prodotti",
+          "immagine": "https://www.selmi-group.it/img/truffle-nastro-ricopertura-tartufi/truffle-nastro-ricopertura-tartufi-png",
+          "descrizione": "Nastro ricopritore a due sezioni. Sgrondatura a vibrazione meccanica. Tramoggia di ricopertura a doppio velo. Base rotante di supporto sincronizzata al nastro di ricopertura.Piatto distributore rotante diam. 800 mm., velocità 3 giri al minuto, frizione di sicurezza sull’albero lento.",
+          "data_upload": "2024-03-10",
+          "data_pubblicazione": "2024-03-15"
+        },
+        {
+          "titolo": "Automatic Truffle",
+          "categoria": "Ricopertura_Prodotti",
+          "immagine": "https://www.selmi-group.it/img/automatic-truffle-nastro-ricopritore-tartufi-cioccolato/automatic-truffle-nastro-ricopritore-tartufi-cioccolato.png",
+          "descrizione": "L'automatic truffle possiede all'interno una soffiante di sgrondamento per il cioccolato in eccesso da applicare al ricopritore e il funzionamento di questa macchina consiste nel mettere in vibrazione congiunta una vasca canalizzata il cui compito sarà quello di trasportare e arrotolare i tartufi precedentemente ricoperti di cioccolato dall'unità temperante. Vantaggio primario di questa macchina è la pulizia di tartufatura.",
+          "data_upload": "2024-03-10",
+          "data_pubblicazione": "2024-03-15"
+        },
+        {
+          "titolo": "R400T Plus",
+          "categoria": "Ricopertura_Prodotti",
+          "immagine": "https://www.selmi-group.it/img/nastro-ricopertura-cioccolato-r400t/nastro-ricopertura-cioccolato-r400t.png",
+          "descrizione": "Il controllo del nastro ricopritore di cioccolato e della soffiante avviene tramite un apposito pannello LCD, la zona di ricopertura è dotata di una vibrazione meccanica della rete atta ad uniformare la glassatura, che consente l’ottimizzazione della base di ricopertura del prodotto.",
+          "data_upload": "2024-03-10",
+          "data_pubblicazione": "2024-03-15"
+        },
+        {
+          "titolo": "R600t",
+          "categoria": "Ricopertura_Prodotti",
+          "immagine": "https://www.selmi-group.it/img/r600t-nastro-ricopritore-cioccolato/r600t-nastro-ricopritore-cioccolato.png",
+          "descrizione": "Il tappeto in acciaio inox con larghezza 600 mm si suddivide in due parti, la zona di carico prodotto e quella di ricopertura con cioccolato, entrambe protette da una speciale capottina.La macchina ha 4 resistenze termoregolate in modo indipendente distribuite sulle varie zone di lavoro.Il controllo del nastro e della soffiante avviene tramite un apposito pannello LCD che consente l’ottimizzazione della base di ricopertura del prodotto.",
+          "data_upload": "2024-03-10",
+          "data_pubblicazione": "2024-03-15"
+        }
+      ]
+    },
+    {
+      "nome": "Modellaggio",
+      "id": 2,
+      "macchine": [
+        {
+          "titolo": "Mould Loader 175",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/mould-loader-175-caricatore-stampi-cioccolato/mould-loader-175-caricatore-stampi-cioccolato.png",
+          "descrizione": "La movimentazione dello stampo e le stazioni operative sono tre: – riempimento cioccolato che può avvenire tramite testata di colaggio perforata o direttamente dalla temperatrice e successiva pulizia stampo tramite raschia; – 1° livello di vibrazione;– 2° livello di vibrazione;– espulsione dello stampo che avverrà direttamente sulle slitte del tunnel di raffreddamento per il successivo smodellaggio.Su questo tipo di macchina si consiglia l’abbinamento di un tank200/400 kg con sensore di livello per sopperire all’alta produttività della macchina.",
+          "data_upload": "2024-04-01",
+          "data_pubblicazione": "2024-04-05"
+        },
+        {
+          "titolo": "MouldingLine 275",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/moulding-line-275-caricatore-stampi-cioccolato/moulding-line-275-caricatore-stampi-cioccolato.png",
+          "descrizione": "Sul nuovo modello è stata aggiunta una stazione di raschiatura finale per garantire una pulizia ottimale degli stampi in uscita; questo accessorio permette inoltre di usufruire di una terza modalità operativa, che consente di eseguire la tappatura finale dei gusci precedentemente riempiti.",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        },
+        {
+          "titolo": "Smodellatore Automatico",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/smodellatore-automatico-praline-tavolette-cioccolato/smodellatore-automatico-praline-tavolette-cioccolato.png",
+          "descrizione": "La produttività di questa macchina è di 4 stampi al minuto con la possbiilità di eseguire il caricamento manuale, ma risulta essere estremamente performante e produttiva se abbinata al tunnel di raffreddamento SPIDER per intervenire smodellando automaticamente gli stampi su un supporto rigido in uscita dal tunnel stesso evitando la manipolazione manuale da parte dell’operatore.Il tappeto trasporterà il prodotto realizzato all’incartatrice o alla linea di confezionamento.",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        },
+        {
+          "titolo": "Injection Plate",
+          "categoria": "Modellaggio",
+          "immagine": "hhttps://www.selmi-group.it/img/piastra-colaggio-cioccolato/piastra-colaggio-cioccolato.png",
+          "descrizione": "SPiastra di colaggio cioccolato per temperatrici dotata di base con fissaggio rapido alla temperatrice e porta ugelli intercambiabile.Riscaldamento autonomo e termoregolato tramite due resistenze a bassa tensione.Filtro interno di controllo dosaggio.Guida porta stampo montata su tavola vibrante.",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        },
+        {
+          "titolo": "Filler Paraline",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/filler-praline-colatrice-cioccolato/filler-praline-colatrice-cioccolato.png",
+          "descrizione": "L’ambiente di lavoro della testata di colaggio è riscaldato e termoregolato. La filler, se alimentata con ripieni di densità non troppo elevata, può raggiungere standard produttivi performanti. Lo stampo è inserito su un piano vibrante per ottimizzare l’iniezione dei ripieni eliminando sacche d’aria che potrebbero compromettere lo chef life del prodotto.",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        },
+        {
+          "titolo": "Filler Vasi- FillerVasi Automatica",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/filler-vasi-colatrice-cioccolato/filler-vasi-colatrice-cioccolato.png",
+          "descrizione": "Il corpo pompa completamente smontabile e igienizzabile in pochi minuti facilita il cambio delle creme da invasare. Particolarmente adatta alla clientela che autoproduce paste e conserve alimentari di ogni tipo.",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        },
+        {
+          "titolo": "Galileo",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/galileo-corpi-cavi-cioccolato/galileo-corpi-cavi-cioccolato.png",
+          "descrizione": "Costruita interamente in acciaio AISI 304, consente di fissare gli stampi su doppi magneti permanenti.Frizione meccanica sul movimento, per la sicurezza antinfortunistica.Utilizzo simultaneo di quattro stazioni operative.La regolazione della velocità avviene a mezzo inverter e la trasmissione è corredata da una frizione meccanica di sicurezza.",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        },
+        {
+          "titolo": "Stampi",
+          "categoria": "Modellaggio",
+          "immagine": "https://www.selmi-group.it/img/stampi-cioccolato/stampi-cioccolato-piastra-colaggio/stampi-cioccolato-piastra-colaggio-S1.png",
+          "descrizione": "Stampi per il cioccolato in policarbonato",
+          "data_upload": "2024-04-10",
+          "data_pubblicazione": "2024-04-15"
+        }
+      ]
+    },
+    {
+      "nome": "chocopaint",
+      "id": 3,
+      "macchine": [
+        {
+          "titolo": "ChocoPaint",
+          "categoria": "chocopaint",
+          "immagine": "https://www.selmi-group.it/img/chocopaint-verniciatura-decorazione-alimentare/chocopaint-verniciatura-decorazione-alimentare.png",
+          "descrizione": "Chocopaint è dotata inoltre di una comoda e utile cabina riscaldata che consente di mantenere fluidi i colori, il burro di cacao e le attrezzature necessarie alla decorazione durante le pause lavoro. Consente inoltre di poter inserire fino a 7 teglie di cm 60x40 grazie alle apposite guide montate ai lati.Anni di esperienza nel settore rendono la nuova cabina di spruzzatura e decorazione Chocopaint di Selmi un investimento sicuro che garantisce una decorazione rapida e professionale del cioccolato e di qualsivoglia prodotto di pasticceria e gelateria, con una riduzione delle emissioni nell’ambiente di laboratorio fino all’95% ed un conseguente risparmio delle materie prime utilizzate.",
+          "data_upload": "2024-05-01",
+          "data_pubblicazione": "2024-05-05"
+        }
+      ]
+    },
+    {
+      "nome": "tunnel_di_raffreddamento",
+      "id": 4,
+      "macchine": [
+        {
+          "titolo": "Spider",
+          "categoria": "tunnel_di_raffreddamento",
+          "immagine": "https://www.selmi-group.it/img/tunnel-ricopertura-raffreddamento-cioccolato/tunnel-verticale-ricopertura-raffreddamento-cioccolato-spider/tunnel-verticale-ricopertura-raffreddamento-cioccolato-spider.png",
+          "descrizione": "Le dimensioni maggiorate in altezza consentono di beneficiare di una incrementata capacità e di una maggiore permanenza degli stampi all'interno della zona refrigerata migliorandone il raffreddamento. Può contenere al suo interno più di 125 stampi.",
+          "data_upload": "2024-06-01",
+          "data_pubblicazione": "2024-06-05"
+        },
+        {
+          "titolo": "Spider Max",
+          "categoria": "tunnel_di_raffreddamento",
+          "immagine": "https://www.selmi-group.it/img/tunnel-ricopertura-raffreddamento-cioccolato/tunnel-verticale-ricopertura-raffreddamento-cioccolato-spider-max/tunnel-verticale-ricopertura-raffreddamento-cioccolato-spider-max.png",
+          "descrizione": "Grazie alle dimensioni maggiorate in altezza e alla raddoppiata capacità di contenimento, il tunnel può contenere oltre 260 stampi, beneficiando di un incremento della capacità e di una maggiore permanenza nella zona refrigerata, agevolandone il raffreddamento. Lo SPIDER MAX risulta inoltre particolarmente adatto al raffreddamento veloce di altri prodotti quali biscotteria e prodotti di forno, super food, barrette proteiche, snack e agglomerati a base di cereali, frutta secca, zucchero estrusi e qualsivoglia prodotto non ricoperto in cioccolato.",
+          "data_upload": "2024-06-10",
+          "data_pubblicazione": "2024-06-15"
+        },
+        {
+          "titolo": "Tunnel200_250mm",
+          "categoria": "tunnel_di_raffreddamento",
+          "immagine": "https://www.selmi-group.it/img/tunnel-ricopertura-raffreddamento-cioccolato/tunnel-ricopertura-raffreddamento-cioccolato-200-250/tunnel-ricopertura-raffreddamento-cioccolato-200-250.png",
+          "descrizione": "unnel di ricopertura e raffreddamento per cioccolato. La velocità produttiva di questa unità può variare da 20 a 150 cm/min.Nel tunnel di raffreddamento e copertura cioccolato con lunghezza lineare di 3/4/5/8 metri il ricopritore è completamente integrato, di facile montaggio e lavaggio.La macchina è stata concepita per poter lavorare con più di una temperatrice rimpiazzabile nei cambi colore di cioccolato per la ricopertura.",
+          "data_upload": "2024-06-10",
+          "data_pubblicazione": "2024-06-15"
+        },
+        {
+          "titolo": "Tunnel300_400mm",
+          "categoria": "tunnel_di_raffreddamento",
+          "immagine": "https://www.selmi-group.it/img/tunnel-ricopertura-raffreddamento-cioccolato/tunnel-ricopertura-raffreddamento-cioccolato-300-400/tunnel-ricopertura-raffreddamento-cioccolato-300-400.png",
+          "descrizione": "La sezione di ricopertura è facilmente asportabile e lavabile. Nel TUNNEL 800/1200 il ricopritore è completamente integrato, di facile smontaggio e lavaggio.La macchina è stata concepita per poter lavorare con più di una temperatrice rimpiazzabile nei cambi colore di cioccolato per la ricopertura.",
+          "data_upload": "2024-06-10",
+          "data_pubblicazione": "2024-06-15"
+        },
+        {
+          "titolo": "Tunnel600",
+          "categoria": "tunnel_di_raffreddamento",
+          "immagine": "https://www.selmi-group.it/img/tunnel-ricopertura-raffreddamento-cioccolato/tunnel-ricopertura-raffreddamento-cioccolato-600/tunnel-ricopertura-raffreddamento-cioccolato-600-cat.png",
+          "descrizione": "Dal punto di vista costruttivo la macchina può essere realizzata secondo tre differenti lunghezze: 8MT – 12MT - 16MT. Qualora si rendesse necessario creare una macchina con dimensioni differenti l’azienda è pronta per la realizzazione. Ricordiamo inoltre che ai fini dell’ingombro totale, in aggiunta alla camera di raffreddamento si deve tenere conto della zona di decorazione con una lunghezza scelta dal cliente stesso e del distaccatore.",
+          "data_upload": "2024-06-10",
+          "data_pubblicazione": "2024-06-15"
+        },
+        {
+          "titolo": "Drops System",
+          "categoria": "tunnel_di_raffreddamento",
+          "immagine": "https://www.selmi-group.it/img/drops-system-colatrice-cioccolato/drops-system-colatrice-cioccolato.png",
+          "descrizione": "Può essere collegata ad una temperatrice TOP EX per l’alimentazione del cioccolato. Il colaggio avviene direttamente sul tappeto del tunnel 300mm o 400mm ed è dotata di una valvola a tre vie per un’erogazione precisa del cioccolato.Si interfaccia con il display touch screen del tunnel per consentire la regolazione delle resistenze.",
+          "data_upload": "2024-06-10",
+          "data_pubblicazione": "2024-06-15"
+        }
+      ]
+    },
+    {
+      "nome": "One_shot",
+      "id": 5,
+      "macchine": [
+        {
+          "titolo": "One Shot tuttuno4",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/tuttuno-oneshot4-dosatrice-cioccolato/tuttuno-oneshot4-dosatrice-cioccolato.png",
+          "descrizione": "La ONE SHOT TUTTUNO 4 è una dosatrice colatrice simultanea di cioccolato che realizza in una sola operazione cioccolatini ripieni, tra cui praline su stampo in policarbonato, boules, ovetti e prodotti con fattezze particolari.",
+          "data_upload": "2024-07-01",
+          "data_pubblicazione": "2024-07-05"
+        },
+        {
+          "titolo": "One shot tuttuno9",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/tuttuno-oneshot9-dosatrice-cioccolato/tuttuno-oneshot9-dosatrice-cioccolato.png",
+          "descrizione": "Oneshot tuttuno 9: dosatrice colatrice simultanea per realizzare in una sola operazione prodotti ripieni, tra cui praline su stampo in policarbonato, boules, ovetti e prodotti con fattezze particolari.",
+          "data_upload": "2024-07-10",
+          "data_pubblicazione": "2024-07-15"
+        },
+        {
+          "titolo": "Caricatori di stampi",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/tuttuno-oneshot-caricatore-stampi/tuttuno-oneshot-caricatore-stampi.png",
+          "descrizione": "Alimentato e interfacciato tramite TUTTUNO.Necessita di collegamento ad aria compressa.",
+          "data_upload": "2024-07-10",
+          "data_pubblicazione": "2024-07-15"
+        },
+        {
+          "titolo": "Charger 175-275",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/caricatore-automatico-stampi-tuttuno-oneshot/caricatore-automatico-stampi-tuttuno-oneshot.png",
+          "descrizione": "Macchina che unisce due funzioni: il caricamento degli stampi automatico e il riscaldamento degli stessi. Lo stampo viene riscaldato per una maggiore resa nel successivo colaggio in Tuttuno 4 o 8-9 Ugelli.",
+          "data_upload": "2024-07-10",
+          "data_pubblicazione": "2024-07-15"
+        },
+        {
+          "titolo": "Vibra",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/vibra-stazione-vibrante-stampi-oneshot/vibra-stazione-vibrante-stampi-oneshot.png",
+          "descrizione": "Stazione vibrante autonoma, con nastro trasportatore, accessoria a Oneshot Depositor TUTTUNO e alternativa a vibratore stampi standard.",
+          "data_upload": "2024-07-10",
+          "data_pubblicazione": "2024-07-15"
+        },
+        {
+          "titolo": "Depositor",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/depositor-distributore-granella/depositor-distributore-granella.png",
+          "descrizione": "Dopo la distribuzione della granella è presente una soffiante regolabile in intensità.In questo modo è possibile formare uno strato uniforme di decorazione.Sotto le guide di scorrimento degli stampi c’è una vasca per la raccolta del prodotto in eccedenza.",
+          "data_upload": "2024-07-10",
+          "data_pubblicazione": "2024-07-15"
+        },
+        {
+          "titolo": "Spinner Exit 175-275",
+          "categoria": "One_shot",
+          "immagine": "https://www.selmi-group.it/img/allineatore-stampi-spinner/allineatore-stampi-spinner.png",
+          "descrizione": "Macchina che ha la funzione di allineare lo stampo ruotandolo di 90 gradi e trasportarlo all’interno dello smodellatore automatico cioccolato per creare configurazioni di linee produttive automatiche e personalizzate.",
+          "data_upload": "2024-07-10",
+          "data_pubblicazione": "2024-07-15"
+        }
+      ]
+    },
+    {
+      "nome": "One_shot_ice",
+      "id": 6,
+      "macchine": [
+        {
+          "titolo": "One shot ice",
+          "categoria": "One_shot_ice",
+          "immagine": "https://www.selmi-group.it/img/dosatrice-cioccolato-oneshot-ice/dosatrice-cioccolato-oneshot-ice.png",
+          "descrizione": "OneShot ICE è una dosatrice simultanea atta a realizzare prodotti ripieni in un’unica operazione: praline, snack, biscotti gelato su stampo in policarbonato o acetato, verrine monoporzione bigusto, boules, ovetti e prodotti tridimensionali con fattezze particolari. Cola cioccolato e ripieni gelato in percentuali, tempi e modi differenti, a seconda delle richieste dell’operatore, producendo, in una sola operazione, la camicia esterna di cioccolato e l’interno del prodotto. Una temperatrice, posta dietro alla dosatrice, alimenta a ciclo continuo il cioccolato mediante ricircolo su corpo pompa. Il ripieno viene alimentato manualmente tramite la tramoggia termoregolata. Un comodo e intuitivo pannello di controllo touch screen consente di gestire tutte le funzionalità della macchina.",
+          "data_upload": "2024-08-01",
+          "data_pubblicazione": "2024-08-05"
+        }
+      ]
+    },
+    {
+      "nome": "Cluster",
+      "id": 7,
+      "macchine": [
+        {
+          "titolo": "Cluster",
+          "categoria": "Cluster",
+          "immagine": "https://www.selmi-group.it/img/cluster-cioccolato-frutta-secca/cluster-cioccolato-frutta-secca.png",
+          "descrizione": "Clusters consente la produzione di agglomerati a base di cioccolato contenenti inclusioni di frutta secca (nocciole, pistacchi, mandorle, ecc…).",
+          "data_upload": "2024-09-01",
+          "data_pubblicazione": "2024-09-05"
+        },
+        {
+          "titolo": "Cluster Teglia",
+          "categoria": "Cluster",
+          "immagine": "https://www.selmi-group.it/img/cluster-teglia-cioccolato-frutta-secca/cluster-teglia-cioccolato-frutta-secca.png",
+          "descrizione": "Cluster TEGLIA consente la produzione di agglomerati a base di cioccolato contenenti inclusioni di frutta secca (nocciole, pistacchi, mandorle, ecc…).Dotata di tramoggia di carico, necessita di essere collegata a una temperatrice con valvola pneumatica per l’alimentazione del cioccolato.",
+          "data_upload": "2024-09-10",
+          "data_pubblicazione": "2024-09-15"
+        }
+      ]
+    },
+    {
+      "nome": "Confettatrici",
+      "id": 8,
+      "macchine": [
+        {
+          "titolo": "Comfit",
+          "categoria": "Confettatrici",
+          "immagine": "https://www.selmi-group.it/img/comfit-confettatrice-cioccolato/comfit-confettatrice-cioccolato.png",
+          "descrizione": "La bassina in acciaio Comfit è realizzata interamente in acciaio AISI 304 ed è dotata di un variatore elettronico di velocità per ottimizzare la confettatura in cioccolato e zucchero di prodotti di vario tipo e dimensione. Dragees in cioccolato, confetti in zucchero.",
+          "data_upload": "2024-10-01",
+          "data_pubblicazione": "2024-10-05"
+        },
+        {
+          "titolo": "Comfit Maxi",
+          "categoria": "Confettatrici",
+          "immagine": "https://www.selmi-group.it/img/comfit-maxi-confettatrice-cioccolato/comfit-maxi-confettatrice-cioccolato.png",
+          "descrizione": "Un'auto ibrida elegante con buone prestazioni.",
+          "data_upload": "2024-10-10",
+          "data_pubblicazione": "2024-10-15"
+        },
+        {
+          "titolo": "SpraySystem",
+          "categoria": "Confettatrici",
+          "immagine": "https://www.selmi-group.it/img/spraysystem-spruzzatore-confettatrici/spraysystem-spruzzatore-confettatrici.png",
+          "descrizione": "Spray System: spruzzatore di cioccolato a depressione adattabile esclusivamente a macchine confettrici Selmi, riscaldato e termoregolato in BT e interamente costruito in alluminio trattato per alimenti.",
+          "data_upload": "2024-10-10",
+          "data_pubblicazione": "2024-10-15"
+        }
+      ]
+    },
+    {
+      "nome": "scioglitori_miscelatori",
+      "id": 9,
+      "macchine": [
+        {
+          "titolo": "Tank 200",
+          "categoria": "scioglitori_miscelatori",
+          "immagine": "https://www.selmi-group.it/img/tank200-scioglitore-miscelatore-cioccolato/tank200-scioglitore-miscelatore-cioccolato.png",
+          "descrizione": "Nuovo modello! Design rinnovato, con ampia apertura superiore che rende la vasca completamente accessibile e igienizzabile. È possibile ordinare la macchina con beccuccio di erogazione cioccolato laterale a destra o a sinistra.Riscaldamento della vasca a secco. Necessita solamente di alimentazione elettrica.",
+          "data_upload": "2024-11-01",
+          "data_pubblicazione": "2024-11-05"
+        },
+        {
+          "titolo": "Tank 400",
+          "categoria": "scioglitori_miscelatori",
+          "immagine": "https://www.selmi-group.it/img/tank400-scioglitore-miscelatore-cioccolato/tank400-scioglitore-miscelatore-cioccolato.png",
+          "descrizione": "Nuovo modello! Design rinnovato, con ampia apertura superiore che rende la vasca completamente accessibile e igienizzabile. È possibile ordinare la macchina con beccuccio di erogazione cioccolato laterale a destra o a sinistra.Riscaldamento della vasca a secco. Necessita solamente di alimentazione elettrica.",
+          "data_upload": "2024-11-10",
+          "data_pubblicazione": "2024-11-15"
+        }
+      ]
+    },
+    {
+      "nome": "Estrusori",
+      "id": 10,
+      "macchine": [
+        {
+          "titolo": "ChocoForm",
+          "categoria": "Estrusori",
+          "immagine": "https://www.selmi-group.it/img/chocoform-estrusore-cioccolato/chocoform-estrusore-cioccolato.png",
+          "descrizione": "Chocoform è una macchina innovativa che sfrutta la pressione all’interno di un cilindro, per realizzare grandi quantità di prodotti utilizzando speciali cartucce a base di cioccolato, nocciola, mandorla, pasta tartufi e gianduja etc...Queste, realizzate precedentemente e cristallizzate all’interno di una temperatrice, potranno essere plasmate con innumerevoli forme e dimensioni.",
+          "data_upload": "2024-12-01",
+          "data_pubblicazione": "2024-12-05"
+        },
+        {
+          "titolo": "ChocoLiner",
+          "categoria": "Estrusori",
+          "immagine": "https://www.selmi-group.it/img/chocoliner-allineatore-cioccolato/chocoliner-allineatore-cioccolato.png",
+          "descrizione": "L'allineatore Chocoliner Robot a quattro assi semplificati posto tra estrusore Chocoform e nastro di ricopertura cioccolato per ottimizzare la capacità produttiva dell’intera linea.",
+          "data_upload": "2024-12-10",
+          "data_pubblicazione": "2024-12-15"
+        },
+        {
+          "titolo": "Extruder",
+          "categoria": "Estrusori",
+          "immagine": "https://www.selmi-group.it/img/estrusore-continuo-lineare/estrusore-continuo-lineare.png",
+          "descrizione": "Nuovo estrusore lineare continuo innovativo in quanto sfrutta la pressione all’interno di speciali pompe a vite brevettate per realizzare importanti quantità di prodotti in particolare snack proteici e super food.",
+          "data_upload": "2024-12-10",
+          "data_pubblicazione": "2024-12-15"
+        }
+      ]
+    },
+    {
+      "nome": "Raffinatrici_a_sfere",
+      "id": 11,
+      "macchine": [
+        {
+          "titolo": "Micron 25",
+          "categoria": "Raffinatrici_a_sfere",
+          "immagine": "https://www.selmi-group.it/img/micron25-raffinatrice-creme-spalmabili/micron25-raffinatrice-creme-spalmabili.png",
+          "descrizione": "Micron raffinatrice a sfere nata per la produzione di creme spalmabili, paste anidre per la gelateria, pralinati e cremini. La macchina è dotata di un frigorifero, con il compito di termoregolare nei limiti imposti il riscaldamento in eccesso dovuto all’attrito generato fra le sfere, così facendo conserveremo inalterate le qualità organolettiche dei prodotti.",
+          "data_upload": "2024-12-20",
+          "data_pubblicazione": "2024-12-25"
+        },
+        {
+          "titolo": "Micron 50",
+          "categoria": "Raffinatrici_a_sfere",
+          "immagine": "url_to_image_ford_focus.jpg",
+          "descrizione": "https://www.selmi-group.it/img/micron50-raffinatrice-creme-spalmabili/micron50-raffinatrice-creme-spalmabili.png",
+          "data_upload": "2024-12-30",
+          "data_pubblicazione": "2025-01-05"
+        }
+      ]
+    },
+    {
+      "nome": "Tostatrici",
+      "id": 12,
+      "macchine": [
+        {
+          "titolo": "Tostatrice Roaster 106",
+          "categoria": "Tostatrici",
+          "immagine": "https://www.selmi-group.it/img/roaster106-tostatrice-caffe/roaster106-tostatrice-caffe.png",
+          "descrizione": "La tostatrice per caffè Roaster Centosei è stata progettata per essere inserita in un programma di lavorazione automanica a ciclo continuo di tostatura frutta secca e caffè; ha una capacità vasca di 6 kg offre la possibilità di tostare 40 kg/H di caffè, frutta secca, nocciole, mandorle, pistacchi, orzo, semi di girasole, semi di zucca, fave di cacao.",
+          "data_upload": "2025-01-10",
+          "data_pubblicazione": "2025-01-15"
+        },
+        {
+          "titolo": "Roaster 120",
+          "categoria": "Tostatrici",
+          "immagine": "https://www.selmi-group.it/img/roaster120-tostatrice-caffe/roaster120-tostatrice-caffe.png",
+          "descrizione": "Il tostatore (o tostatrice) per caffè Roaster Centoventi è stato progettato per essere inserito in un programma di lavorazione automatica di tostatura a ciclo continuo; ha una capacità vasca di 20/25 kg e offre la possibilità di tostare 50 kg/H di caffè o frutta secca, nocciole, mandorle, pistacchi, fave di cacao monorigine.",
+          "data_upload": "2025-01-20",
+          "data_pubblicazione": "2025-01-25"
+        }
+      ]
+    },
+    {
+      "nome": "Bean_to_bar",
+      "id": 13,
+      "macchine": [
+        {
+          "titolo": "Winnover",
+          "categoria": "Bean_to_bar",
+          "immagine": "https://www.selmi-group.it/img/winnower-frangi-cacao/winnower-frangi-cacao.png",
+          "descrizione": "Secondo elemento della linea Bean to Bar Selmi, il Winnower ha la funzione di trasformare la fava di cacao, tostata nella fase precedente, in gruè di cacao di varia dimensione.",
+          "data_upload": "2025-02-01",
+          "data_pubblicazione": "2025-02-05"
+        },
+        {
+          "titolo": "Grinder Plus",
+          "categoria": "Bean_to_bar",
+          "immagine": "https://www.selmi-group.it/img/grinder-mulino-cacao/grinder-mulino-cacao.png",
+          "descrizione": "Terzo elemento della filiera Bean to Bar Selmi, il Grinder Plus ha la peculiarità di trasformare il gruè in massa di cacao avente una granulometria compresa tra i 100 e i 300 Micron.",
+          "data_upload": "2025-02-10",
+          "data_pubblicazione": "2025-02-15"
+        },
+        {
+          "titolo": "Conca 100",
+          "categoria": "Bean_to_bar",
+          "immagine": "https://www.selmi-group.it/img/conca-100-bean-to-bar/conca-100-bean-to-bar.png",
+          "descrizione": "Conca è un elemento fondamentale per completare il processo di trasformazione del cioccolato in quanto consente di rimuovere le “acidità” negative e un’eventuale residuo di umidità esaltando quindi al massimo i pregi del prodotto trasformato.",
+          "data_upload": "2025-02-10",
+          "data_pubblicazione": "2025-02-15"
+        },
+        {
+          "titolo": "Conca 200 - 400",
+          "categoria": "Bean_to_bar",
+          "immagine": "https://www.selmi-group.it/img/conca200-400-bean-to-bar/conca200-400-bean-to-bar.png",
+          "descrizione": "Conca è un elemento fondamentale per completare il processo di trasformazione del cioccolato in quanto consente di rimuovere le “acidità” negative e un’eventuale residuo di umidità esaltando quindi al massimo i pregi del prodotto trasformato.",
+          "data_upload": "2025-02-10",
+          "data_pubblicazione": "2025-02-15"
+        },
+        {
+          "titolo": "Vaglio",
+          "categoria": "Bean_to_bar",
+          "immagine": "https://www.selmi-group.it/img/vaglio-setaccio-cioccolato/vaglio-setaccio-cioccolato.png",
+          "descrizione": "Ultimo elemento della linea Bean to Bar Selmi, il Vaglio ha la funzione di setacciare il cioccolato, la crema spalmabile e paste anidre di frutta secca nella fase finale consentendo di eliminare i residui di fibra in eccesso e di ottenere un prodotto in uscita di una granulometria impercettibile al palato.",
+          "data_upload": "2025-02-10",
+          "data_pubblicazione": "2025-02-15"
+        }
+      ]
+    },
+    {
+      "nome": "Lavorazione_frutta_secca",
+      "id": 14,
+      "macchine": [
+        {
+          "titolo": "Grinder Plus",
+          "categoria": "Lavorazione_frutta_secca",
+          "immagine": "https://www.selmi-group.it/img/grinder-mulino-cacao/grinder-mulino-cacao.png",
+          "descrizione": "Il raffinatore GRINDER PLUS ha la peculiarità di trasformare la frutta secca quali nocciole, mandorle pistacchi etc. in massa avente una granulometria compresa tra i 100 e i 300 micron.",
+          "data_upload": "2025-03-01",
+          "data_pubblicazione": "2025-03-05"
+        },
+        {
+          "titolo": "Grain",
+          "categoria": "Lavorazione_frutta_secca",
+          "immagine": "https://www.selmi-group.it/img/grain-granellatrice-frutta-secca/grain-granellatrice-frutta-secca.png",
+          "descrizione": "Il Grain è una macchina atta a frantumare la frutta secca precedentemente tostata (nocciole, mandorle, pistacchi..) al fine di ridurla in granella.",
+          "data_upload": "2025-03-10",
+          "data_pubblicazione": "2025-03-15"
+        },
+        {
+          "titolo": "Vaglio",
+          "categoria": "Lavorazione_frutta_secca",
+          "immagine": "https://www.selmi-group.it/img/vaglio-setaccio-cioccolato/vaglio-setaccio-cioccolato.png",
+          "descrizione": "Il Vaglio ha la funzione di setacciare le creme spalmabili e paste anidre di frutta secca nella fase finale, consentendo di eliminare i residui di fibra in eccesso e di ottenere un prodotto in uscita di una granulometria impercettibile al palato.",
+          "data_upload": "2025-03-10",
+          "data_pubblicazione": "2025-03-15"
+        }
+      ]
+    },
+    {
+      "nome": "Fontane_di_cioccolato",
+      "id": 1,
+      "macchine": [
+        {
+          "titolo": "Macchia",
+          "categoria": "Fontane_di_cioccolato",
+          "immagine": "https://www.selmi-group.it/img/macchia-colatrice-cioccolato/macchia-colatrice-cioccolato.png",
+          "descrizione": "Macchia è una delle macchine più altovendenti della gamma perchè si rivolge ai locali più innovativi sul mercato offrendo la possibilità agli operatori di preparare a vista specialità a base cioccolato come marocchini, bicchierini di cioccolato e gianduja, decorazioni e variegatura del gelato, cioccolata calda etc…",
+          "data_upload": "2025-03-01",
+          "data_pubblicazione": "2025-03-05"
+        },
+        {
+          "titolo": "Macchia temperante",
+          "categoria": "Fontane_di_cioccolato",
+          "immagine": "https://www.selmi-group.it/img/macchia-temperante-colatrice-cioccolato/macchia-temperante-colatrice-cioccolato.png",
+          "descrizione": "Macchia Temperante è una delle macchine più altovendenti della gamma perchè si rivolge ai locali più innovativi sul mercato offrendo la possibilità agli operatori di preparare a vista specialità a base cioccolato come marocchini, bicchierini di cioccolato e gianduja, decorazioni e variegatura del gelato, cioccolata calda etc…",
+          "data_upload": "2025-03-10",
+          "data_pubblicazione": "2025-03-15"
+        },
+        {
+          "titolo": "Fontana a muro",
+          "categoria": "Fontane_di_cioccolato",
+          "immagine": "https://www.selmi-group.it/img/fontana-cioccolato-muro/fontana-cioccolato-muro.png",
+          "descrizione": "La fontana a muro di cioccolato è una vera e propria cascata nelle varie colorazioni di cioccolato esistenti sul mercato che, oltre all’effetto visivo enfatizzato dall’illuminazione a led, sprigiona all’interno del locale profumi di cioccolato molto invitanti.",
+          "data_upload": "2025-03-10",
+          "data_pubblicazione": "2025-03-15"
+        }
+      ]
+    }
+  ]
+}
