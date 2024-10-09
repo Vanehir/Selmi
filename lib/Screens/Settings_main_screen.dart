@@ -23,12 +23,9 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 25,top: 20,right: 0, bottom: 5),
-                child: Text("Acount", style:
-                TextStyle(
-                  color: primary,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),),
+                child: Text("ACCOUNT", style:
+                    Theme.of(context).textTheme.headlineSmall
+                ),
               ),
               SizedBox(height: 10,),
               Padding(
@@ -52,19 +49,22 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             onTap: (){
                               print("Cliccato");
                             },
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/user_icon_settings.png"), // immagine
-                                SizedBox(width: 20,),
-                                Text("Account Management", style: TextStyle(fontSize: 23, color: primary),),
-                                Spacer(),
-                                Image.asset('assets/images/right_icon.png'),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20, top: 20),
+                              child: Row(
+                                children: [
+                                  Image.asset("assets/images/user_icon_settings.png"), // immagine
+                                  SizedBox(width: 20,),
+                                  Text("Account Management", style: Theme.of(context).textTheme.bodyLarge),
+                                  Spacer(),
+                                  Image.asset('assets/images/right_icon.png'),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),// Account management
+                      SizedBox(height: 10,),// Account management
                       Container(
                         decoration: BoxDecoration(
                             border: Border(
@@ -79,19 +79,22 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             onTap: (){
                               print("Cliccato");
                             },
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/notification_icon.png"), // immagine
-                                SizedBox(width: 20,),
-                                Text("Notifications", style: TextStyle(fontSize: 23, color: primary),),
-                                Spacer(),
-                                Image.asset("assets/images/right_icon.png"),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20, top: 20),
+                              child: Row(
+                                children: [
+                                  Image.asset("assets/images/notification_icon.png"), // immagine
+                                  SizedBox(width: 20,),
+                                  Text("Notifications", style: Theme.of(context).textTheme.bodyLarge),
+                                  Spacer(),
+                                  Image.asset("assets/images/right_icon.png"),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),// Notifications
+                      SizedBox(height: 10,),// Notifications
                       Container(
                         decoration: BoxDecoration(
                             border: Border(
@@ -106,14 +109,17 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             onTap: (){
                               print("Cliccato");
                             },
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/log_out_icon.png"), // immagine
-                                SizedBox(width: 20,),
-                                Text("Sing Out", style: TextStyle(fontSize: 23, color: primary),),
-                                Spacer(),
-                                Image.asset("assets/images/right_icon.png"),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20, top: 20),
+                              child: Row(
+                                children: [
+                                  Image.asset("assets/images/log_out_icon.png"), // immagine
+                                  SizedBox(width: 20,),
+                                  Text("Sing Out", style: Theme.of(context).textTheme.bodyLarge),
+                                  Spacer(),
+                                  Image.asset("assets/images/right_icon.png"),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -132,12 +138,9 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 25,top: 20,right: 0, bottom: 5),
-                child: Text("General", style:
-                TextStyle(
-                  color: primary,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),),
+                child: Text("GENERAL", style:
+                Theme.of(context).textTheme.headlineSmall
+                ),
               ),
               SizedBox(height: 10,),
               Padding(
@@ -160,19 +163,22 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             print("Cliccato");
                           },
                           child: Container(
-                            child: Row(
-                              children: [
-                                Icon(Icons.display_settings), // immagine
-                                SizedBox(width: 20,),
-                                Text("Display", style: TextStyle(fontSize: 23, color: primary),),
-                                Spacer(),
-                                Image.asset('assets/images/right_icon.png'),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20, top: 20),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.display_settings), // immagine
+                                  SizedBox(width: 20,),
+                                  Text("Display", style: Theme.of(context).textTheme.bodyLarge),
+                                  Spacer(),
+                                  Image.asset('assets/images/right_icon.png'),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ), // Display
-                      SizedBox(height: 20,),
+                      SizedBox(height: 10,),
                       Container(
                         child: Container(
                           decoration: BoxDecoration(
@@ -187,19 +193,22 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             onTap: (){
                               print("Cliccato");
                             },
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/language_icon.png"), // immagine
-                                SizedBox(width: 20,),
-                                Text("App Language", style: TextStyle(fontSize: 23, color: primary),),
-                                Spacer(),
-                                Image.asset("assets/images/right_icon.png"),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20, top: 20),
+                              child: Row(
+                                children: [
+                                  Image.asset("assets/images/language_icon.png"), // immagine
+                                  SizedBox(width: 20,),
+                                  Text("App Language", style: Theme.of(context).textTheme.bodyLarge),
+                                  Spacer(),
+                                  Image.asset("assets/images/right_icon.png"),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ), // App Language
-                      SizedBox(height: 20,),
+                      SizedBox(height: 10,),
                       Container(
                         child: Container(
                           decoration: BoxDecoration(
@@ -214,14 +223,17 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             onTap: (){
                               print("Cliccato");
                             },
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/lock_icon.png"), // immagine
-                                SizedBox(width: 20,),
-                                Text("Security", style: TextStyle(fontSize: 23, color: primary),),
-                                Spacer(),
-                                Image.asset("assets/images/right_icon.png"),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20, top: 20),
+                              child: Row(
+                                children: [
+                                  Image.asset("assets/images/lock_icon.png"), // immagine
+                                  SizedBox(width: 20,),
+                                  Text("Security", style: Theme.of(context).textTheme.bodyLarge),
+                                  Spacer(),
+                                  Image.asset("assets/images/right_icon.png"),
+                                ],
+                              ),
                             ),
                           ),
                         ),

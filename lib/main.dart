@@ -24,6 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        textTheme: TextTheme(
+          headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 16),
+
+        )
       ),
       home: const MyHomePage(),
     );
