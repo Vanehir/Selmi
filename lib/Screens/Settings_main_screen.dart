@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Language_settings_screen.dart';
 
 import 'Notification_settings_screen.dart';
 
@@ -18,6 +19,15 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => NotificationSettingsScreen()),
+      );
+    });
+  }
+
+  void language(){
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LanguageSettingsScreen()),
       );
     });
   }
@@ -206,7 +216,7 @@ class _SettingsMainScreen extends State<SettingsMainScreen> {
                             ),
                             child: InkWell(
                               onTap: (){
-                                print("Cliccato");
+                                language();
                               },
                               child: Padding(
                                 padding: const EdgeInsets.only(bottom: 20, top: 20),
