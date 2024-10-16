@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
+import 'package:prove/Screens/List_machine_search_screen.dart';
 
 
 class SearchMainScreen extends StatefulWidget {
@@ -32,6 +33,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
     'LAVORAZIONE FRUTTA SECCA',
     'FONTANE DI CIOCCOLATO'
   ]; // Lista di descrizioni per ciascun checkbox
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +81,10 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                         onTap: (){
                           setState(() {
                             selectedTextIndex = index;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ListMachineSearchScreen(text: options[index])),
+                            );
                           });
                         },
                         child: Container(
@@ -94,7 +100,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                       );
                     },
                   ),
-                ),
+                ), // lista categorie
               ],
             ),
           ),
