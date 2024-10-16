@@ -45,7 +45,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
       // da collegare meglio al file home
-      Column(
+      Column  (
         children: <Widget>[
           Image.asset(
             'assets/images/selmi_logo.png', // replace with actual image URL
@@ -210,10 +210,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       ),
       extendBodyBehindAppBar: true,
       body: _pages[_currentIndex],
-      backgroundColor: variant,// Il body cambia dinamicamente in base all'indice
+      backgroundColor: neutral,// Il body cambia predicament in base all'indice
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFF1EDEC), // Necessario per più di 3 icone
+        type: BottomNavigationBarType.fixed, // Necessario per più di 3 icone
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,),

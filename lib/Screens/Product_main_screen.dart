@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Document_main_screen.dart';
 
 class ProductMainScreen extends StatefulWidget {
   final String nome;
@@ -11,6 +12,15 @@ class ProductMainScreen extends StatefulWidget {
 }
 
 class _ProductMainScreenState extends State<ProductMainScreen> {
+
+  void doc(){
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DocumentMainScreen()),
+      );
+    });
+  }
 /*
   late String appBarTitle;
   late String bodyImage;
@@ -24,6 +34,8 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
     bodyImage = parti.length > 1 ? parti[1] : '';
   }
 */
+
+
 
 
   @override
@@ -79,20 +91,25 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                           child: Row(
                             children: [
                               Image.asset("assets/images/pdf_icon.png"),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: secondary),),
-                                        SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: secondary),),
-                                      ],
-                                    )
-                                  ],
+                              InkWell(
+                                onTap: (){
+                                  doc();
+                                },
+                                child: Container(
+                                  child: Column(
+                                    children: [
+                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          SizedBox(width: 50,),
+                                          Text("Data Upload", style: TextStyle( color: secondary),),
+                                          SizedBox(width: 100,),
+                                          Text("Type",style: TextStyle( color: secondary),),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -115,19 +132,24 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                           child: Row(
                             children: [
                               Image.asset("assets/images/pdf_icon.png"),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: secondary),),
-                                        SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: secondary),),
-                                      ],
-                                    )
-                                  ],
+                              InkWell(
+                                onTap: (){
+                                  doc();
+                                },
+                                child: Container(
+                                  child: Column(
+                                    children: [
+                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 50,),
+                                          Text("Data Upload", style: TextStyle( color: secondary),),
+                                          SizedBox(width: 100,),
+                                          Text("Type",style: TextStyle( color: secondary),),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -150,19 +172,24 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                           child: Row(
                             children: [
                               Image.asset("assets/images/pdf_icon.png"),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 50,),
-                                        Text("Data Upload", style: TextStyle( color: secondary),),
-                                        SizedBox(width: 100,),
-                                        Text("Type",style: TextStyle( color: secondary),),
-                                      ],
-                                    )
-                                  ],
+                              InkWell(
+                                onTap: (){
+                                  doc();
+                                },
+                                child: Container(
+                                  child: Column(
+                                    children: [
+                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary),),
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 50,),
+                                          Text("Data Upload", style: TextStyle( color: secondary),),
+                                          SizedBox(width: 100,),
+                                          Text("Type",style: TextStyle( color: secondary),),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
