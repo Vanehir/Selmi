@@ -1,0 +1,1 @@
+ C:\\Users\\ICTS23-25.093\\Desktop\\fl_prj\\Selmi\\.dart_tool\\flutter_build\\aa07e598a3cdcdd41d09d7050b20b546\\native_assets.yaml: 

@@ -11,30 +11,34 @@ class ProductEditScreenAdmin extends StatefulWidget {
 }
 
 class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
-
   bool _isCheck = false;
   bool _isCheckManual = false;
   bool _isCheckOther = false; // Controlla se il ceck_box è ceccato o meno
 
-  void _selezione(){
+  void _selezione() {
     setState(() {
       _isCheck = !_isCheck;
     });
   }
-  void _selezioneManual(){
+
+  void _selezioneManual() {
     setState(() {
       _isCheckManual = !_isCheckManual;
     });
   }
-  void _selezioneOther(){
+
+  void _selezioneOther() {
     setState(() {
       _isCheckOther = !_isCheckOther;
     });
   }
 
-  void _back(){
+  void _back() {
     setState(() {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ProductMainScreenAdmin()));
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const ProductMainScreenAdmin()));
     });
   }
 
@@ -42,83 +46,102 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: light,
+        iconTheme: const IconThemeData(
+          color: background,
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: rederror),),
+            const Text(
+              "Prodotto",
+              style: TextStyle(
+                  fontSize: 30, fontWeight: FontWeight.bold, color: accento),
+            ),
             InkWell(
-              onTap: (){
-
-              },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                onTap: () {},
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Icon(Icons.edit),
                 ))
           ],
         ),
-        backgroundColor: darklue,
+        backgroundColor: primario,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               child: Stack(
                 children: [
-                  Center(
-                      child: Container(
-                        height: 300,
-                          child: Icon(Icons.add_a_photo_outlined,size: 100,))),
+                  const Center(
+                      child: SizedBox(
+                          height: 300,
+                          child: Icon(
+                            Icons.add_a_photo_outlined,
+                            size: 100,
+                          ))),
+                  const Positioned(top: 20, right: 20, child: Icon(Icons.star)),
+                  const Positioned(
+                      bottom: 20, left: 20, child: Icon(Icons.qr_code_scanner)),
                   Positioned(
-                      top: 20, right: 20,
-                      child: Icon(Icons.star)),
-                  Positioned(
-                      bottom: 20, left: 20,
-                      child: Icon(Icons.qr_code_scanner)),
-                  Positioned(
-                      bottom: 20, right: 20,
+                      bottom: 20,
+                      right: 20,
                       child: Image.asset("assets/images/language_icon.png")),
                 ],
               ),
             ), // immagine
-            Container(
+            SizedBox(
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 8, right: 20, bottom: 8),
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 8, right: 20, bottom: 8),
                     child: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Specs", style: TextStyle(fontSize: 25, color: darklue)),
-                          Container(
+                          const Text("Specs",
+                              style: TextStyle(fontSize: 25, color: primario)),
+                          SizedBox(
                             width: double.infinity,
                             child: Row(
                               children: [
                                 Container(
                                   child: InkWell(
-                                      onTap: (){
+                                      onTap: () {
                                         _selezione();
                                       },
-                                      child: _isCheck ? Image.asset("assets/images/check-box_si.png") : Image.asset("assets/images/ceck_no.png")),
+                                      child: _isCheck
+                                          ? Image.asset(
+                                              "assets/images/check-box_si.png")
+                                          : Image.asset(
+                                              "assets/images/ceck_no.png")),
                                 ),
                                 Image.asset("assets/images/pdf_icon.png"),
                                 Container(
-                                  child: Column(
+                                  child: const Column(
                                     children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue)),
+                                      Text("Nome Doumento",
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w600,
+                                              color: secondario)),
                                       Row(
                                         children: [
                                           SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: lightblue)),
-                                          SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: lightblue)),
+                                          Text("Data Upload",
+                                              style:
+                                                  TextStyle(color: secondario)),
+                                          SizedBox(
+                                            width: 100,
+                                          ),
+                                          Text("Type",
+                                              style:
+                                                  TextStyle(color: secondario)),
                                         ],
                                       )
                                     ],
@@ -131,36 +154,52 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
                       ),
                     ),
                   ), // specs
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 8, right: 20, bottom: 8),
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 8, right: 20, bottom: 8),
                     child: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Manual", style: TextStyle(fontSize: 25, color: darklue)),
-                          Container(
+                          const Text("Manual",
+                              style: TextStyle(fontSize: 25, color: primario)),
+                          SizedBox(
                             width: double.infinity,
                             child: Row(
                               children: [
                                 Container(
                                   child: InkWell(
-                                      onTap: (){
+                                      onTap: () {
                                         _selezioneManual();
                                       },
-                                      child: _isCheckManual ? Image.asset("assets/images/check-box_si.png") : Image.asset("assets/images/ceck_no.png")),
+                                      child: _isCheckManual
+                                          ? Image.asset(
+                                              "assets/images/check-box_si.png")
+                                          : Image.asset(
+                                              "assets/images/ceck_no.png")),
                                 ),
                                 Image.asset("assets/images/pdf_icon.png"),
                                 Container(
-                                  child: Column(
+                                  child: const Column(
                                     children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue)),
+                                      Text("Nome Doumento",
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w600,
+                                              color: secondario)),
                                       Row(
                                         children: [
                                           SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: lightblue)),
-                                          SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: lightblue)),
+                                          Text("Data Upload",
+                                              style:
+                                                  TextStyle(color: secondario)),
+                                          SizedBox(
+                                            width: 100,
+                                          ),
+                                          Text("Type",
+                                              style:
+                                                  TextStyle(color: secondario)),
                                         ],
                                       )
                                     ],
@@ -173,36 +212,52 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
                       ),
                     ),
                   ), // manual
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 8, right: 20, bottom: 8),
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 8, right: 20, bottom: 8),
                     child: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Other", style: TextStyle(fontSize: 25, color: darklue)),
-                          Container(
+                          const Text("Other",
+                              style: TextStyle(fontSize: 25, color: primario)),
+                          SizedBox(
                             width: double.infinity,
                             child: Row(
                               children: [
                                 Container(
                                   child: InkWell(
-                                      onTap: (){
+                                      onTap: () {
                                         _selezioneOther();
                                       },
-                                      child: _isCheckOther ? Image.asset("assets/images/check-box_si.png") : Image.asset("assets/images/ceck_no.png")),
+                                      child: _isCheckOther
+                                          ? Image.asset(
+                                              "assets/images/check-box_si.png")
+                                          : Image.asset(
+                                              "assets/images/ceck_no.png")),
                                 ),
                                 Image.asset("assets/images/pdf_icon.png"),
                                 Container(
-                                  child: Column(
+                                  child: const Column(
                                     children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: lightblue)),
+                                      Text("Nome Doumento",
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w600,
+                                              color: secondario)),
                                       Row(
                                         children: [
                                           SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: lightblue)),
-                                          SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: lightblue)),
+                                          Text("Data Upload",
+                                              style:
+                                                  TextStyle(color: secondario)),
+                                          SizedBox(
+                                            width: 100,
+                                          ),
+                                          Text("Type",
+                                              style:
+                                                  TextStyle(color: secondario)),
                                         ],
                                       )
                                     ],
@@ -217,37 +272,37 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
                   ),
                   Container(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 120,right: 120),
+                      padding: const EdgeInsets.only(left: 120, right: 120),
                       child: Container(
                         height: 40,
                         width: double.infinity,
-                        decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(width: 2, color: darklue))),
+                        decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: const BorderSide(
+                                    width: 2, color: primario))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             InkWell(
-                              onTap: (){
-                                _back();
-                              },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                onTap: () {
+                                  _back();
+                                },
+                                child: const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Icon(Icons.chevron_left),
                                 )),
                             InkWell(
-                              onTap: (){
-
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              onTap: () {},
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.restore_from_trash),
                               ),
                             ),
                             InkWell(
-                              onTap: (){
-
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              onTap: () {},
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.add),
                               ),
                             ),
@@ -255,7 +310,7 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
                         ),
                       ),
                     ),
-                  )// other
+                  ) // other
                 ],
               ),
             ),
