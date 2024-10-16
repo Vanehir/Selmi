@@ -6,10 +6,19 @@ import 'package:prove/ScreensGuest/Qr_scan_main_screen_guest.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Document_main_screen.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'model/Object_class.dart';
 
 void main() {
 
-  runApp(const MyApp());
+  runApp(
+     MultiProvider(
+       providers: [
+         ChangeNotifierProvider(create: (_) => ItemProvider()),
+       ],
+       child: MyApp(),
+     )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -150,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 23
                       ),
                       decoration: const InputDecoration(
-                        hintText: 'Username',
+                        hintText: ' Username',
 
                       ),
                     ),
@@ -181,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 23
                       ),
                       decoration: InputDecoration(
-                        hintText: 'Password',
+                        hintText: ' Password',
                         suffixIcon: IconButton(onPressed: _see, icon: _obscureText ? Image.asset('assets/images/eye_off_icon.png',width: 24,height: 24,) : Image.asset('assets/images/eye_on_icon.png',width: 24,height: 24,)),
                       ),
                     ),
