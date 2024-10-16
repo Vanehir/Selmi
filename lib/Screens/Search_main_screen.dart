@@ -22,7 +22,6 @@ class _SearchMainScreen extends State<SearchMainScreen> {
     'CHOCAPAINT',
     'TUNNEL di RAFFREDDAMENTO e RICOPERTURA',
     'ONE SHOT TUTTUNO',
-    'TUTTUNO ONE SHOTICE',
     'CLUSTER',
     'CONFETTATRICI BASSINE',
     'SCIOGLITORI e MISCELATORI',
