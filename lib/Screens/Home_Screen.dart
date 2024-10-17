@@ -6,6 +6,9 @@ import 'package:prove/widgets/customer_scaffold.dart';
 import 'Document_main_screen.dart';
 import 'Product_main_screen.dart';
 
+
+/// IMPORTANTE
+/// questo widget non viene utilizzato ma viene usato all'interno del custromer_scaffold.dart
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreen createState() => _HomeScreen();
