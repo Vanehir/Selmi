@@ -3,20 +3,15 @@ import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Product_main_screen.dart';
 
 class ListMachineSearchScreen extends StatefulWidget {
-  final String text; // nome categoria passata dalla pagina di ricerca
-  const ListMachineSearchScreen({super.key, required this.text});
+  final String category; // Nome della categoria passata dalla pagina di ricerca
+  const ListMachineSearchScreen({Key? key, required this.category}) : super(key: key);
 
   @override
   State<ListMachineSearchScreen> createState() => _ListMachineSearchScreenState();
 }
 
 class _ListMachineSearchScreenState extends State<ListMachineSearchScreen> {
-
-
-  int? selectedMachineIndex; // Variabile per l'indice del checkbox selezionato
-
-  // lista di maccine della categoria temperaggio
-
+  int? selectedMachineIndex;
 
   final Map<String, List<String>> categoryItems = {
     'TEMPERAGGIO': [
@@ -109,57 +104,69 @@ class _ListMachineSearchScreenState extends State<ListMachineSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Recupera gli elementi della categoria selezionata
-    List<String> items = categoryItems[widget.text] ?? [];
+    final machines = categoryItems[widget.category] ?? [];
+
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: variant),
+        iconTheme: const IconThemeData(color: variant),
         backgroundColor: primary,
-        title: Text("Machine", style: TextStyle(color: variant)),
+        title: const Text("Machine", style: TextStyle(color: variant)),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedMachineIndex = index;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ProductMainScreen(
-                                  nome: items[index],
-                                  immagine: "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png"
-                              ),
-                        ),
-                      );
-                    });
-                  },
-                  child: Container(
-                    color: selectedMachineIndex == index ? primary : Colors
-                        .transparent,
-                    child: ListTile(
-                      title: Text(
-                        items[index],
-                        style: TextStyle(
-                          color: selectedMachineIndex == index
-                              ? variant
-                              : primary,
-                          fontWeight: selectedMachineIndex == index ? FontWeight
-                              .bold : FontWeight.normal,
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
+      body: ListView.builder(
+        itemCount: machines.length,
+        itemBuilder: (context, index) {
+          final isSelected = selectedMachineIndex == index;
+          return MachineTile(
+            machineName: machines[index],
+            isSelected: isSelected,
+            onTap: () => _navigateToProductScreen(context, machines[index], index),
+          );
+        },
+      ),
+    );
+  }
+
+  void _navigateToProductScreen(BuildContext context, String machineName, int index) {
+    setState(() => selectedMachineIndex = index);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductMainScreen(
+          nome: machineName,
+          immagine: "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png",
+        ),
+      ),
+    );
+  }
+}
+
+class MachineTile extends StatelessWidget {
+  final String machineName;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const MachineTile({
+    Key? key,
+    required this.machineName,
+    required this.isSelected,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: isSelected ? primary : Colors.transparent,
+        child: ListTile(
+          title: Text(
+            machineName,
+            style: TextStyle(
+              color: isSelected ? variant : primary,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
-        ],
+        ),
       ),
     );
   }

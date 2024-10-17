@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
-import 'package:prove/Screens/Notification_settings_screen.dart';
 import '../Texts/Text.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
-  const NotificationSettingsScreen({super.key});
+  const NotificationSettingsScreen({Key? key}) : super(key: key);
 
   @override
   State<NotificationSettingsScreen> createState() => _NotificationSettingsScreenState();
 }
 
 class _NotificationSettingsScreenState extends State<NotificationSettingsScreen> {
-
-  bool documCheck = false;
-  bool documCheck1 = false;
-  bool documCheck2 = false;
-  bool documCheck3 = false;
-
-  bool isSwich = false;
-
-
+  bool isSwitchOn = false;
+  final List<bool> checkValues = [false, false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -28,163 +20,100 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
       appBar: AppBar(
         backgroundColor: primary,
         titleTextStyle: Theme.of(context).textTheme.headlineMedium,
-        iconTheme: IconThemeData(
-          color: neutral
-        ),
+        iconTheme: const IconThemeData(color: neutral),
         title: const Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text("NOTIFICATIONS", style: TextStyle(color: neutral,),),
+          child: Text("NOTIFICATIONS", style: TextStyle(color: neutral)),
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(),
-        child: Column(
-          children: [
-            const Text("Push Notification", style:
-            TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),),
-            Container(
-              child: Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20),
-                    child: Text(DescriptionNotification, ),
-                  ),
-                  SizedBox(width: 20,),
-                  Switch(value: isSwich, onChanged: (bool newvalue){
-                    setState(() {
-                      isSwich = newvalue;
-                    });
-                  },
-                    activeColor: primary, // Colore quando è attivo
-                  )
-                ],
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              "Push Notification",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                            color: neutral,
-                            width: 2,
-                          )
-                      )
-                  ),
-                  width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        Text("Your documentation"),
-                        Spacer(),
-                        Checkbox(value: documCheck ,activeColor: primary, onChanged: isSwich ? (bool? newvalue){
-                          setState(() {
-                            documCheck = newvalue ?? false;
-                          });
-                        }
-                        : null
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                            color: neutral,
-                            width: 2,
-                          )
-                      )
-                  ),
-                  width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        Text("Your documentation"),
-                        Spacer(),
-                        Checkbox(value: documCheck1 ,activeColor: primary, onChanged: isSwich ? (bool? newvalue){
-                          setState(() {
-                            documCheck1 = newvalue ?? false;
-                          });
-                        }
-                            : null
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text("Email notification", style: Theme.of(context).textTheme.headlineSmall),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                            color: neutral,
-                            width: 2,
-                          )
-                      )
-                  ),
-                  width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        Text("Your documentation"),
-                        Spacer(),
-                        Checkbox(value: documCheck2 ,activeColor: primary, onChanged: isSwich ? (bool? newvalue){
-                          setState(() {
-                            documCheck2 = newvalue ?? false;
-                          });
-                        }
-                            : null
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                            color: neutral,
-                            width: 2,
-                          )
-                      )
-                  ),
-                  width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        Text("Your documentation"),
-                        Spacer(),
-                        Checkbox(value: documCheck3 ,activeColor: primary, onChanged: isSwich ? (bool? newvalue){
-                          setState(() {
-                            documCheck3 = newvalue ?? false;
-                          });
-                        }
-                            : null
-                        )
-                      ],
-                    ),
-                  ),
+                const Expanded(child: Text(DescriptionNotification)),
+                Switch(
+                  value: isSwitchOn,
+                  onChanged: (newValue) => setState(() => isSwitchOn = newValue),
+                  activeColor: primary,
                 ),
               ],
-            )
+            ),
+          ),
+          // Primo blocco con i primi due elementi
+          ..._buildCheckboxList(0, 2),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, top: 16),
+            child: Text("Email notification", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          ),
+          const SizedBox(height: 20),
+          // Secondo blocco con i restanti elementi
+          ..._buildCheckboxList(2, checkValues.length),
+        ],
+      ),
+    );
+  }
 
-          ],
-        ),
-      )
+  List<Widget> _buildCheckboxList(int start, int end) {
+    const List<String> checkboxTitles = [
+      "Your documentation",
+      "Your documentation",
+      "Your documentation",
+      "Your documentation",
+    ];
 
+    return List<Widget>.generate(end - start, (index) {
+      return SettingCheckbox(
+        title: checkboxTitles[start + index],
+        value: checkValues[start + index],
+        onChanged: isSwitchOn
+            ? (newValue) => setState(() => checkValues[start + index] = newValue ?? false)
+            : null,
+      );
+    });
+  }
+}
+
+class SettingCheckbox extends StatelessWidget {
+  final String title;
+  final bool value;
+  final ValueChanged<bool?>? onChanged;
+
+  const SettingCheckbox({
+    Key? key,
+    required this.title,
+    required this.value,
+    this.onChanged,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: neutral, width: 2)),
+      ),
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      child: Row(
+        children: [
+          Text(title),
+          const Spacer(),
+          Checkbox(
+            value: value,
+            activeColor: primary,
+            onChanged: onChanged,
+          ),
+        ],
+      ),
     );
   }
 }

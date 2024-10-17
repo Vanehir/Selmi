@@ -82,7 +82,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                             selectedTextIndex = index;
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListMachineSearchScreen(text: options[index])),
+                              MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
                             );
                           });
                         },

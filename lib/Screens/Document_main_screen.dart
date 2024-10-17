@@ -4,7 +4,7 @@ import 'package:prove/Colors/color_palette.dart';
 
 class DocumentMainScreens extends StatelessWidget {
   final String nome;
-   DocumentMainScreens({required this.nome, super.key});
+  DocumentMainScreens({required this.nome, super.key});
 
 
   @override
@@ -41,31 +41,31 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
               padding: const EdgeInsets.only(top: 20, bottom: 20),
               child: Container(
                 width: double.infinity,
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Center(child: Image.asset("assets/images/pdf_Temperatrici.jpg")),
-                      ),
-                      Positioned( top:20, right: 20, child: InkWell(onTap: (){}, child: Image.asset("assets/images/language_icon.png"))),
-                      Positioned(bottom: 20, left: 20, child: InkWell(onTap: (){}, child: const Icon(Icons.remove_red_eye_outlined))),
-                      Positioned(
-                          bottom: 20, right: 20,
-                          child: InkWell(
-                              onTap: (){},
-                              child: Image.asset("assets/images/language_icon.png"))),
-                    ],
-                  ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Center(child: Image.asset("assets/images/pdf_Temperatrici.jpg")),
+                    ),
+                    Positioned( top:20, right: 20, child: InkWell(onTap: (){}, child: Image.asset("assets/images/language_icon.png"))),
+                    Positioned(bottom: 20, left: 20, child: InkWell(onTap: (){}, child: const Icon(Icons.remove_red_eye_outlined))),
+                    Positioned(
+                        bottom: 20, right: 20,
+                        child: InkWell(
+                            onTap: (){},
+                            child: Image.asset("assets/images/language_icon.png"))),
+                  ],
+                ),
               ),
             ),
             Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(width: 20,),
-                  Text("Description", style: TextStyle(fontSize: 25),)
-                ],
-              )
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 20,),
+                    Text("Description", style: TextStyle(fontSize: 25),)
+                  ],
+                )
             ),
             Container(
               child: Padding(
