@@ -8,7 +8,6 @@ class Oggetto {
   String data = '';
   String immagine = '';
 
-
   Oggetto({required this.titolo, required this.categoria, required this.data, required this.immagine});
 
 }

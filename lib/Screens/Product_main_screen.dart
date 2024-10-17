@@ -111,16 +111,29 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
     return Column(
       children: [
         SizedBox(height: 50),
-        _buildSection("Specs", navigateToDocumentScreen),
+        _buildSection("Specs", navigateToDocumentScreen, ),
         SizedBox(height: 30),
-        _buildSection("Manual", navigateToDocumentScreen),
+        _buildSection("Manual" ,navigateToDocumentScreen),
         SizedBox(height: 30),
-        _buildSection("Other", navigateToDocumentScreen),
+        _buildSection("Other",navigateToDocumentScreen),
       ],
     );
   }
 
+
+
   Widget _buildSection(String title, VoidCallback onTap) {
+    String documentName;
+
+    // Imposta il nome del documento in base al tipo
+    if (title == 'Specs') {
+      documentName = "Specifiche";
+    } else if (title == 'Manual') {
+      documentName = "Manuale";
+    } else {
+      documentName = "Documento"; // Impostazione predefinita
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Row(
@@ -136,11 +149,11 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                   Text(title, style: TextStyle(fontSize: 25, color: primary)),
                   Row(
                     children: [
-                      Text("Nome Documento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
+                      Text(documentName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
                       Spacer(),
-                      Text("Data Upload", style: TextStyle(color: secondary)),
+                      Text("16/10/2024", style: TextStyle(color: secondary)),
                       Spacer(),
-                      Text("Type", style: TextStyle(color: secondary)),
+                      Text("pdf", style: TextStyle(color: secondary)),
                     ],
                   ),
                 ],
@@ -151,4 +164,5 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
       ),
     );
   }
+
 }

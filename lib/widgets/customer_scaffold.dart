@@ -174,24 +174,25 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       title: InkWell(
         onTap: _navigateToDocumentScreen,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset('assets/images/pdf_icon.png'),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(item['name'], style: Theme.of(context).textTheme.bodyLarge),
-                Row(
-                  children: [
-                    Text(item['data'], style: Theme.of(context).textTheme.bodyLarge),
-                    const SizedBox(width: 20),
-                    Text(item['tipo'], style: Theme.of(context).textTheme.bodyMedium),
-                  ],
-                ),
-              ],
+            Expanded( // Utilizza Expanded per allineare a sinistra
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(item['name'], style: Theme.of(context).textTheme.bodyLarge),
+                  Row(
+                    children: [
+                      Text(item['data'], style: Theme.of(context).textTheme.bodyLarge),
+                      const SizedBox(width: 20),
+                      Text(item['tipo'], style: Theme.of(context).textTheme.bodyMedium),
+                    ],
+                  ),
+                ],
+              ),
             ),
             const Padding(
               padding: EdgeInsets.all(4.0),
@@ -202,4 +203,5 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       ),
     );
   }
+
 }
