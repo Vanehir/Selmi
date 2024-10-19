@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
+import 'package:prove/ScreensAdmin/Search_edit_screen_admin.dart';
 
 class SearchMainScreenAdmin extends StatefulWidget {
   const SearchMainScreenAdmin({super.key});
@@ -32,7 +33,7 @@ class _SearchMainScreenAdminState extends State<SearchMainScreenAdmin> {
     'BEAN TO BAR',
     'LAVORAZIONE FRUTTA SECCA',
     'FONTANE DI CIOCCOLATO'
-  ]; // Lista di descrizioni per ciascun checkbox
+  ];
 
 
   @override
@@ -117,32 +118,17 @@ class _SearchMainScreenAdminState extends State<SearchMainScreenAdmin> {
               left: 0,
               right: 0,
               child: Container(
-                margin: EdgeInsets.only(left: 80, right: 80, bottom: 16),
+                margin: EdgeInsets.only(left: 140, right: 140, bottom: 16),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: primary,
                   borderRadius: BorderRadius.circular(30)
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: (){},
-                        child: Icon(Icons.arrow_back, color: neutral,)),
-                    InkWell(
-                      onTap: (){},
-                        child: Icon(Icons.check_box_outline_blank, color: neutral,)),
-                    InkWell(
-                      onTap: (){},
-                        child: Icon(Icons.add, color: neutral,)),
-                    InkWell(
-                      onTap: (){},
-                        child: Icon(Icons.sort, color: neutral,)),
-                    InkWell(
-                      onTap: (){},
-                        child: Icon(Icons.swap_vert, color: neutral,))
-                  ],
-                ),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SearchEditScreenAdmin()));
+                  },
+                    child: Icon(Icons.edit, color: neutral,)),
               ))
         ],
       )

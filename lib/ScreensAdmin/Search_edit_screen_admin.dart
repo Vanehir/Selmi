@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
+import 'package:prove/ScreensAdmin/Search_main_screen_admin.dart';
 
+class SearchEditScreenAdmin extends StatefulWidget {
+  const SearchEditScreenAdmin({super.key});
 
-class SearchMainScreen extends StatefulWidget {
   @override
-  _SearchMainScreen createState() => _SearchMainScreen();
+  State<SearchEditScreenAdmin> createState() => _SearchEditScreenAdminState();
 }
 
-class _SearchMainScreen extends State<SearchMainScreen> {
+class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
 
   final TextEditingController _search = TextEditingController();
 
   int? selectedTextIndex; // Variabile per l'indice del checkbox selezionato
+  bool isAscending = true; // Stato per sapere se la lista è ordinata in modo crescente o decrescente
+
   final List<String> options = [
     'TEMPERAGGIO',
     'RICOPERTURA PRODOTTI CON IL CIOCCOLATO',
@@ -31,12 +36,9 @@ class _SearchMainScreen extends State<SearchMainScreen> {
     'BEAN TO BAR',
     'LAVORAZIONE FRUTTA SECCA',
     'FONTANE DI CIOCCOLATO'
-  ]; // Lista di descrizioni per ciascun checkbox
+  ];
 
   bool isFlipped = false;
-
-  bool isAscending = true; // Stato per sapere se la lista è ordinata in modo crescente o decrescente
-
 
   void _flipIcon() {
     setState(() {
@@ -58,42 +60,43 @@ class _SearchMainScreen extends State<SearchMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primary,
-        title: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: neutral, // Colore di sfondo
-                borderRadius: BorderRadius.circular(40), // Angoli arrotondati
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Search...", // Placeholder del campo di ricerca
-                  border: InputBorder.none, // Nessun bordo predefinito
-                  contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
-                  suffixIcon: Row(
-                    mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
-                    children: <Widget>[
-                      const SizedBox(width: 5,),
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
-                      IconButton(onPressed: (){
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                          );
-                        });
-                      }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
-                    ],
+        appBar: AppBar(
+          backgroundColor: primary,
+          title: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: neutral, // Colore di sfondo
+                  borderRadius: BorderRadius.circular(40), // Angoli arrotondati
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Search...", // Placeholder del campo di ricerca
+                    border: InputBorder.none, // Nessun bordo predefinito
+                    contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+                    suffixIcon: Row(
+                      mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
+                      children: <Widget>[
+                        const SizedBox(width: 5,),
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+                        IconButton(onPressed: (){
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                            );
+                          });
+                        }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-        body: Stack(
+        body:
+        Stack(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 1.0, left: 8.0, right: 8.0, bottom: 1.0), // Riduce lo spazio sui lati
@@ -136,7 +139,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  margin: EdgeInsets.only(left: 130, right: 130, bottom: 16),
+                  margin: EdgeInsets.only(left: 80, right: 80, bottom: 16),
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: primary,
@@ -146,8 +149,16 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomeScreen(accesso: 'admin')));
+                          },
                           child: Icon(Icons.arrow_back, color: neutral,)),
+                      InkWell(
+                          onTap: (){},
+                          child: Icon(Icons.check_box_outline_blank, color: neutral,)),
+                      InkWell(
+                          onTap: (){},
+                          child: Icon(Icons.add, color: neutral,)),
                       InkWell(
                           onTap: (){
                             order();
@@ -159,12 +170,13 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                               child: Icon(Icons.sort, color: neutral,))),
                       InkWell(
                           onTap: (){},
-                          child: Icon(Icons.swap_vert, color: neutral,)),
+                          child: Icon(Icons.swap_vert, color: neutral,))
                     ],
                   ),
                 ))
           ],
         )
+
     );
   }
 }
