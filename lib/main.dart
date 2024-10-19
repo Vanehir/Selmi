@@ -58,9 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
     final password = _passwordInput.text;
 
     if (username == user && password == user) {
-      _navigateTo(HomeScreen());
+      _navigateTo(HomeScreen(accesso: 'user',));
     } else if (username == admin && password == admin) {
-      _navigateTo(const ProductMainScreenAdmin());
+      _navigateTo( HomeScreen(accesso: 'admin',));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Username o Password non validi', style: TextStyle(fontSize: 15),)),
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
               _buildTextButton("Register", () {
                 _navigateTo(const RegisterMainScreen());
               }),
-              SizedBox(height: screenHeight * 0.05),
+              SizedBox(height: screenHeight * 0.02),
               _buildTextButton("Skip", () {
                 _navigateTo(const QrScanMainScreenGuest());
               }, fontSize: 30, isBold: true),

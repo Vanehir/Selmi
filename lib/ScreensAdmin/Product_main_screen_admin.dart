@@ -1,181 +1,143 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/ScreensAdmin/Product_edit_screen_admin.dart';
+import '../Screens/Document_main_screen.dart';
 
 class ProductMainScreenAdmin extends StatefulWidget {
-  const ProductMainScreenAdmin({super.key});
+  final String nome;
+  final String immagine;
+
+  const ProductMainScreenAdmin({
+    super.key,
+    required this.nome,
+    required this.immagine,
+  });
 
   @override
   State<ProductMainScreenAdmin> createState() => _ProductMainScreenAdminState();
 }
-//sus
 
 class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
+  void navigateToDocumentScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => DocumentMainScreen()),
+    );
+  }
 
-  void _edit(){
-    setState(() {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const ProductEditScreenAdmin()));
-    });
+  void _edit() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductEditScreenAdmin(
+          nome: widget.nome,
+          immagine: widget.immagine,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: neutral,
+        iconTheme: IconThemeData(color: neutral),
+        title: Text(
+          widget.nome,
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: neutral),
         ),
-        title: Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: error),),
+        leading: IconButton(
+            onPressed: (){
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'admin')),
+                    (Route<dynamic> route) => false, // Rimuove tutte le rotte precedenti
+              );
+            }, 
+            icon: Icon(Icons.arrow_back)),
         backgroundColor: primary,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              child: Stack(
-                children: [
-                  Center(child: Image.network('https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png', height: 300,)),
-                  Positioned(
-                      top: 20, right: 20,
-                      child: Icon(Icons.star)),
-                  Positioned(
-                      bottom: 20, left: 20,
-                      child: Icon(Icons.qr_code_scanner)),
-                  Positioned(
-                      bottom: 20, right: 20,
-                      child: Image.asset("assets/images/language_icon.png")),
-                ],
-              ),
-            ), // immagine
-            Container(
-              width: double.infinity,
+            _buildImageSection(),
+            SizedBox(height: 50),
+            _buildDocumentSection("Specs", "Specifiche", "16/10/2024", "pdf"),
+            SizedBox(height: 50),
+            _buildDocumentSection("Manual", "Manuale", "16/10/2024", "pdf"),
+            SizedBox(height: 50),
+            _buildDocumentSection("Other", "Documento", "16/10/2024", "pdf"),
+            SizedBox(height: 30),
+            _buildEditButton(),
+            SizedBox(height: 30),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImageSection() {
+    return Container(
+      width: double.infinity,
+      child: Stack(
+        children: [
+          Center(child: Image.network(widget.immagine, height: 300)),
+          Positioned(top: 20, right: 20, child: Icon(Icons.star)),
+          Positioned(bottom: 20, left: 20, child: Icon(Icons.qr_code_scanner)),
+          Positioned(bottom: 20, right: 20, child: Image.asset("assets/images/language_icon.png")),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDocumentSection(String title, String documentName, String uploadDate, String fileType) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      child: Row(
+        children: [
+          Image.asset("assets/images/pdf_icon.png"),
+          SizedBox(width: 10),
+          Expanded(
+            child: InkWell(
+              onTap: navigateToDocumentScreen,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 50),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 8, right: 20, bottom: 8),
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Specs", style: TextStyle(fontSize: 25, color: primary)),
-                          Container(
-                            width: double.infinity,
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/pdf_icon.png"),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: secondary)),
-                                          SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: secondary)),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ), // specs
-                  SizedBox(height: 30),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 8, right: 20, bottom: 8),
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Manual", style: TextStyle(fontSize: 25, color: primary)),
-                          Container(
-                            width: double.infinity,
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/pdf_icon.png"),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: secondary)),
-                                          SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: secondary)),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ), // manual
-                  SizedBox(height: 30),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 8, right: 20, bottom: 8),
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Other", style: TextStyle(fontSize: 25, color: primary)),
-                          Container(
-                            width: double.infinity,
-                            child: Row(
-                              children: [
-                                Image.asset("assets/images/pdf_icon.png"),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      Text("Nome Doumento", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
-                                      Row(
-                                        children: [
-                                          SizedBox(width: 50),
-                                          Text("Data Upload", style: TextStyle( color: secondary)),
-                                          SizedBox(width: 100,),
-                                          Text("Type",style: TextStyle( color: secondary)),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  Text(title, style: TextStyle(fontSize: 25, color: primary)),
+                  Row(
+                    children: [
+                      Text(documentName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
+                      Spacer(),
+                      Text(uploadDate, style: TextStyle(color: secondary)),
+                      Spacer(),
+                      Text(fileType, style: TextStyle(color: secondary)),
+                    ],
                   ),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 140,right: 140),
-                      child: InkWell(
-                        onTap: _edit,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          width: double.infinity,
-                          decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(width: 2, color: primary))),
-                          child: Icon(Icons.mode_edit),
-                        ),
-                      ),
-                    ),
-                  )// other
                 ],
               ),
             ),
-          ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildEditButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 140),
+      child: InkWell(
+        onTap: _edit,
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          width: double.infinity,
+          decoration: ShapeDecoration(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(width: 2, color: primary),
+            ),
+          ),
+          child: Icon(Icons.mode_edit),
         ),
       ),
     );

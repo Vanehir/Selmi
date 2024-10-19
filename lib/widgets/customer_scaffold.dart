@@ -5,14 +5,18 @@ import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/Saved_main_screen.dart';
 import 'package:prove/Screens/Search_main_screen.dart';
+import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
+import 'package:prove/ScreensAdmin/Search_main_screen_admin.dart';
 import 'package:prove/model/Richiesta_Model.dart';
 import 'package:prove/Screens/Settings_main_screen.dart';
 import 'package:prove/Colors/color_palette.dart';
 
 class CustomScaffold extends StatefulWidget {
   final List<Widget> pages;
+  final String accesso;
 
-  const CustomScaffold({required this.pages, Key? key}) : super(key: key);
+
+  const CustomScaffold({required this.pages, Key? key, required this.accesso}) : super(key: key);
 
   @override
   _CustomScaffoldState createState() => _CustomScaffoldState();
@@ -32,14 +36,24 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     setState(() => _currentIndex = index);
   }
 
+  Widget control (){
+    if(widget.accesso == 'admin'){
+       return SearchMainScreenAdmin();
+    }
+    else{
+       return SearchMainScreen();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
-      _buildHomePage(),
-       SearchMainScreen(),
-       QrScanMainScreen(),
-       SavedMainScreen(),
-       SettingsMainScreen(),
+        _buildHomePage(),
+        //SearchMainScreen(),
+        control(),
+        QrScanMainScreen(),
+        SavedMainScreen(),
+        SettingsMainScreen(),
     ];
 
     return Scaffold(
@@ -112,15 +126,28 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     return ListTile(
       title: InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProductMainScreen(
-                nome: item['nome'],
-                immagine: item['Image'],
+          if(widget.accesso == 'user'){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductMainScreen(
+                  nome: item['nome'],
+                  immagine: item['Image'],
+                ),
               ),
-            ),
-          );
+            );
+          }
+          else{
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductMainScreenAdmin(
+                  nome: item['nome'],
+                  immagine: item['Image'],
+                ),
+              ),
+            );
+          }
         },
         child: Row(
           children: [

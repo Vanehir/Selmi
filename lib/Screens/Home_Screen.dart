@@ -10,6 +10,11 @@ import 'Product_main_screen.dart';
 /// IMPORTANTE
 /// questo widget non viene utilizzato ma viene usato all'interno del custromer_scaffold.dart
 class HomeScreen extends StatefulWidget {
+
+  final String accesso;
+
+  const HomeScreen({required this.accesso, super.key});
+
   @override
   _HomeScreen createState() => _HomeScreen();
 }
@@ -33,6 +38,7 @@ class _HomeScreen extends State<HomeScreen> {
           Center(child: Text('Saved Page')),
           Center(child: Text('Settings Page')),
         ],
+        accesso: widget.accesso,
       ),
     );
   }
@@ -112,6 +118,7 @@ class _HomeScreen extends State<HomeScreen> {
     );
   }
 
+
   Widget _buildLastOpenedDocumentsSection() {
     return Column(
       children: [
@@ -177,6 +184,8 @@ class _HomeScreen extends State<HomeScreen> {
       ),
     );
   }
+
+
 
   Widget _buildSectionTitle(String title) {
     return Container(

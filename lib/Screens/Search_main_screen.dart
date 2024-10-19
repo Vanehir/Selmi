@@ -37,71 +37,75 @@ class _SearchMainScreen extends State<SearchMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: primary,
+        title: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: neutral, // Colore di sfondo
+                borderRadius: BorderRadius.circular(40), // Angoli arrotondati
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search...", // Placeholder del campo di ricerca
+                  border: InputBorder.none, // Nessun bordo predefinito
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
+                    children: <Widget>[
+                      const SizedBox(width: 5,),
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+                      IconButton(onPressed: (){
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                          );
+                        });
+                      }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
         body: Padding(
           padding: const EdgeInsets.only(top: 1.0, left: 8.0, right: 8.0, bottom: 1.0), // Riduce lo spazio sui lati
-          child: SafeArea(
-            child: Column(
-              children: [
-                Padding(padding: const EdgeInsets.all(20),
-                  child: Container(
-                    decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 2, color: primary),
-                        borderRadius: BorderRadius.circular(40)
-                    )),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search...", // Placeholder del campo di ricerca
-                        border: InputBorder.none, // Nessun bordo predefinito
-                        contentPadding: EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
-                        suffixIcon: Row(
-                          mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
-                          children: <Widget>[
-                            SizedBox(width: 5,),
-                            IconButton(onPressed: (){}, icon: Icon(Icons.search,color: primary)),
-                            IconButton(onPressed: (){
-                              setState(() {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => QrScanMainScreen()),
-                                );
-                              });
-                            }, icon: Icon(Icons.qr_code_scanner,color: primary)),
-                          ],
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          selectedTextIndex = index;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
+                          );
+                        });
+                      },
+                      child: Container(
+                        color: selectedTextIndex == index ? primary : Colors.transparent, // Cambia colore di sfondo
+                        child: ListTile(
+                          title: Text(options[index], style: TextStyle(
+                            color: selectedTextIndex == index ? variant : primary,
+                            fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal, // Cambia spessore se selezionato
+                          ),), // Testo diverso per ciascun checkbox
+
                         ),
                       ),
-                    ),
-                  ),
-                ), // Search bar // search bar
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            selectedTextIndex = index;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
-                            );
-                          });
-                        },
-                        child: Container(
-                          color: selectedTextIndex == index ? primary : Colors.transparent, // Cambia colore di sfondo
-                          child: ListTile(
-                            title: Text(options[index], style: TextStyle(
-                              color: selectedTextIndex == index ? variant : primary,
-                              fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal, // Cambia spessore se selezionato
-                            ),), // Testo diverso per ciascun checkbox
-
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ), // lista categorie
-              ],
-            ),
+                    );
+                  },
+                ),
+              ), // lista categorie
+            ],
           ),
         ),
     );

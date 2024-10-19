@@ -22,7 +22,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
   void _login() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'user',)),
     );
   }
 

@@ -4,7 +4,9 @@ import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
 import '../Colors/color_palette.dart';
 
 class ProductEditScreenAdmin extends StatefulWidget {
-  const ProductEditScreenAdmin({super.key});
+  final String nome;
+  final String immagine;
+  const ProductEditScreenAdmin({super.key, required this.nome, required this.immagine});
 
   @override
   State<ProductEditScreenAdmin> createState() => _ProductEditScreenAdminState();
@@ -34,31 +36,20 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
 
   void _back(){
     setState(() {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ProductMainScreenAdmin()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductMainScreenAdmin(nome: widget.nome, immagine: widget.immagine,)));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(
           color: neutral,
         ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Prodotto", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: error),),
-            InkWell(
-              onTap: (){
-
-              },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.edit),
-                ))
-          ],
-        ),
+        title: Text(widget.nome, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: neutral),),
         backgroundColor: primary,
       ),
       body: SingleChildScrollView(

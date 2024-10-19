@@ -120,8 +120,6 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
     );
   }
 
-
-
   Widget _buildSection(String title, VoidCallback onTap) {
     String documentName;
 
