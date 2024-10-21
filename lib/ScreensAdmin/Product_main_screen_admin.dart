@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/ScreensAdmin/Product_edit_screen_admin.dart';
+import 'package:provider/provider.dart';
 import '../Screens/Document_main_screen.dart';
+import '../model/Object_class.dart';
 
 class ProductMainScreenAdmin extends StatefulWidget {
   final String nome;
@@ -19,10 +21,20 @@ class ProductMainScreenAdmin extends StatefulWidget {
 }
 
 class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
+  bool isStar = false;
+  late ItemProvider itemProvider;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    itemProvider = Provider.of<ItemProvider>(context, listen: false);
+    isStar = itemProvider.itemList.any((item) => item.titolo == widget.nome);
+  }
+
   void navigateToDocumentScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => DocumentMainScreen()),
+      MaterialPageRoute(builder: (_) => const DocumentMainScreen()),
     );
   }
 
@@ -48,29 +60,30 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: neutral),
         ),
         leading: IconButton(
-            onPressed: (){
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'admin')),
-                    (Route<dynamic> route) => false, // Rimuove tutte le rotte precedenti
-              );
-            }, 
-            icon: Icon(Icons.arrow_back)),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeScreen(accesso: 'admin')),
+                  (Route<dynamic> route) => false,
+            );
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         backgroundColor: primary,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             _buildImageSection(),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             _buildDocumentSection("Specs", "Specifiche", "16/10/2024", "pdf"),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             _buildDocumentSection("Manual", "Manuale", "16/10/2024", "pdf"),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             _buildDocumentSection("Other", "Documento", "16/10/2024", "pdf"),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             _buildEditButton(),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
           ],
         ),
       ),
@@ -83,9 +96,33 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
       child: Stack(
         children: [
           Center(child: Image.network(widget.immagine, height: 300)),
-          Positioned(top: 20, right: 20, child: Icon(Icons.star)),
-          Positioned(bottom: 20, left: 20, child: Icon(Icons.qr_code_scanner)),
-          Positioned(bottom: 20, right: 20, child: Image.asset("assets/images/language_icon.png")),
+          Positioned(
+            top: 20,
+            right: 20,
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  isStar = !isStar;
+                  if (isStar) {
+                    itemProvider.toggleItem(widget.nome, widget.immagine);
+                  } else {
+                    itemProvider.removeItem(widget.nome);
+                  }
+                });
+              },
+              child: Icon(isStar ? Icons.star : Icons.star_border),
+            ),
+          ),
+          const Positioned(
+            bottom: 20,
+            left: 20,
+            child: Icon(Icons.qr_code_scanner),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: Image.asset("assets/images/language_icon.png"),
+          ),
         ],
       ),
     );
@@ -97,7 +134,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
       child: Row(
         children: [
           Image.asset("assets/images/pdf_icon.png"),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: InkWell(
               onTap: navigateToDocumentScreen,
@@ -108,9 +145,9 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
                   Row(
                     children: [
                       Text(documentName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
-                      Spacer(),
+                      const Spacer(),
                       Text(uploadDate, style: TextStyle(color: secondary)),
-                      Spacer(),
+                      const Spacer(),
                       Text(fileType, style: TextStyle(color: secondary)),
                     ],
                   ),
@@ -137,7 +174,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
               side: BorderSide(width: 2, color: primary),
             ),
           ),
-          child: Icon(Icons.mode_edit),
+          child: const Icon(Icons.mode_edit),
         ),
       ),
     );

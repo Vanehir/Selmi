@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
-import 'package:prove/ScreensAdmin/Search_main_screen_admin.dart';
 
 class SearchEditScreenAdmin extends StatefulWidget {
   const SearchEditScreenAdmin({super.key});
@@ -14,11 +12,13 @@ class SearchEditScreenAdmin extends StatefulWidget {
 }
 
 class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
-
   final TextEditingController _search = TextEditingController();
-
-  int? selectedTextIndex; // Variabile per l'indice del checkbox selezionato
-  bool isAscending = true; // Stato per sapere se la lista è ordinata in modo crescente o decrescente
+  int? selectedTextIndex; // Indice della selezione corrente
+  bool isAscending = true;
+  bool isFlipped = false;
+  bool showCheckboxes = false; // Variabile per gestire la visibilità delle checkbox
+  List<String> filteredOptions = [];
+  List<bool> checkboxStates = [];
 
   final List<String> options = [
     'TEMPERAGGIO',
@@ -38,22 +38,46 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
     'FONTANE DI CIOCCOLATO'
   ];
 
-  bool isFlipped = false;
+  @override
+  void initState() {
+    super.initState();
+    filteredOptions = options;
+    checkboxStates = List.filled(options.length, false); // Stati per le checkbox
+  }
 
   void _flipIcon() {
     setState(() {
-      isFlipped = !isFlipped; // Cambia lo stato del flip
+      isFlipped = !isFlipped;
     });
   }
 
-  void order (){
+  void order() {
     setState(() {
       if (isAscending) {
-        options.sort((a, b) => a.compareTo(b)); // Ordina in ordine alfabetico
+        filteredOptions.sort((a, b) => a.compareTo(b));
       } else {
-        options.sort((a, b) => b.compareTo(a)); // Ordina in ordine alfabetico inverso
+        filteredOptions.sort((a, b) => b.compareTo(a));
       }
-      isAscending = !isAscending; // Alterna tra crescente e decrescente
+      isAscending = !isAscending;
+    });
+  }
+
+  void _filterOptions(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredOptions = options;
+      } else {
+        filteredOptions = options
+            .where((option) =>
+            option.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
+  void _toggleCheckboxesVisibility() {
+    setState(() {
+      showCheckboxes = !showCheckboxes; // Cambia la visibilità delle checkbox
     });
   }
 
@@ -66,27 +90,34 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: neutral, // Colore di sfondo
-                  borderRadius: BorderRadius.circular(40), // Angoli arrotondati
+                  color: neutral,
+                  borderRadius: BorderRadius.circular(40),
                 ),
                 child: TextField(
+                  controller: _search,
+                  onChanged: _filterOptions,
                   decoration: InputDecoration(
-                    hintText: "Search...", // Placeholder del campo di ricerca
-                    border: InputBorder.none, // Nessun bordo predefinito
-                    contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
+                    hintText: "Search...",
+                    border: InputBorder.none,
+                    contentPadding:
+                    const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),
                     suffixIcon: Row(
-                      mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
+                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        const SizedBox(width: 5,),
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
-                        IconButton(onPressed: (){
-                          setState(() {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                            );
-                          });
-                        }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+                        const SizedBox(width: 5),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.search, color: primary)),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const QrScanMainScreen()),
+                              );
+                            },
+                            icon: const Icon(Icons.qr_code_scanner,
+                                color: primary)),
                       ],
                     ),
                   ),
@@ -95,42 +126,69 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
             ],
           ),
         ),
-        body:
-        Stack(
+        body: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 1.0, left: 8.0, right: 8.0, bottom: 1.0), // Riduce lo spazio sui lati
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   const SizedBox(height: 20),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
+                      itemCount: filteredOptions.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
                               selectedTextIndex = index;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
+                                MaterialPageRoute(
+                                  builder: (context) => ListMachineSearchScreen(
+                                      category: filteredOptions[index]),
+                                ),
                               );
                             });
                           },
                           child: Container(
-                            color: selectedTextIndex == index ? primary : Colors.transparent, // Cambia colore di sfondo
+                            color: selectedTextIndex == index
+                                ? primary
+                                : Colors.transparent,
                             child: ListTile(
-                              title: Text(options[index], style: TextStyle(
-                                color: selectedTextIndex == index ? variant : primary,
-                                fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal, // Cambia spessore se selezionato
-                              ),), // Testo diverso per ciascun checkbox
-
+                              title: Row(
+                                children: [
+                                  if (showCheckboxes) // Mostra le checkbox solo se `showCheckboxes` è true
+                                    Checkbox(
+                                      value: checkboxStates[index],
+                                      onChanged: (bool? newValue) {
+                                        setState(() {
+                                          checkboxStates[index] = newValue ?? false;
+                                        });
+                                      },
+                                    ),
+                                  Expanded(
+                                    child: Text(
+                                      filteredOptions[index],
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        color: selectedTextIndex == index
+                                            ? variant
+                                            : primary,
+                                        fontWeight: selectedTextIndex == index
+                                            ? FontWeight.bold
+                                            : FontWeight.normal,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
                       },
                     ),
-                  ), // lista categorie
+                  ),
                 ],
               ),
             ),
@@ -139,44 +197,51 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  margin: EdgeInsets.only(left: 80, right: 80, bottom: 16),
-                  padding: EdgeInsets.all(10),
+                  margin: const EdgeInsets.only(left: 80, right: 80, bottom: 16),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: primary,
-                      borderRadius: BorderRadius.circular(30)
-                  ),
+                      color: primary, borderRadius: BorderRadius.circular(30)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                          onTap: (){
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomeScreen(accesso: 'admin')));
-                          },
-                          child: Icon(Icons.arrow_back, color: neutral,)),
+                        onTap: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      HomeScreen(accesso: 'admin')));
+                        },
+                        child: const Icon(Icons.arrow_back, color: neutral),
+                      ),
                       InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.check_box_outline_blank, color: neutral,)),
+                        onTap: _toggleCheckboxesVisibility,
+                        child: const Icon(Icons.check_box_outline_blank,
+                            color: neutral),
+                      ),
                       InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.add, color: neutral,)),
+                        onTap: () {},
+                        child: const Icon(Icons.add, color: neutral),
+                      ),
                       InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.sort, color: neutral,)),
+                        onTap: () {},
+                        child: const Icon(Icons.sort, color: neutral),
+                      ),
                       InkWell(
-                          onTap: (){
-                            order();
-                            _flipIcon();
-                          },
-                          child: Transform(
-                              transform: Matrix4.identity()..scale(1.0,isFlipped ? -1.0 : 1.0), // Scala invertita sull'asse y
-                              alignment: Alignment.center,
-                              child: Icon(Icons.swap_vert, color: neutral,))),
+                        onTap: () {
+                          order();
+                          _flipIcon();
+                        },
+                        child: Transform(
+                            transform: Matrix4.identity()
+                              ..scale(1.0, isFlipped ? -1.0 : 1.0),
+                            alignment: Alignment.center,
+                            child: const Icon(Icons.swap_vert, color: neutral)),
+                      ),
                     ],
                   ),
                 ))
           ],
-        )
-
-    );
+        ));
   }
 }
