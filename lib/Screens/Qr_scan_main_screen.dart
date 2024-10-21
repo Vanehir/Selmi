@@ -46,16 +46,13 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Image.asset("assets/images/crop_free.png"),
+              SizedBox(height: 80,),
               ElevatedButton(
                 onPressed: scanBarcode,
                 child: const Text('Scansiona QR Code'),
               ),
               const SizedBox(height: 20),
-              Text(
-                scannedResult,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
               const SizedBox(height: 20),
               _buildManualCodeEntry(),
             ],

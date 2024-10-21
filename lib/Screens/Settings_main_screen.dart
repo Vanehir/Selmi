@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Language_settings_screen.dart';
+import 'package:prove/Screens/Login_screen.dart';
+import 'package:prove/main.dart';
 import 'Notification_settings_screen.dart';
 
 class SettingsMainScreen extends StatelessWidget {
@@ -34,14 +36,14 @@ class SettingsMainScreen extends StatelessWidget {
             context,
             "Sign Out",
             "assets/images/log_out_icon.png",
-                () => print("Cliccato"),
+                () => _showSignOutDialog(context),
           ),
           SizedBox(height: 20),
           _buildSectionTitle(context, "GENERAL"),
           _buildSettingItem(
             context,
             "Display",
-            "assets/images/display_icon.png", // Aggiungi l'icona appropriata
+            "assets/images/display_icon.png",
                 () => print("Cliccato"),
           ),
           _buildSettingItem(
@@ -62,6 +64,39 @@ class SettingsMainScreen extends StatelessWidget {
           Spacer(),
         ],
       ),
+    );
+  }
+
+  void _showSignOutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Sign Out", style: TextStyle(color: primary),),
+          content: Text("Sei sicuro di voler uscire? Dovrai accedere nuovamente.", style: TextStyle(color: primary),),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Chiudi il popup
+              },
+              child: Text("Annulla", style: TextStyle(color: primary),),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Chiudi il popup
+                // Qui puoi aggiungere il codice per effettuare il sign out e reindirizzare l'utente
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                      (Route<dynamic> route) => false, // Rimuovi tutte le schermate precedenti
+                );
+                print("Uscito");
+              },
+              child: Text("Esci", style: TextStyle(color: error),),
+            ),
+          ],
+        );
+      },
     );
   }
 
