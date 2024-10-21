@@ -160,6 +160,9 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                           onTap: (){},
                           child: Icon(Icons.add, color: neutral,)),
                       InkWell(
+                          onTap: (){},
+                          child: Icon(Icons.sort, color: neutral,)),
+                      InkWell(
                           onTap: (){
                             order();
                             _flipIcon();
@@ -167,10 +170,7 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                           child: Transform(
                               transform: Matrix4.identity()..scale(1.0,isFlipped ? -1.0 : 1.0), // Scala invertita sull'asse y
                               alignment: Alignment.center,
-                              child: Icon(Icons.sort, color: neutral,))),
-                      InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.swap_vert, color: neutral,))
+                              child: Icon(Icons.swap_vert, color: neutral,))),
                     ],
                   ),
                 ))
