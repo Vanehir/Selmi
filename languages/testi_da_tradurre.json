@@ -1,0 +1,83 @@
+{
+  "text": [
+    {
+      "id": "navigation_bottom_bar",
+      "search": "search",
+      "page": "Page",
+      "qr_page": "Qr Page",
+      "saved_page": "Saved Page",
+      "settings_page": "Settings Page"
+    },
+    {
+      "id": "home",
+      "top_title": "Last scanned machines",
+      "bottom_title": "Last documents opened"
+    },
+
+    {
+      "id": "Product_main_screen",
+      "appbar_title": "Product",
+      "specs_title": "Specs",
+      "manual_title": "Manual",
+      "other_title": "Other"
+    },
+    {
+      "id": "Document_main_screen",
+      "appbar_title": "Document",
+      "description_title": "Description",
+      "description": "La temperatrice modello CENTO si allinea alle versioni TOP EX e FUTURA EX conservandone le caratteristiche innovative delle stesse ma potenziando notevolmente la quantità produttiva grazie alla vasca da 100 kg che consentirà la ricopertura in tunnel di larghezza fino a 600 mm.",
+      "download_button": "Download",
+      "report_button": "report error"
+    },
+    {
+      "id": "Settings",
+      "appbar_title": "Setings",
+      "accout-title": "Account",
+      "account_management": "Account account_management",
+      "notifications": "Notifications",
+      "sing_out": "Sing Out",
+      "general_title": "General",
+      "display": "Display",
+      "app_language": "App Language",
+      "security": "Security"
+    },
+
+    {
+      "id": "settings_notifications",
+      "appbar_title": "Notifications",
+      "push_notificaiton_title": "Push Notifications",
+      "push_notification_description": "You will receive notifications of any changes to the documentation, regardless of whether the application is open.",
+      "your_documentation": "Your documentation",
+      "your_machinery": "Your machinery",
+      "list_item": "List item",
+      "email_notification_title": "Email Notifications"
+    },
+    {
+      "id": "Languages",
+      "appbar_title": "Languages",
+      "chinese": "Chinese",
+      "english": "English",
+      "french": "French",
+      "german": "German",
+      "italian": "Italian",
+      "spanish": "Spanish",
+      "russian": "Russian",
+      "turkish": "Rurkish"
+    },
+    {
+      "id": "Saved_main_screen",
+      "search_bar_hint_text": "Search...",
+      "owned_clickable": "Owned",
+      "favourites_clickable": "Favourites",
+      "owned_empty_place_holder": "Owned content",
+      "favoutires_empty_place_holder": "Favourites content"
+    },
+    {
+      "id": "Search_main_screen",
+      "search_bar_hint_text": "Search..."
+    },
+    {},
+    {},
+    {}
+  ]
+}

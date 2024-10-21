@@ -36,3 +36,4 @@ com.example.prove.app-packageDebugResources-34 C:\Users\ICTS23-25.093\Desktop\fl
 com.example.prove.app-packageDebugResources-35 C:\Users\ICTS23-25.093\Desktop\fl_prj\Selmi\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
 com.example.prove.app-merged_res-36 C:\Users\ICTS23-25.093\Desktop\fl_prj\Selmi\build\app\intermediates\merged_res\debug
 com.example.prove.app-packaged_res-37 C:\Users\ICTS23-25.093\Desktop\fl_prj\Selmi\build\barcode_scan2\intermediates\packaged_res\debug
+com.example.prove.app-packaged_res-38 C:\Users\ICTS23-25.093\Desktop\fl_prj\Selmi\build\path_provider_android\intermediates\packaged_res\debug

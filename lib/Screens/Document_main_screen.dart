@@ -191,14 +191,14 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
                                         backgroundColor: secondario,
                                         foregroundColor: background,
                                       ),
-                                      child: Row(
+                                      child: const Row(
                                         mainAxisSize: MainAxisSize
                                             .min, // Mantiene la dimensione minima per il bottone
                                         children: [
                                           Icon(Icons.error,
                                               size:
                                                   20), // Inserisci qui l'icona che preferisci
-                                          const SizedBox(
+                                          SizedBox(
                                               width:
                                                   8), // Spaziatura tra l'icona e il testo
                                           Text("report error"),

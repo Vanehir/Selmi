@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProductMainScreen extends StatefulWidget {
   final String nome;
