@@ -1,8 +1,3 @@
-EndPoint
-https://mockapi.io/projects/66f4790377b5e88970999b7d
-
-
-
 {
   "categorie": [
     {
@@ -34,7 +29,7 @@ https://mockapi.io/projects/66f4790377b5e88970999b7d
           "data_pubblicazione": "2024-02-10"
         },
         {
-          "titolo": "Plus ExTemperatrice Cioccolato",
+          "titolo": "Plus ExTemperatriceeeeee Cioccolato",
           "categoria": "Temperaggio",
           "immagine": "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/plus-ex-temperatrice-cioccolato/plus-ex-temperatrice-cioccolato.png",
           "descrizione": "Temperatrice professionale per cioccolato Plus Ex, con coclea estraibile e pannello dei comandi digitale.Tra le sue caratteristiche:Versatilità d'impiego ed economicità di esercizio.Dosatore volumetrico, pedaliera per il controllo del flusso del cioccolato.Tavola vibrante riscaldata in bassa tensione.I vantaggi di utilizzo di questa macchina sono innumerevoli, in primo luogo la possibilità di inserire granella di nocciola, gruè di cacao e qualsivoglia prodotto all'interno del cioccolato per consentirne l'aromatizzazione.",

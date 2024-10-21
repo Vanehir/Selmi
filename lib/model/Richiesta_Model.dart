@@ -18,6 +18,8 @@ class Cioccolato {
 */
 
 
+
+//fetch and parse JSON
 Future<List<dynamic>> fetchTemperaggioData() async {
   final response = await http.get(
       Uri.parse('https://66f4790377b5e88970999b7c.mockapi.io/selmi/temperaggio/'));
