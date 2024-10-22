@@ -81,7 +81,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget _buildHomePage() {
     return Column(
       children: [
-        Image.asset('assets/images/selmi_logo.png', height: 200),
+        SizedBox(height: 40,),
+        Image.asset('assets/images/selmi_logo.png', height: 38),
         const SizedBox(height: 10),
         _buildSectionTitle(context, "LAST SCANNED MACHINES"),
         Expanded(child: _buildMachineList()),
