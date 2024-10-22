@@ -17,31 +17,44 @@ class _SavedMainScreen extends State<SavedMainScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 50),
-        Padding(padding: const EdgeInsets.all(20),
-          child: Container(
-            decoration: ShapeDecoration(shape: RoundedRectangleBorder(
-                side: BorderSide(width: 2, color: primary),
-                borderRadius: BorderRadius.circular(40)
-            )),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search...", // Placeholder del campo di ricerca
-                border: InputBorder.none, // Nessun bordo predefinito
-                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),  // Padding verticale
-                suffixIcon: Row(
-                  mainAxisSize: MainAxisSize.min,// Minimizza la larghezza della Row
-                  children: <Widget>[
-                    SizedBox(width: 5,),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.search,color: primary)),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.qr_code_scanner,color: primary)),
-                  ],
+        Container(
+          decoration: BoxDecoration(
+            color: primary
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Container(
+                  decoration: ShapeDecoration(
+                    color: neutral, // Colore di sfondo del Container
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 2, color: neutral), // Bordo esterno del Container
+                      borderRadius: BorderRadius.circular(40), // Bordi arrotondati
+                    ),
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Search...", // Placeholder del campo di ricerca
+                      border: InputBorder.none, // Nessun bordo predefinito
+                      contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Padding interno del TextField
+                      suffixIcon: Row(
+                        mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
+                        children: <Widget>[
+                          SizedBox(width: 5),
+                          IconButton(onPressed: () {}, icon: Icon(Icons.search, color: primary)),
+                          IconButton(onPressed: () {}, icon: Icon(Icons.qr_code_scanner, color: primary)),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ), // Search bar
-        SizedBox(height: 40),
+        SizedBox(height: 0),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -55,9 +68,9 @@ class _SavedMainScreen extends State<SavedMainScreen> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.5,
                 decoration: BoxDecoration(
-                  color: selectedIndex == 0 ? primary : Colors.transparent,
+                  color: selectedIndex == 0 ? secondary : Colors.transparent,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(5), // Arrotonda solo l'angolo in alto a destra
+                    topRight: Radius.circular(0), // Arrotonda solo l'angolo in alto a destra
                   ),
                   border: Border.all(
                     color: primary,
@@ -88,9 +101,9 @@ class _SavedMainScreen extends State<SavedMainScreen> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.5,
                 decoration: BoxDecoration(
-                  color: selectedIndex == 1 ? primary : Colors.transparent,
+                  color: selectedIndex == 1 ? secondary : Colors.transparent,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(5), // Arrotonda solo l'angolo in alto a sinistra
+                    topLeft: Radius.circular(0), // Arrotonda solo l'angolo in alto a sinistra
                   ),
                   border: Border.all(
                     color: primary,
@@ -117,7 +130,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-              color: primary,
+              color: neutral,
               borderRadius: BorderRadius.circular(0),
             ),
             child: Consumer<ItemProvider>(
@@ -126,7 +139,7 @@ class _SavedMainScreen extends State<SavedMainScreen> {
                   return Center(
                     child: Text(
                       selectedIndex == 0 ? "Owned content" : "Favourites content",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: TextStyle(color: primary, fontSize: 20),
                     ),
                   );
                 } else {
@@ -136,12 +149,14 @@ class _SavedMainScreen extends State<SavedMainScreen> {
                       final item = itemProvider.itemList[index];
                       return ListTile(
                         leading: Image.network(item.immagine),
-                        title: Text(item.titolo, style: TextStyle(color: Colors.white)),
-                        subtitle: Column(
+                        title: Text(item.titolo, style: TextStyle(color: primary)),
+                        subtitle: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(item.categoria, style: TextStyle(color: Colors.white)),
-                            Text(item.data, style: TextStyle(color: Colors.white)),
+                            Text(item.categoria, style: TextStyle(color: primary)),
+                            SizedBox(width: 20,),
+                            Text(item.data, style: TextStyle(color: primary)),
                           ],
                         ),
                         onTap: (){

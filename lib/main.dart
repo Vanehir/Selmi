@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Screens/Home_Screen.dart';
+import 'package:prove/Screens/Loading_screen.dart';
 import 'package:prove/Screens/Login_screen.dart';
 import 'package:prove/Screens/Register_main_screen.dart';
 import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           headlineMedium: TextStyle(fontSize: 25, color: neutral )
         ),
       ),
-      home: const LoginScreen(),
+      home:  LoadingScreen(),
     );
   }
 }
