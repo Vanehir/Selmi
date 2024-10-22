@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Loading_screen.dart';
 import 'package:prove/Screens/Login_screen.dart';
@@ -9,7 +10,9 @@ import 'package:prove/Colors/color_palette.dart';
 import 'package:provider/provider.dart';
 import 'model/Object_class.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     MultiProvider(
       providers: [
