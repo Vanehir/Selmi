@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 import '../Texts/Text.dart';
 
-class NotificationSettingsScreen extends StatefulWidget {
+class DisplaySettingsScreen extends StatefulWidget {
   final String accesso;
-  const NotificationSettingsScreen({Key? key, required this.accesso}) : super(key: key);
+  const DisplaySettingsScreen({Key? key, required this.accesso}) : super(key: key);
 
   @override
-  State<NotificationSettingsScreen> createState() => _NotificationSettingsScreenState();
+  State<DisplaySettingsScreen> createState() => _DisplaySettingsScreenState();
 }
 
-class _NotificationSettingsScreenState extends State<NotificationSettingsScreen> {
+class _DisplaySettingsScreenState extends State<DisplaySettingsScreen> {
   bool isSwitchOn = true;
   final List<bool> checkValues = [true, false, true, false, false, false];
 
@@ -24,46 +24,47 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         iconTheme: const IconThemeData(color: neutral),
         title: const Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text("NOTIFICATIONS", style: TextStyle(color: neutral)),
+          child: Text("DISPLAY", style: TextStyle(color: neutral)),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                "Push Notification",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              "Theme Color",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  const Expanded(child: Text(DescriptionNotification)),
-                  Switch(
-                    value: isSwitchOn,
-                    onChanged: (newValue) => setState(() => isSwitchOn = newValue),
-                    activeColor: primary,
-                  ),
-                ],
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              children: [
+                const Expanded(child: Text(DescriptionDisplay)),
+                Switch(
+                  value: isSwitchOn,
+                  onChanged: (newValue) => setState(() => isSwitchOn = newValue),
+                  activeColor: primary,
+                ),
+              ],
             ),
-            // Blocchi basati su accesso
-            if (widget.accesso == 'user' || widget.accesso == 'admin')
-              ..._buildCheckboxList(0, 2),
-            if (widget.accesso == 'admin')
-              ..._buildCheckboxList(2, 3),
-            const Padding(
-              padding: EdgeInsets.only(left: 20, top: 16),
-              child: Text("Email notifications", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(height: 20),
-            ..._buildCheckboxList(3, 6),
-          ],
-        ),
+          ),
+          // Blocchi basati su accesso
+          if (widget.accesso == 'user' || widget.accesso == 'admin')
+            ..._buildCheckboxList(0, 2),
+          if (widget.accesso == 'admin')
+            ..._buildCheckboxList(2, 3),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, top: 16),
+            child: Text("Email notifications", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          ),
+          const SizedBox(height: 20),
+          ..._buildCheckboxList(3, 5),
+          // Mostra ulteriori opzioni per gli admin
+          if (widget.accesso == 'admin')
+            ..._buildCheckboxList(5, 6), // Mostra "Your documentation", "Your machinery", e "List item"
+        ],
       ),
     );
   }
@@ -71,10 +72,10 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
   List<Widget> _buildCheckboxList(int start, int end) {
     const List<String> checkboxTitles = [
       "Your documentation",
-      "Your machinary",
+      "Your machinery",
       "List item",
       "Your documentation",
-      "Your machinary",
+      "Your machinery",
       "List item",
     ];
 

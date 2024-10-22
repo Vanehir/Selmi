@@ -17,36 +17,22 @@ class _SearchInputScreenState extends State<SearchInputScreen> {
 
   final TextEditingController _search = TextEditingController();
   bool isSearching = false; // Variabile per sapere se si sta cercando
-
-
-  int? selectedTextIndex; // Variabile per l'indice del checkbox selezionato
-  final List<String> options = [
-    'TEMPERAGGIO',
-    'RICOPERTURA PRODOTTI CON IL CIOCCOLATO',
-    'MODELLAGGIO CIOCCOLATO',
-    'CHOCAPAINT',
-    'TUNNEL di RAFFREDDAMENTO e RICOPERTURA',
-    'ONE SHOT TUTTUNO',
-    'CLUSTER',
-    'CONFETTATRICI BASSINE',
-    'SCIOGLITORI e MISCELATORI',
-    'ESTRUSORI',
-    'RAFFINATRICI A SFERE',
-    'TOSTATRICI',
-    'BEAN TO BAR',
-    'LAVORAZIONE FRUTTA SECCA',
-    'FONTANE DI CIOCCOLATO'
-  ]; // Lista di descrizioni per ciascun checkbox
-
   bool isFlipped = false;
-
-  bool isAscending = true; // Stato per sapere se la lista è ordinata in modo crescente o decrescente
-
+  bool isPanelVisible = false; // Variabile per controllare la visibilità del pannello
+  int? selectedTextIndex;
+  final List<String> options = [
+    'TEMPERAGGIO', 'RICOPERTURA PRODOTTI CON IL CIOCCOLATO', 'MODELLAGGIO CIOCCOLATO',
+    'CHOCAPAINT', 'TUNNEL di RAFFREDDAMENTO e RICOPERTURA', 'ONE SHOT TUTTUNO',
+    'CLUSTER', 'CONFETTATRICI BASSINE', 'SCIOGLITORI e MISCELATORI', 'ESTRUSORI',
+    'RAFFINATRICI A SFERE', 'TOSTATRICI', 'BEAN TO BAR', 'LAVORAZIONE FRUTTA SECCA',
+    'FONTANE DI CIOCCOLATO'
+  ];
+  bool isAscending = true;
+  double sheetPosition = 0.4; // Posizione iniziale del foglio
 
   @override
   void initState() {
     super.initState();
-    // Aggiungi un listener al TextEditingController per monitorare il testo
     _search.addListener(() {
       setState(() {
         isSearching = _search.text.isNotEmpty;
@@ -56,145 +42,181 @@ class _SearchInputScreenState extends State<SearchInputScreen> {
 
   void _flipIcon() {
     setState(() {
-      isFlipped = !isFlipped; // Cambia lo stato del flip
+      isFlipped = !isFlipped;
     });
   }
 
   void order (){
     setState(() {
       if (isAscending) {
-        options.sort((a, b) => a.compareTo(b)); // Ordina in ordine alfabetico
+        options.sort((a, b) => a.compareTo(b));
       } else {
-        options.sort((a, b) => b.compareTo(a)); // Ordina in ordine alfabetico inverso
+        options.sort((a, b) => b.compareTo(a));
       }
-      isAscending = !isAscending; // Alterna tra crescente e decrescente
+      isAscending = !isAscending;
+    });
+  }
+
+  void _togglePanel() {
+    setState(() {
+      isPanelVisible = !isPanelVisible;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: primary,
-          title: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: neutral, // Colore di sfondo
-                  borderRadius: BorderRadius.circular(40), // Angoli arrotondati
-                ),
-                child: TextField(
-                  controller: _search,
-                  decoration: InputDecoration(
-                    hintText: "Search...", // Placeholder del campo di ricerca
-                    border: InputBorder.none, // Nessun bordo predefinito
-                    contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
-                    suffixIcon: Row(
-                      mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
-                      children: <Widget>[
-                        const SizedBox(width: 5,),
-                        IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
-                        IconButton(onPressed: (){
-                          setState(() {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                            );
-                          });
-                        }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
-                      ],
-                    ),
+      appBar: AppBar(
+        backgroundColor: primary,
+        title: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: neutral,
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: TextField(
+                controller: _search,
+                decoration: InputDecoration(
+                  hintText: "Search...",
+                  border: InputBorder.none,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const SizedBox(width: 5,),
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+                      IconButton(onPressed: (){
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                          );
+                        });
+                      }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+                    ],
                   ),
                 ),
               ),
-            ],
-          ),
-        ),
-        body: Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: primary
-              ),
-              child: Text('HISTORY', style: TextStyle(fontSize: 25, color: neutral),),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, left: 8.0, right: 8.0, bottom: 1.0), // Riduce lo spazio sui lati
-              child: Column(
+          ],
+        ),
+      ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, left: 8.0, right: 8.0, bottom: 1.0),
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: options.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedTextIndex = index;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
+                            );
+                          });
+                        },
+                        child: Container(
+                          color: selectedTextIndex == index ? primary : Colors.transparent,
+                          child: ListTile(
+                            title: Text(options[index], style: TextStyle(
+                              color: selectedTextIndex == index ? variant : primary,
+                              fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal,
+                            ),),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              margin: const EdgeInsets.only(left: 130, right: 130, bottom: 16),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: primary,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(height: 20),
-                  Expanded(
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'user')),
+                      );
+                    },
+                    child: const Icon(Icons.arrow_back, color: neutral,),
+                  ),
+                  InkWell(
+                    onTap: _togglePanel, // Mostra/Nascondi il pannello
+                    child: const Icon(Icons.sort, color: neutral,),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      order();
+                      _flipIcon();
+                    },
+                    child: Transform(
+                      transform: Matrix4.identity()..scale(1.0,isFlipped ? -1.0 : 1.0),
+                      alignment: Alignment.center,
+                      child: const Icon(Icons.swap_vert, color: neutral,),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (isPanelVisible)
+            DraggableScrollableSheet(
+              initialChildSize: sheetPosition,
+              minChildSize: 0.1,
+              maxChildSize: 0.7,
+              builder: (BuildContext context, ScrollController scrollController) {
+                return NotificationListener<DraggableScrollableNotification>(
+                  onNotification: (DraggableScrollableNotification notification) {
+                    setState(() {
+                      sheetPosition = notification.extent; // Traccia la posizione del foglio
+                      if (sheetPosition <= 0.1) {
+                        isPanelVisible = false; // Nascondi il pannello quando raggiunge la dimensione minima
+                      }
+                    });
+                    return true;
+                  },
+                  child: Container(
+                    color: primary,
                     child: ListView.builder(
-                      itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: (){
-                            setState(() {
-                              selectedTextIndex = index;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
-                              );
-                            });
-                          },
-                          child: Container(
-                            color: selectedTextIndex == index ? primary : Colors.transparent, // Cambia colore di sfondo
-                            child: ListTile(
-                              title: Text(options[index], style: TextStyle(
-                                color: selectedTextIndex == index ? variant : primary,
-                                fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal, // Cambia spessore se selezionato
-                              ),), // Testo diverso per ciascun checkbox
-
-                            ),
+                      controller: scrollController,
+                      itemCount: 10,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                          title: Text(
+                            'Item $index',
+                            style: TextStyle(color: neutral),
                           ),
                         );
                       },
                     ),
-                  ), // lista categorie
-                ],
-              ),
+                  ),
+                );
+              },
             ),
-            Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  margin: EdgeInsets.only(left: 130, right: 130, bottom: 16),
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: primary,
-                      borderRadius: BorderRadius.circular(30)
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                          onTap: (){
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'user')),
-                            );
-                          },
-                          child: Icon(Icons.arrow_back, color: neutral,)),
-                      InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.sort, color: neutral,)),
-                      InkWell(
-                          onTap: (){
-                            order();
-                            _flipIcon();
-                          },
-                          child: Transform(
-                              transform: Matrix4.identity()..scale(1.0,isFlipped ? -1.0 : 1.0), // Scala invertita sull'asse y
-                              alignment: Alignment.center,
-                              child: Icon(Icons.swap_vert, color: neutral,))),
-                    ],
-                  ),
-                ))
-          ],
-        )
+        ],
+      ),
     );
   }
 }

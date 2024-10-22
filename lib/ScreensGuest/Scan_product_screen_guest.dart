@@ -57,8 +57,8 @@ class _ScanProductScreenGuestState extends State<ScanProductScreenGuest> {
       child: Stack(
         children: [
           Center(child: Image.network(widget.immagine, height: 300)),
-          _buildFavoriteIcon(itemProvider),
-          _buildQrIcon(),
+          //_buildFavoriteIcon(itemProvider),
+          //_buildQrIcon(),
           _buildLanguageIcon(),
         ],
       ),

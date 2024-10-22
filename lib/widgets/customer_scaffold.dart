@@ -53,7 +53,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         control(),
         QrScanMainScreen(),
         SavedMainScreen(),
-        SettingsMainScreen(),
+        SettingsMainScreen(accesso: widget.accesso,),
     ];
 
     return Scaffold(

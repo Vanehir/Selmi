@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Display_settings_screen.dart';
 import 'package:prove/Screens/Language_settings_screen.dart';
 import 'package:prove/Screens/Login_screen.dart';
 import 'package:prove/main.dart';
 import 'Notification_settings_screen.dart';
 
-class SettingsMainScreen extends StatelessWidget {
+class SettingsMainScreen extends StatefulWidget {
+  final String accesso;
+
+  const SettingsMainScreen({super.key, required this.accesso});
+
+  @override
+  State<SettingsMainScreen> createState() => _SettingsMainScreenState();
+}
+
+class _SettingsMainScreenState extends State<SettingsMainScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: variant,
       appBar: AppBar(
-        title: Text("SETTINGS", style: TextStyle(color: neutral, fontSize: 30)),
+        title: const Text(
+          "SETTINGS",
+          style: TextStyle(color: neutral, fontSize: 30),
+        ),
         backgroundColor: primary,
       ),
       body: Column(
@@ -29,7 +43,9 @@ class SettingsMainScreen extends StatelessWidget {
             "assets/images/notification_icon.png",
                 () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NotificationSettingsScreen()),
+              MaterialPageRoute(
+                builder: (context) => NotificationSettingsScreen(accesso: widget.accesso),
+              ),
             ),
           ),
           _buildSettingItem(
@@ -38,13 +54,16 @@ class SettingsMainScreen extends StatelessWidget {
             "assets/images/log_out_icon.png",
                 () => _showSignOutDialog(context),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           _buildSectionTitle(context, "GENERAL"),
           _buildSettingItem(
             context,
             "Display",
             "assets/images/display_icon.png",
-                () => print("Cliccato"),
+                () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DisplaySettingsScreen(accesso: widget.accesso,)),
+            ),
           ),
           _buildSettingItem(
             context,
@@ -61,30 +80,33 @@ class SettingsMainScreen extends StatelessWidget {
             "assets/images/lock_icon.png",
                 () => print("Cliccato"),
           ),
-          Spacer(),
+          const Spacer(),
         ],
       ),
     );
   }
 
+  // Dialog di conferma per il sign out
   void _showSignOutDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Sign Out", style: TextStyle(color: primary),),
-          content: Text("Sei sicuro di voler uscire? Dovrai accedere nuovamente.", style: TextStyle(color: primary),),
+          title: const Text("Sign Out", style: TextStyle(color: primary)),
+          content: const Text(
+            "Sei sicuro di voler uscire? Dovrai accedere nuovamente.",
+            style: TextStyle(color: primary),
+          ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Chiudi il popup
               },
-              child: Text("Annulla", style: TextStyle(color: primary),),
+              child: const Text("Annulla", style: TextStyle(color: primary)),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Chiudi il popup
-                // Qui puoi aggiungere il codice per effettuare il sign out e reindirizzare l'utente
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -92,7 +114,7 @@ class SettingsMainScreen extends StatelessWidget {
                 );
                 print("Uscito");
               },
-              child: Text("Esci", style: TextStyle(color: error),),
+              child: const Text("Esci", style: TextStyle(color: error)),
             ),
           ],
         );
@@ -100,6 +122,7 @@ class SettingsMainScreen extends StatelessWidget {
     );
   }
 
+  // Costruisce il titolo di ogni sezione
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Padding(
       padding: const EdgeInsets.only(left: 25, top: 20, bottom: 5),
@@ -110,13 +133,14 @@ class SettingsMainScreen extends StatelessWidget {
     );
   }
 
+  // Costruisce un singolo elemento delle impostazioni con icona e navigazione
   Widget _buildSettingItem(BuildContext context, String title, String iconPath, VoidCallback onTap) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
       child: InkWell(
         onTap: onTap,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               bottom: BorderSide(color: neutral, width: 2),
             ),
@@ -126,9 +150,9 @@ class SettingsMainScreen extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(iconPath),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Text(title, style: Theme.of(context).textTheme.bodyLarge),
-                Spacer(),
+                const Spacer(),
                 Image.asset('assets/images/right_icon.png'),
               ],
             ),

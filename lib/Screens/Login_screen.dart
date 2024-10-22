@@ -93,11 +93,17 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               _buildTextButton("Forgot Password?", () {}),
               _buildTextButton("Register", () {
-                _navigateTo(const RegisterMainScreen());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterMainScreen()),
+                );
               }),
               SizedBox(height: screenHeight * 0.02),
               _buildTextButton("Skip", () {
-                _navigateTo(const QrScanMainScreenGuest());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const QrScanMainScreenGuest()),
+                );
               }, fontSize: 30, isBold: true),
             ],
           ),

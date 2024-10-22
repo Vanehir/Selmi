@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
+import 'package:prove/ScreensGuest/Scan_product_screen_guest.dart';
 
 import '../Screens/Product_main_screen.dart';
 
 class QrScanMainScreenGuest extends StatefulWidget {
+
   const QrScanMainScreenGuest({super.key});
 
   @override
@@ -23,7 +25,7 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductMainScreen(
+            builder: (context) => ScanProductScreenGuest(
               nome: result.rawContent,
               immagine: "https://www.selmi-group.it/img/macchine-temperaggio-cioccolato/selmi-one-temperatrice-cioccolato/selmi-one-temperatrice-cioccolato.png",
             ),
@@ -55,11 +57,6 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
                 child: const Text('Scansiona QR Code'),
               ),
               const SizedBox(height: 20),
-              Text(
-                scannedResult,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
               const SizedBox(height: 20),
               _buildManualCodeEntry(),
             ],
