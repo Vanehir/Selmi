@@ -51,17 +51,25 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 ],
               ),
             ),
-            // Blocchi basati su accesso
+            // Checkbox list basata sull'accesso dell'utente
             if (widget.accesso == 'user' || widget.accesso == 'admin')
-              ..._buildCheckboxList(0, 2),
+              ..._buildCheckboxList(0, 2), // "Your documentation", "Your machinary"
+            const SizedBox(height: 20),
             if (widget.accesso == 'admin')
-              ..._buildCheckboxList(2, 3),
+              ..._buildCheckboxList(2, 3), // "List item" aggiunta per admin
+
             const Padding(
               padding: EdgeInsets.only(left: 20, top: 16),
               child: Text("Email notifications", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 20),
-            ..._buildCheckboxList(3, 6),
+
+            // Ripetere la lista checkbox dopo Email notifications
+            if (widget.accesso == 'user' || widget.accesso == 'admin')
+              ..._buildCheckboxList(3, 5), // "Your documentation", "Your machinary"
+            const SizedBox(height: 20),
+            if (widget.accesso == 'admin')
+              ..._buildCheckboxList(5, 6), // "List item" aggiunta per admin dopo email
           ],
         ),
       ),

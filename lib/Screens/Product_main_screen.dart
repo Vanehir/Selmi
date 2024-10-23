@@ -4,6 +4,8 @@ import 'package:prove/Screens/Document_main_screen.dart';
 import 'package:prove/model/Object_class.dart';
 import 'package:provider/provider.dart';
 
+import 'Qr_scan_main_screen.dart';
+
 class ProductMainScreen extends StatefulWidget {
   final String nome;
   final String immagine;
@@ -87,7 +89,12 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
       left: 20,
       child: InkWell(
         onTap: () {
-          // Implement QR code scan action here
+          setState(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+            );
+          });
         },
         child: Icon(Icons.qr_code_scanner),
       ),

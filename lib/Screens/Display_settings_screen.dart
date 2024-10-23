@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
-import '../Texts/Text.dart';
+import 'package:prove/Texts/Text.dart';
 
 class DisplaySettingsScreen extends StatefulWidget {
   final String accesso;
@@ -12,19 +12,19 @@ class DisplaySettingsScreen extends StatefulWidget {
 
 class _DisplaySettingsScreenState extends State<DisplaySettingsScreen> {
   bool isSwitchOn = true;
-  final List<bool> checkValues = [true, false, true, false, false, false];
+  double sliderValue = 0.5; // Valore iniziale dello slider (SeekBar)
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: variant,
+      backgroundColor: Colors.grey[200], // Colore di sfondo
       appBar: AppBar(
         backgroundColor: primary,
         titleTextStyle: Theme.of(context).textTheme.headlineMedium,
-        iconTheme: const IconThemeData(color: neutral),
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text("DISPLAY", style: TextStyle(color: neutral)),
+          child: Text("DISPLAY", style: TextStyle(color: Colors.white)),
         ),
       ),
       body: Column(
@@ -50,75 +50,43 @@ class _DisplaySettingsScreenState extends State<DisplaySettingsScreen> {
               ],
             ),
           ),
-          // Blocchi basati su accesso
-          if (widget.accesso == 'user' || widget.accesso == 'admin')
-            ..._buildCheckboxList(0, 2),
-          if (widget.accesso == 'admin')
-            ..._buildCheckboxList(2, 3),
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 16),
-            child: Text("Email notifications", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+
+          // Barra di scorrimento (SeekBar)
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text('Text Size', style: TextStyle(color: primary, fontSize: 25)),
           ),
-          const SizedBox(height: 20),
-          ..._buildCheckboxList(3, 5),
-          // Mostra ulteriori opzioni per gli admin
-          if (widget.accesso == 'admin')
-            ..._buildCheckboxList(5, 6), // Mostra "Your documentation", "Your machinery", e "List item"
-        ],
-      ),
-    );
-  }
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              children: [
+                // Testo sopra la barra
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Piccolo', style: TextStyle(color: primary)),
+                    Text('Medio', style: TextStyle(color: primary)),
+                    Text('Grande', style: TextStyle(color: primary)),
+                  ],
+                ),
 
-  List<Widget> _buildCheckboxList(int start, int end) {
-    const List<String> checkboxTitles = [
-      "Your documentation",
-      "Your machinery",
-      "List item",
-      "Your documentation",
-      "Your machinery",
-      "List item",
-    ];
-
-    return List<Widget>.generate(end - start, (index) {
-      return SettingCheckbox(
-        title: checkboxTitles[start + index],
-        value: checkValues[start + index],
-        onChanged: isSwitchOn
-            ? (newValue) => setState(() => checkValues[start + index] = newValue ?? false)
-            : null,
-      );
-    });
-  }
-}
-
-class SettingCheckbox extends StatelessWidget {
-  final String title;
-  final bool value;
-  final ValueChanged<bool?>? onChanged;
-
-  const SettingCheckbox({
-    Key? key,
-    required this.title,
-    required this.value,
-    this.onChanged,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: neutral, width: 2)),
-      ),
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      child: Row(
-        children: [
-          Text(title),
-          const Spacer(),
-          Checkbox(
-            value: value,
-            activeColor: primary,
-            onChanged: onChanged,
+                // Slider che sostituisce la barra
+                Slider(
+                  value: sliderValue,
+                  min: 0.0,
+                  max: 1.0,
+                  divisions: 2, // Divide la barra in 3 parti (Piccolo, Medio, Grande)
+                  onChanged: (newValue) {
+                    setState(() {
+                      sliderValue = newValue;
+                    });
+                  },
+                  activeColor: primary, // Colore della barra attiva
+                  inactiveColor: secondary, // Colore della barra inattiva
+                ),
+              ],
+            ),
           ),
         ],
       ),

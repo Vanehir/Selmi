@@ -5,7 +5,13 @@ import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
 
 class SearchInputScreen extends StatefulWidget {
-  const SearchInputScreen({super.key});
+  final String name;
+  final String surname;
+  final String username;
+  final String emaiil;
+  final String password;
+  final String serialcode;
+  const SearchInputScreen({super.key, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode});
 
   @override
   State<SearchInputScreen> createState() => _SearchInputScreenState();
@@ -180,7 +186,7 @@ class _SearchInputScreenState extends State<SearchInputScreen> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'user')),
+                        MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'user', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode)),
                       );
                     },
                     child: const Icon(Icons.arrow_back, color: neutral,),

@@ -5,7 +5,14 @@ import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
 
 class SearchEditScreenAdmin extends StatefulWidget {
-  const SearchEditScreenAdmin({super.key});
+
+  final String name;
+  final String surname;
+  final String username;
+  final String emaiil;
+  final String password;
+  final String serialcode;
+  const SearchEditScreenAdmin({super.key, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode});
 
   @override
   State<SearchEditScreenAdmin> createState() => _SearchEditScreenAdminState();
@@ -210,7 +217,7 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      HomeScreen(accesso: 'admin')));
+                                      HomeScreen(accesso: 'admin',name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode)));
                         },
                         child: const Icon(Icons.arrow_back, color: neutral),
                       ),

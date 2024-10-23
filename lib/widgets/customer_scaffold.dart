@@ -14,9 +14,15 @@ import 'package:prove/Colors/color_palette.dart';
 class CustomScaffold extends StatefulWidget {
   final List<Widget> pages;
   final String accesso;
+  final String name;
+  final String surname;
+  final String username;
+  final String emaiil;
+  final String password;
+  final String serialcode;
 
 
-  const CustomScaffold({required this.pages, Key? key, required this.accesso}) : super(key: key);
+  const CustomScaffold({required this.pages, Key? key, required this.accesso, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode}) : super(key: key);
 
   @override
   _CustomScaffoldState createState() => _CustomScaffoldState();
@@ -53,7 +59,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         control(),
         QrScanMainScreen(),
         SavedMainScreen(),
-        SettingsMainScreen(accesso: widget.accesso,),
+        SettingsMainScreen(accesso: widget.accesso, name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,),
     ];
 
     return Scaffold(
@@ -144,7 +150,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
               MaterialPageRoute(
                 builder: (context) => ProductMainScreenAdmin(
                   nome: item['nome'],
-                  immagine: item['Image'],
+                  immagine: item['Image'], name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',
                 ),
               ),
             );

@@ -12,8 +12,14 @@ import 'Product_main_screen.dart';
 class HomeScreen extends StatefulWidget {
 
   final String accesso;
+  final String name;
+  final String surname;
+  final String username;
+  final String emaiil;
+  final String password;
+  final String serialcode;
 
-  const HomeScreen({required this.accesso, super.key});
+  const HomeScreen({required this.accesso, super.key, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode});
 
   @override
   _HomeScreen createState() => _HomeScreen();
@@ -38,7 +44,7 @@ class _HomeScreen extends State<HomeScreen> {
           Center(child: Text('Saved Page')),
           Center(child: Text('Settings Page')),
         ],
-        accesso: widget.accesso,
+        accesso: widget.accesso, name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,
       ),
     );
   }

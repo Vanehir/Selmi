@@ -28,7 +28,7 @@ class _LoadingScreenState extends State<LoadingScreen>
     SchedulerBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 5), () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => LoginScreen()),
+          MaterialPageRoute(builder: (_) => LoginScreen(name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',)),
         );
       });
     });

@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Account_manager_main_screen.dart';
 import 'package:prove/Screens/Display_settings_screen.dart';
 import 'package:prove/Screens/Language_settings_screen.dart';
 import 'package:prove/Screens/Login_screen.dart';
+import 'package:prove/Screens/Security_settings_screen.dart';
 import 'package:prove/main.dart';
 import 'Notification_settings_screen.dart';
 
 class SettingsMainScreen extends StatefulWidget {
   final String accesso;
+  final name;
+  final surname;
+  final username;
+  final emaiil;
+  final password;
+  final serialcode;
 
-  const SettingsMainScreen({super.key, required this.accesso});
+  const SettingsMainScreen({super.key, required this.accesso, this.name, this.surname, this.username, this.emaiil, this.password, this.serialcode});
 
   @override
   State<SettingsMainScreen> createState() => _SettingsMainScreenState();
@@ -35,7 +43,8 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
             context,
             "Account Management",
             "assets/images/user_icon_settings.png",
-                () => print("Cliccato"),
+                () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>AccountManagerMainScreen(name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,))),
           ),
           _buildSettingItem(
             context,
@@ -78,7 +87,8 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
             context,
             "Security",
             "assets/images/lock_icon.png",
-                () => print("Cliccato"),
+                () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=> SecuritySettingsScreen())),
           ),
           const Spacer(),
         ],
@@ -109,7 +119,7 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
                 Navigator.of(context).pop(); // Chiudi il popup
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => LoginScreen(name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',)),
                       (Route<dynamic> route) => false, // Rimuovi tutte le schermate precedenti
                 );
                 print("Uscito");

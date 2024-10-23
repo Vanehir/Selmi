@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Login_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Home_Screen.dart';
 
 class RegisterMainScreen extends StatefulWidget {
@@ -19,10 +21,21 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
 
   bool _obscureText = true;
 
-  void _login() {
+  Future<void> _regist() async {
+    // Recupera i dati dagli input
+    String name = _nameInput.text;
+    String surname = _surnameInput.text;
+    String username = _usernameInputR.text;
+    String email = _emailInput.text;
+    String password = _passwordInputR.text;
+    String serialCode = _serialCodeInput.text;
+
+    // Naviga alla schermata di Login
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen(accesso: 'user',)),
+      MaterialPageRoute(
+        builder: (context) => HomeScreen(accesso: 'user', name: name,surname: surname, username: username ,emaiil: email, password: password, serialcode: serialCode),
+      ),
     );
   }
 
@@ -52,8 +65,8 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
           hintText: hintText,
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-
-          suffixIcon: isPassword ? IconButton(
+          suffixIcon: isPassword
+              ? IconButton(
             onPressed: _togglePasswordVisibility,
             icon: _obscureText
                 ? Image.asset('assets/images/eye_off_icon.png', width: 24, height: 24)
@@ -87,7 +100,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
               _buildInputField(controller: _serialCodeInput, hintText: "Serial code"),
               const SizedBox(height: 60),
               ElevatedButton(
-                onPressed: _login,
+                onPressed: _regist,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primary,
                   minimumSize: Size(MediaQuery.of(context).size.width * 0.5, 50),
@@ -97,7 +110,7 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
                   ),
                 ),
                 child: Text(
-                  "Sign Up",
+                  "Register now",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w200, color: neutral),
                 ),
               ),

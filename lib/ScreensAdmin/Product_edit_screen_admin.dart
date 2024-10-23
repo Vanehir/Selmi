@@ -36,7 +36,7 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
 
   void _back(){
     setState(() {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductMainScreenAdmin(nome: widget.nome, immagine: widget.immagine,)));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductMainScreenAdmin(nome: widget.nome, immagine: widget.immagine, name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',)));
     });
   }
 

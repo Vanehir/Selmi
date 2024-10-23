@@ -10,10 +10,18 @@ class ProductMainScreenAdmin extends StatefulWidget {
   final String nome;
   final String immagine;
 
+  final String name;
+  final String surname;
+  final String username;
+  final String emaiil;
+  final String password;
+  final String serialcode;
+
+
   const ProductMainScreenAdmin({
     super.key,
     required this.nome,
-    required this.immagine,
+    required this.immagine, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode,
   });
 
   @override
@@ -63,7 +71,7 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => const HomeScreen(accesso: 'admin')),
+              MaterialPageRoute(builder: (context) =>  HomeScreen(accesso: 'admin', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,)),
                   (Route<dynamic> route) => false,
             );
           },

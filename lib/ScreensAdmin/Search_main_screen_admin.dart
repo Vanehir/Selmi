@@ -126,7 +126,7 @@ class _SearchMainScreenAdminState extends State<SearchMainScreenAdmin> {
                 ),
                 child: InkWell(
                   onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SearchEditScreenAdmin()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> SearchEditScreenAdmin(name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',)));
                   },
                     child: Icon(Icons.edit, color: neutral,)),
               ))

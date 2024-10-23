@@ -4,6 +4,7 @@ import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
 import 'package:prove/Screens/Search_input_screen.dart';
+import 'package:prove/Texts/Text.dart';
 
 
 class SearchMainScreen extends StatefulWidget {
@@ -85,7 +86,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
                 onTap: (){
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => SearchInputScreen()),
+                    MaterialPageRoute(builder: (context) => SearchInputScreen(name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',)),
                   );
                 },
                 controller: _search,

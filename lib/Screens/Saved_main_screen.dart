@@ -3,6 +3,7 @@ import 'package:prove/Colors/color_palette.dart';
 import 'package:provider/provider.dart';
 
 import '../model/Object_class.dart';
+import 'Qr_scan_main_screen.dart';
 
 class SavedMainScreen extends StatefulWidget {
   @override
@@ -44,7 +45,14 @@ class _SavedMainScreen extends State<SavedMainScreen> {
                         children: <Widget>[
                           SizedBox(width: 5),
                           IconButton(onPressed: () {}, icon: Icon(Icons.search, color: primary)),
-                          IconButton(onPressed: () {}, icon: Icon(Icons.qr_code_scanner, color: primary)),
+                          IconButton(onPressed: () {
+                            setState(() {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                              );
+                            });
+                          }, icon: Icon(Icons.qr_code_scanner, color: primary)),
                         ],
                       ),
                     ),

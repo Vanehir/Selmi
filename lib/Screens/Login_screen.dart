@@ -7,7 +7,13 @@ import 'package:prove/ScreensGuest/Qr_scan_main_screen_guest.dart';
 import 'package:prove/Colors/color_palette.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final String name;
+  final String surname;
+  final String username;
+  final String emaiil;
+  final String password;
+  final String serialcode;
+  const LoginScreen({super.key, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -60,9 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordInput.text;
 
     if (username == user && password == user) {
-      _navigateTo(HomeScreen(accesso: 'user'));
+      _navigateTo(HomeScreen(accesso: 'user', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));
     } else if (username == admin && password == admin) {
-      _navigateTo(HomeScreen(accesso: 'admin'));
+      _navigateTo(HomeScreen(accesso: 'admin', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -133,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: primary,
                 textColor: neutral,
               ),
-              _buildTextButton("Forgot Password?", _writeData),
+              _buildTextButton("Forgot Password?", (){}),
               _buildTextButton("Register", () {
                 Navigator.push(
                   context,
@@ -151,10 +157,6 @@ class _LoginScreenState extends State<LoginScreen> {
               }, fontSize: 30, isBold: true),
               // Mostra i dati letti dal database
               SizedBox(height: screenHeight * 0.02),
-              Text(
-                _data,
-                style: const TextStyle(color: primary, fontSize: 18),
-              ),
             ],
           ),
         ),
