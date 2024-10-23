@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:prove/Screens/Accessibility_settings_screen.dart';
 import 'package:prove/Screens/Account_manager_main_screen.dart';
 import 'package:prove/Screens/Display_settings_screen.dart';
 import 'package:prove/Screens/Language_settings_screen.dart';
@@ -10,21 +11,20 @@ import 'Notification_settings_screen.dart';
 
 class SettingsMainScreen extends StatefulWidget {
   final String accesso;
-  final name;
-  final surname;
-  final username;
-  final emaiil;
-  final password;
-  final serialcode;
+  final String? name;
+  final String? surname;
+  final String? username;
+  final String? emaiil;
+  final String? password;
+  final String? serialcode;
 
-  const SettingsMainScreen({super.key, required this.accesso, this.name, this.surname, this.username, this.emaiil, this.password, this.serialcode});
+  const SettingsMainScreen({super.key, required this.accesso,  this.name, this.surname, this.username, this.emaiil, this.password, this.serialcode});
 
   @override
   State<SettingsMainScreen> createState() => _SettingsMainScreenState();
 }
 
 class _SettingsMainScreenState extends State<SettingsMainScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +43,19 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
             context,
             "Account Management",
             "assets/images/user_icon_settings.png",
-                () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>AccountManagerMainScreen(name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,))),
+                () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AccountManagerMainScreen(
+                  name: widget.name,
+                  surname: widget.surname,
+                  username: widget.username,
+                  emaiil: widget.emaiil,
+                  password: widget.password,
+                  serialcode: widget.serialcode,
+                ),
+              ),
+            ),
           ),
           _buildSettingItem(
             context,
@@ -53,7 +64,9 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
                 () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => NotificationSettingsScreen(accesso: widget.accesso),
+                builder: (context) => NotificationSettingsScreen(
+                  accesso: widget.accesso,
+                ),
               ),
             ),
           ),
@@ -71,7 +84,11 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
             "assets/images/display_icon.png",
                 () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DisplaySettingsScreen(accesso: widget.accesso,)),
+              MaterialPageRoute(
+                builder: (context) => DisplaySettingsScreen(
+                  accesso: widget.accesso,
+                ),
+              ),
             ),
           ),
           _buildSettingItem(
@@ -80,15 +97,26 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
             "assets/images/language_icon.png",
                 () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => LanguageSettingsScreen()),
+              MaterialPageRoute(builder: (context) => const LanguageSettingsScreen()),
             ),
           ),
           _buildSettingItem(
             context,
             "Security",
             "assets/images/lock_icon.png",
-                () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=> SecuritySettingsScreen())),
+                () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SecuritySettingsScreen()),
+            ),
+          ),
+          _buildSettingItem(
+            context,
+            "Accessibility",
+            "assets/images/accessibility_icon.png",
+                () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AccessibilitySettingsScreen()),
+            ),
           ),
           const Spacer(),
         ],
@@ -119,7 +147,16 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
                 Navigator.of(context).pop(); // Chiudi il popup
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen(name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',)),
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(
+                      name: '',
+                      surname: '',
+                      username: '',
+                      emaiil: '',
+                      password: '',
+                      serialcode: '',
+                    ),
+                  ),
                       (Route<dynamic> route) => false, // Rimuovi tutte le schermate precedenti
                 );
                 print("Uscito");
@@ -135,7 +172,7 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
   // Costruisce il titolo di ogni sezione
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, top: 20, bottom: 5),
+      padding: const EdgeInsets.only(left: 25, top: 10, bottom: 2),
       child: Text(
         title,
         style: Theme.of(context).textTheme.headlineSmall,

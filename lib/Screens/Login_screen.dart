@@ -61,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final String admin = 'admin';
   bool _obscureText = true;
 
+  // da mettere a posto
   void _checkInput() {
     final username = _usernameInput.text;
     final password = _passwordInput.text;
@@ -69,7 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
       _navigateTo(HomeScreen(accesso: 'user', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));
     } else if (username == admin && password == admin) {
       _navigateTo(HomeScreen(accesso: 'admin', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));
-    } else {
+
+    } else if (username == widget.username && password == widget.password) {
+      _navigateTo(HomeScreen(accesso: 'user', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));}
+    else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
