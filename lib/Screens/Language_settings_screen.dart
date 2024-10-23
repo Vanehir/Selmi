@@ -19,7 +19,7 @@ class _LanguageSettingsScreenState extends State<LanguageSettingsScreen> {
   bool russian = false;
   bool turkish = false;
 
-  int? selectedCheckboxIndex; // Variabile per l'indice del checkbox selezionato
+  int? selectedCheckboxIndex = 1; // Variabile per l'indice del checkbox selezionato
   final List<String> options = [
     'Chinese',
     'English',
@@ -39,23 +39,32 @@ class _LanguageSettingsScreenState extends State<LanguageSettingsScreen> {
         backgroundColor: primary,
         title: Text("LANGUAGE", style: TextStyle(color: variant),),
       ),
-      body:ListView.builder(
-        itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
-        itemBuilder: (context, index) {
-          return CheckboxListTile(
-            title: Text(options[index]), // Testo diverso per ciascun checkbox
-            value: selectedCheckboxIndex == index,
-            onChanged: (bool? value) {
-              setState(() {
-                if (value == true) {
-                  selectedCheckboxIndex = index; // Seleziona il checkbox corrente
-                } else {
-                  selectedCheckboxIndex = null; // Deseleziona tutti
-                }
-              });
-            },
-          );
-        },
+      body:Column(
+        children: [
+          SizedBox(height: 20,),
+          Text("Select Your Language", style: TextStyle(fontSize: 25, color: primary),),
+          SizedBox(height: 20,),
+          Expanded(
+            child: ListView.builder(
+              itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
+              itemBuilder: (context, index) {
+                return CheckboxListTile(
+                  title: Text(options[index]), // Testo diverso per ciascun checkbox
+                  value: selectedCheckboxIndex == index,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      if (value == true) {
+                        selectedCheckboxIndex = index; // Seleziona il checkbox corrente
+                      } else {
+                        selectedCheckboxIndex = null; // Deseleziona tutti
+                      }
+                    });
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
+import 'package:provider/provider.dart';
+
+import '../model/Object_class.dart';
 
 
 class DocumentMainScreens extends StatelessWidget {
@@ -26,6 +29,7 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
 
 
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,13 +51,9 @@ class _DocumentMainScreenState extends State<DocumentMainScreen> {
                       padding: const EdgeInsets.all(10.0),
                       child: Center(child: Image.asset("assets/images/pdf_Temperatrici.jpg")),
                     ),
-                    Positioned( top:20, right: 20, child: InkWell(onTap: (){}, child: Image.asset("assets/images/language_icon.png"))),
+                    Positioned( bottom:20, right: 20, child: InkWell(onTap: (){}, child: Image.asset("assets/images/language_icon.png"))),
                     Positioned(bottom: 20, left: 20, child: InkWell(onTap: (){}, child: const Icon(Icons.remove_red_eye_outlined))),
-                    Positioned(
-                        bottom: 20, right: 20,
-                        child: InkWell(
-                            onTap: (){},
-                            child: Image.asset("assets/images/language_icon.png"))),
+
                   ],
                 ),
               ),
