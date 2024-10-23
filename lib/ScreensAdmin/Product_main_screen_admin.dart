@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/ScreensAdmin/Product_edit_screen_admin.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:prove/Containers/cardsContainer.dart';
 
 class ProductMainScreenAdmin extends StatefulWidget {
   const ProductMainScreenAdmin({super.key});
@@ -27,10 +29,12 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
         iconTheme: const IconThemeData(
           color: background,
         ),
-        title: const Text(
-          "Prodotto",
-          style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold, color: accento),
+        title: Text(
+          "Product",
+          style: GoogleFonts.bebasNeue(
+            fontSize: 30,
+            color: background,
+          ),
         ),
         backgroundColor: primario,
       ),

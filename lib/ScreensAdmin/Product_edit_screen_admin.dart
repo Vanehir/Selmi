@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../Colors/color_palette.dart';
 
 class ProductEditScreenAdmin extends StatefulWidget {
@@ -52,10 +52,12 @@ class _ProductEditScreenAdminState extends State<ProductEditScreenAdmin> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Prodotto",
-              style: TextStyle(
-                  fontSize: 30, fontWeight: FontWeight.bold, color: accento),
+            Text(
+              "Product",
+              style: GoogleFonts.bebasNeue(
+                fontSize: 30,
+                color: background,
+              ),
             ),
             InkWell(
                 onTap: () {},
