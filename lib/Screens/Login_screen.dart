@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:prove/Screens/Home_Screen.dart';
@@ -13,14 +15,20 @@ class LoginScreen extends StatefulWidget {
   final String emaiil;
   final String password;
   final String serialcode;
-  const LoginScreen({super.key, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode});
+  const LoginScreen(
+      {super.key,
+      required this.name,
+      required this.surname,
+      required this.username,
+      required this.emaiil,
+      required this.password,
+      required this.serialcode});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final DatabaseReference _database = FirebaseDatabase.instance.ref();
   String _data = "Nessun dato ancora"; // Inizializzo il testo di default
 
@@ -67,13 +75,36 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordInput.text;
 
     if (username == user && password == user) {
-      _navigateTo(HomeScreen(accesso: 'user', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));
+      _navigateTo(HomeScreen(
+        accesso: 'user',
+        name: widget.name,
+        surname: widget.surname,
+        username: widget.username,
+        emaiil: widget.emaiil,
+        password: widget.password,
+        serialcode: widget.serialcode,
+      ));
     } else if (username == admin && password == admin) {
-      _navigateTo(HomeScreen(accesso: 'admin', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));
-
+      _navigateTo(HomeScreen(
+        accesso: 'admin',
+        name: widget.name,
+        surname: widget.surname,
+        username: widget.username,
+        emaiil: widget.emaiil,
+        password: widget.password,
+        serialcode: widget.serialcode,
+      ));
     } else if (username == widget.username && password == widget.password) {
-      _navigateTo(HomeScreen(accesso: 'user', name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,));}
-    else {
+      _navigateTo(HomeScreen(
+        accesso: 'user',
+        name: widget.name,
+        surname: widget.surname,
+        username: widget.username,
+        emaiil: widget.emaiil,
+        password: widget.password,
+        serialcode: widget.serialcode,
+      ));
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -100,97 +131,71 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    const sizeImage = 24.0;
 
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(height: screenHeight * 0.05),
-              const Text(
-                'Selmi',
-                style: TextStyle(
-                  color: primary,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 50,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Image.asset('assets/images/selmi_logo.png'),
+            const SizedBox(
+              height: 48,
+            ),
+            buildTextField(_usernameInput, 'Username', obscureText: false),
+            const SizedBox(height: 20),
+            buildTextField(
+              _passwordInput,
+              'Password',
+              obscureText: true,
+              suffixIcon: IconButton(
+                icon: Image.asset(
+                  _obscureText
+                      ? 'assets/images/eye_off_icon.png'
+                      : 'assets/images/eye_on_icon.png',
+                  width: sizeImage,
+                  height: sizeImage,
                 ),
+                onPressed: _togglePasswordVisibility,
               ),
-              SizedBox(height: screenHeight * 0.2),
-              _buildTextField(_usernameInput, 'Username', false),
-              SizedBox(height: screenHeight * 0.05),
-              _buildTextField(
-                _passwordInput,
-                'Password',
-                _obscureText,
-                suffixIcon: IconButton(
-                  icon: Image.asset(
-                    _obscureText
-                        ? 'assets/images/eye_off_icon.png'
-                        : 'assets/images/eye_on_icon.png',
-                    width: 24,
-                    height: 24,
-                  ),
-                  onPressed: _togglePasswordVisibility,
-                ),
+            ),
+            Expanded(child: Container()),
+            _buildButton(
+              onPressed: _checkInput,
+              text: 'Login',
+              color: primary,
+              textColor: neutral,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 48),
+              child: Column(
+                
+                children: [
+                  _buildTextButton("Sign up", () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterMainScreen()),
+                    );
+                  }),
+                  _buildTextButton("Forgot Password?", () {}),
+                  _buildTextButton("Skip", () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const QrScanMainScreenGuest()),
+                    );
+                  }, fontSize: 30, isBold: true),
+                ],
               ),
-              SizedBox(height: screenHeight * 0.1),
-              _buildButton(
-                onPressed: _checkInput,
-                text: 'Login',
-                color: primary,
-                textColor: neutral,
-              ),
-              _buildTextButton("Forgot Password?", (){}),
-              _buildTextButton("Register", () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const RegisterMainScreen()),
-                );
-              }),
-              SizedBox(height: screenHeight * 0.02),
-              _buildTextButton("Skip", () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const QrScanMainScreenGuest()),
-                );
-              }, fontSize: 30, isBold: true),
-              // Mostra i dati letti dal database
-              SizedBox(height: screenHeight * 0.02),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       backgroundColor: neutral,
-    );
-  }
-
-  Widget _buildTextField(TextEditingController controller, String hintText,
-      bool obscureText,
-      {Widget? suffixIcon}) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
-      decoration: BoxDecoration(
-        color: Colors.white70,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: primary),
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: obscureText,
-        style: const TextStyle(color: primary, fontSize: 23),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: TextStyle(color: primary),
-          suffixIcon: suffixIcon,
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-        ),
-      ),
     );
   }
 
@@ -201,10 +206,11 @@ class _LoginScreenState extends State<LoginScreen> {
     required Color textColor,
   }) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.5,
+      //width: MediaQuery.of(context).size.width * 0.5,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 5),
           backgroundColor: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
@@ -213,7 +219,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: Text(
           text,
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w200, color: textColor),
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: textColor),
         ),
       ),
     );
@@ -223,6 +230,9 @@ class _LoginScreenState extends State<LoginScreen> {
       {double fontSize = 17, bool isBold = false}) {
     return TextButton(
       onPressed: onPressed,
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero
+      ),
       child: Text(
         text,
         style: TextStyle(
@@ -233,4 +243,24 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+
+Widget buildTextField(TextEditingController controller, String labelText,
+    {bool obscureText = false, Widget? suffixIcon}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+    child: SizedBox(
+      child: TextField(
+        controller: controller,
+        obscureText: obscureText,
+        style: const TextStyle(color: primary, fontSize: 23),
+        decoration: InputDecoration(
+          border: const OutlineInputBorder(),
+          labelText: labelText,
+          hintStyle: const TextStyle(color: primary),
+          suffixIcon: suffixIcon,
+        ),
+      ),
+    ),
+  );
 }

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Loading_screen.dart';
-import 'package:prove/Screens/Login_screen.dart';
-import 'package:prove/Screens/Register_main_screen.dart';
-import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
-import 'package:prove/ScreensGuest/Qr_scan_main_screen_guest.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:provider/provider.dart';
 import 'model/Object_class.dart';

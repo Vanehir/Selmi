@@ -39,41 +39,6 @@ class _SearchMainScreenAdminState extends State<SearchMainScreenAdmin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primary,
-        title: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: neutral, // Colore di sfondo
-                borderRadius: BorderRadius.circular(40), // Angoli arrotondati
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Search...", // Placeholder del campo di ricerca
-                  border: InputBorder.none, // Nessun bordo predefinito
-                  contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),  // Padding verticale
-                  suffixIcon: Row(
-                    mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
-                    children: <Widget>[
-                      const SizedBox(width: 5,),
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
-                      IconButton(onPressed: (){
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                          );
-                        });
-                      }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
       body:
       Stack(
         children: [
@@ -81,6 +46,20 @@ class _SearchMainScreenAdminState extends State<SearchMainScreenAdmin> {
             padding: const EdgeInsets.only(top: 1.0, left: 8.0, right: 8.0, bottom: 1.0), // Riduce lo spazio sui lati
             child: Column(
               children: [
+                 SearchBar(
+                  hintText: "Search...",
+                  trailing: <Widget>[
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+                    IconButton(onPressed: (){
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                        );
+                      });
+                    }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+                  ],
+                ),
                 const SizedBox(height: 20),
                 Expanded(
                   child: ListView.builder(

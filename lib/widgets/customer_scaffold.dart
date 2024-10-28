@@ -21,8 +21,17 @@ class CustomScaffold extends StatefulWidget {
   final String password;
   final String serialcode;
 
-
-  const CustomScaffold({required this.pages, Key? key, required this.accesso, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode}) : super(key: key);
+  const CustomScaffold(
+      {required this.pages,
+      Key? key,
+      required this.accesso,
+      required this.name,
+      required this.surname,
+      required this.username,
+      required this.emaiil,
+      required this.password,
+      required this.serialcode})
+      : super(key: key);
 
   @override
   _CustomScaffoldState createState() => _CustomScaffoldState();
@@ -34,7 +43,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   void _navigateToDocumentScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DocumentMainScreen()),
+      MaterialPageRoute(builder: (context) => const DocumentMainScreen()),
     );
   }
 
@@ -42,44 +51,54 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     setState(() => _currentIndex = index);
   }
 
-  Widget control (){
-    if(widget.accesso == 'admin'){
-       return SearchMainScreenAdmin();
-    }
-    else{
-       return SearchMainScreen();
+  Widget control() {
+    if (widget.accesso == 'admin') {
+      return const SearchMainScreenAdmin();
+    } else {
+      return SearchMainScreen();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
-        _buildHomePage(),
-        //SearchMainScreen(),
-        control(),
-        QrScanMainScreen(),
-        SavedMainScreen(),
-        SettingsMainScreen(accesso: widget.accesso, name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,),
+      _buildHomePage(),
+      //SearchMainScreen(),
+      control(),
+      const QrScanMainScreen(),
+      SavedMainScreen(),
+      SettingsMainScreen(
+        accesso: widget.accesso,
+        name: widget.name,
+        surname: widget.surname,
+        username: widget.username,
+        emaiil: widget.emaiil,
+        password: widget.password,
+        serialcode: widget.serialcode,
+      ),
     ];
 
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent),
-      extendBodyBehindAppBar: true,
+      //appBar: AppBar(backgroundColor: primary),
+      //extendBodyBehindAppBar: true,
       body: _pages[_currentIndex],
       backgroundColor: neutral,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code_scanner), label: 'Qr Scan'),
-          BottomNavigationBarItem(icon: Icon(Icons.save_rounded), label: 'Saved'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        indicatorColor: secondary,
+        selectedIndex: _currentIndex,
+        destinations: const <Widget>[
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
+          NavigationDestination(
+              icon: Icon(Icons.qr_code_scanner), label: 'Qr Scan'),
+          NavigationDestination(icon: Icon(Icons.save_rounded), label: 'Saved'),
+          NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
         ],
-        currentIndex: _currentIndex,
-        selectedItemColor: secondary,
-        unselectedItemColor: primary,
-        onTap: _onTapBottomNav,
       ),
     );
   }
@@ -87,7 +106,9 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget _buildHomePage() {
     return Column(
       children: [
-        SizedBox(height: 40,),
+        /* const SizedBox(
+          height: 40,
+        ), */
         Image.asset('assets/images/selmi_logo.png', height: 38),
         const SizedBox(height: 10),
         _buildSectionTitle(context, "LAST SCANNED MACHINES"),
@@ -101,8 +122,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
 
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(border: Border(bottom: BorderSide(width: 2))),
+      decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(width: 2))),
       child: Text(title, style: Theme.of(context).textTheme.headlineSmall),
     );
   }
@@ -114,11 +135,21 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: error)));
+          return Center(
+              child: Text('Error: ${snapshot.error}',
+                  style: const TextStyle(color: error)));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text('No data found', style: TextStyle(color: error)));
+          return const Center(
+              child: const Text('No data found',
+                  style: const TextStyle(color: error)));
         } else {
-          return ListView.builder(
+          return ListView.separated(
+            physics: const ClampingScrollPhysics(),
+            separatorBuilder: ((context, index) {
+              return const SizedBox(
+                height: 10,
+              );
+            }),
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               return _buildMachineListItem(snapshot.data![index]);
@@ -131,52 +162,53 @@ class _CustomScaffoldState extends State<CustomScaffold> {
 
   Widget _buildMachineListItem(dynamic item) {
     return ListTile(
-      title: InkWell(
-        onTap: () {
-          if(widget.accesso == 'user'){
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProductMainScreen(
-                  nome: item['nome'],
-                  immagine: item['Image'],
-                ),
-              ),
-            );
-          }
-          else{
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProductMainScreenAdmin(
-                  nome: item['nome'],
-                  immagine: item['Image'], name: '', surname: '', username: '', emaiil: '', password: '', serialcode: '',
-                ),
-              ),
-            );
-          }
-        },
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.network(item['Image'], height: 80, width: 50, fit: BoxFit.cover),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductMainScreenAdmin(
+              nome: item['nome'],
+              immagine: item['Image'],
+              name: '',
+              surname: '',
+              username: '',
+              emaiil: '',
+              password: '',
+              serialcode: '',
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(item['nome'], style: TextStyle(fontSize: 18, color: secondary)),
-                Row(
-                  children: [
-                    Text(item['category'], style: TextStyle(color: secondary)),
-                    const SizedBox(width: 20),
-                    Text(item['year'], style: TextStyle(color: secondary)),
-                  ],
-                ),
-              ],
-            ),
-          ],
+          ),
+        );
+      },
+      title: Text(
+        item['nome'],
+        style: const TextStyle(
+          fontSize: 18,
+          color: secondary,
+          overflow: TextOverflow.ellipsis,
         ),
+      ),
+      subtitle: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            item['category'],
+            style: const TextStyle(
+              color: secondary,
+            ),
+          ),
+          const SizedBox(width: 20),
+          Text(
+            item['year'],
+            style: const TextStyle(
+              color: secondary,
+            ),
+          ),
+        ],
+      ),
+      leading: Image.network(
+        item['Image'],
+        width: 50,
+        fit: BoxFit.cover,
       ),
     );
   }
@@ -188,9 +220,13 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: error)));
+          return Center(
+              child: Text('Error: ${snapshot.error}',
+                  style: const TextStyle(color: error)));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text('No data found', style: TextStyle(color: error)));
+          return const Center(
+              child: const Text('No data found',
+                  style: const TextStyle(color: error)));
         } else {
           return ListView.builder(
             itemCount: snapshot.data!.length,
@@ -213,16 +249,21 @@ class _CustomScaffoldState extends State<CustomScaffold> {
               padding: const EdgeInsets.all(8.0),
               child: Image.asset('assets/images/pdf_icon.png'),
             ),
-            Expanded( // Utilizza Expanded per allineare a sinistra
+            Expanded(
+              // Utilizza Expanded per allineare a sinistra
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(item['name'], style: Theme.of(context).textTheme.bodyLarge),
+                  Text(item['name'],
+                      style: Theme.of(context).textTheme.bodyLarge),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(item['data'], style: Theme.of(context).textTheme.bodyLarge),
+                      Text(item['data'],
+                          style: Theme.of(context).textTheme.bodyLarge),
                       const SizedBox(width: 20),
-                      Text(item['tipo'], style: Theme.of(context).textTheme.bodyMedium),
+                      Text(item['tipo'],
+                          style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
                 ],
@@ -237,5 +278,4 @@ class _CustomScaffoldState extends State<CustomScaffold> {
       ),
     );
   }
-
 }

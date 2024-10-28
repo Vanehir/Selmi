@@ -34,7 +34,14 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => HomeScreen(accesso: 'user', name: name,surname: surname, username: username ,emaiil: email, password: password, serialcode: serialCode),
+        builder: (context) => HomeScreen(
+            accesso: 'user',
+            name: name,
+            surname: surname,
+            username: username,
+            emaiil: email,
+            password: password,
+            serialcode: serialCode),
       ),
     );
   }
@@ -43,43 +50,10 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
     setState(() => _obscureText = !_obscureText);
   }
 
-  Widget _buildInputField({
-    required TextEditingController controller,
-    required String hintText,
-    bool isPassword = false,
-  }) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
-      decoration: ShapeDecoration(
-        color: Colors.white70,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 2, color: primary),
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: isPassword ? _obscureText : false,
-        style: TextStyle(color: primary, fontSize: 23),
-        decoration: InputDecoration(
-          hintText: hintText,
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-          suffixIcon: isPassword
-              ? IconButton(
-            onPressed: _togglePasswordVisibility,
-            icon: _obscureText
-                ? Image.asset('assets/images/eye_off_icon.png', width: 24, height: 24)
-                : Image.asset('assets/images/eye_on_icon.png', width: 24, height: 24),
-          )
-              : null,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    const sizeImage = 24.0;
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -87,31 +61,43 @@ class _RegisterMainScreenState extends State<RegisterMainScreen> {
         child: Center(
           child: Column(
             children: [
-              _buildInputField(controller: _nameInput, hintText: "Name"),
-              const SizedBox(height: 40),
-              _buildInputField(controller: _surnameInput, hintText: "Surname"),
-              const SizedBox(height: 40),
-              _buildInputField(controller: _usernameInputR, hintText: "Username"),
-              const SizedBox(height: 40),
-              _buildInputField(controller: _emailInput, hintText: "Email"),
-              const SizedBox(height: 40),
-              _buildInputField(controller: _passwordInputR, hintText: "Password", isPassword: true),
-              const SizedBox(height: 40),
-              _buildInputField(controller: _serialCodeInput, hintText: "Serial code"),
-              const SizedBox(height: 60),
+              buildTextField(_nameInput, "Name"),
+              buildTextField(_surnameInput, "Surname"),
+              buildTextField(_usernameInputR, "Username"),
+              buildTextField(_emailInput, "E-mail"),
+              buildTextField(
+                _passwordInputR,
+                "Password",
+                obscureText: true,
+                suffixIcon: IconButton(
+                  icon: Image.asset(
+                    _obscureText
+                        ? 'assets/images/eye_off_icon.png'
+                        : 'assets/images/eye_on_icon.png',
+                    width: sizeImage,
+                    height: sizeImage,
+                  ),
+                  onPressed: _togglePasswordVisibility,
+                ),
+              ),
+              buildTextField(_emailInput, "E-mail"),
               ElevatedButton(
                 onPressed: _regist,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primary,
-                  minimumSize: Size(MediaQuery.of(context).size.width * 0.5, 50),
+                  minimumSize:
+                      Size(MediaQuery.of(context).size.width * 0.5, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                     side: BorderSide(color: primary, width: 2),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   "Register now",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w200, color: neutral),
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w200,
+                      color: neutral),
                 ),
               ),
             ],
