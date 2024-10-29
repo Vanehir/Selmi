@@ -91,49 +91,34 @@ class _SearchInputScreenState extends State<SearchInputScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primary,
-        title: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: neutral,
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: TextField(
-                controller: _search,
-                decoration: InputDecoration(
-                  hintText: "Search...",
-                  border: InputBorder.none,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),
-                  suffixIcon: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const SizedBox(width: 5,),
-                      IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: primary)),
-                      IconButton(onPressed: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                          );
-                        });
-                      }, icon: const Icon(Icons.qr_code_scanner, color: primary)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
       body: Stack(
         children: [
+          Container(
+            padding: EdgeInsets.only( left: 20, right: 20, top: 50, bottom: 20),
+            decoration: BoxDecoration(
+              color: primary,
+            ),
+            child: SearchBar(
+              controller: _search,
+              hintText: "Search...",
+              trailing: <Widget>[
+                IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+                IconButton(onPressed: (){
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                    );
+                  });
+                }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 20.0, left: 8.0, right: 8.0, bottom: 1.0),
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 80),
                 // Lista filtrata
                 Expanded(
                   child: ListView.builder(

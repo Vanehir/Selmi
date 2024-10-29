@@ -15,12 +15,28 @@ class AccountManagerMainScreen extends StatefulWidget {
 }
 
 class _AccountManagerMainScreenState extends State<AccountManagerMainScreen> {
+
+  bool _obscureSurname = true;
+  bool _obscureUsernmae = true;
   final _nomeText = TextEditingController();
   final _surnameText = TextEditingController();
   final _usernameText = TextEditingController();
 
+  void _toggleSurnaneVisibility() {
+    setState(() {
+      _obscureSurname = !_obscureSurname;
+    });
+  }
+
+  void _toggleUsernameVisibility() {
+    setState(() {
+      _obscureUsernmae = !_obscureUsernmae;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    const sizeImage = 24.0;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -32,87 +48,74 @@ class _AccountManagerMainScreenState extends State<AccountManagerMainScreen> {
           style: TextStyle(color: neutral),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('DATA', style: TextStyle(fontSize: 22, color: primary)),
-            SizedBox(height: 20),
-            Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: 55,
-                decoration: BoxDecoration(
-                  color: Colors.white70,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 2, color: primary),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Your Account', style: TextStyle(fontSize: 22, color: primary)),
+              SizedBox(height: 20),
+              buildTextField(_nomeText, 'Name', widget.name, obscureText: false),
+              SizedBox(height: 10),
+              buildTextField(_surnameText, 'Surname',widget.surname, obscureText: _obscureSurname,
+                suffixIcon: IconButton(
+                  icon: Image.asset(
+                    _obscureSurname
+                        ? 'assets/images/eye_off_icon.png'
+                        : 'assets/images/eye_on_icon.png',
+                    width: sizeImage,
+                    height: sizeImage,
+                  ),
+                  onPressed: _toggleSurnaneVisibility,
+                ),),
+              SizedBox(height: 10),
+              buildTextField(_usernameText, 'Username',widget.username, obscureText:  _obscureUsernmae,
+                suffixIcon: IconButton(
+                icon: Image.asset(
+                  _obscureUsernmae
+                      ? 'assets/images/eye_off_icon.png'
+                      : 'assets/images/eye_on_icon.png',
+                  width: sizeImage,
+                  height: sizeImage,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-
-                  children: [
-                    SizedBox(width: 10,),
-                    Text(widget.name, style:
-                    TextStyle(color: primary, fontSize: 25,),
-                    textAlign: TextAlign.left,
-                    ),
-                  ],
-                )),
-            SizedBox(height: 20),
-            Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: 55,
-                decoration: BoxDecoration(
-                  color: Colors.white70,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 2, color: primary),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-
-                  children: [
-                    SizedBox(width: 10,),
-                    Text(widget.surname, style:
-                    TextStyle(color: primary, fontSize: 25,),
-                      textAlign: TextAlign.left,
-                    ),
-                  ],
-                )),
-            SizedBox(height: 20),
-            Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: 55,
-                decoration: BoxDecoration(
-                  color: Colors.white70,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 2, color: primary),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-
-                  children: [
-                    SizedBox(width: 10,),
-                    Text(widget.emaiil, style:
-                    TextStyle(color: primary, fontSize: 25,),
-                      textAlign: TextAlign.left,
-                    ),
-                  ],
-                )),
-            SizedBox(height: 360),
-            Center(
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Delete Account',
-                  style: TextStyle(color: error, fontSize: 20),
+                onPressed: _toggleUsernameVisibility,
+              ),),
+              SizedBox(height: 290,),
+              Center(
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Delete Account',
+                    style: TextStyle(color: error, fontSize: 20),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 
-
+  Widget buildTextField(TextEditingController controller, String labelText, String text,
+      {bool obscureText = false, Widget? suffixIcon}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+      child: SizedBox(
+        child: TextField(
+          controller: controller,
+          obscureText: obscureText,
+          style: const TextStyle(color: primary, fontSize: 23),
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            labelText: labelText,
+            hintText: text,
+            hintStyle: const TextStyle(color: primary),
+            suffixIcon: suffixIcon,
+          ),
+        ),
+      ),
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Screens/Document_main_screen.dart';
 import 'package:prove/Screens/Product_main_screen.dart';
-//import 'package:prove/Screens/Home_Screen.dart';
+import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/Saved_main_screen.dart';
 import 'package:prove/Screens/Search_main_screen.dart';
@@ -80,6 +80,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primary,
+        toolbarHeight: 0,
       ),
       //extendBodyBehindAppBar: true,
       body: _pages[_currentIndex],
@@ -107,7 +109,10 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget _buildHomePage() {
     return Column(
       children: [
-        Image.asset('assets/images/selmi_logo.png', height: 38),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('assets/images/selmi_logo.png'),
+        ),
         const SizedBox(height: 10),
         _buildSectionTitle(context, "LAST SCANNED MACHINES"),
         Expanded(child: _buildMachineList()),
@@ -121,15 +126,16 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Container(
       decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(),
-        )
-      ),
+          color: primary, border: Border(
+            bottom: BorderSide(width: 2))),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Text(title, style: TextStyle(fontSize: 26, color: primary )),
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 26, color: neutral),
+            ),
           ],
         ),
       ),
@@ -204,6 +210,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
               color: secondary,
             ),
           ),
+          const SizedBox(width: 20),
           Text(
             item['year'],
             style: const TextStyle(

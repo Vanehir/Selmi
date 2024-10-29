@@ -19,46 +19,22 @@ class _SavedMainScreen extends State<SavedMainScreen> {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
-            color: primary
+          padding: const EdgeInsets.all(10.0),
+          decoration: const BoxDecoration(
+            color: primary,
           ),
-          child: Column(
-            children: [
-              SizedBox(height: 50),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Container(
-                  decoration: ShapeDecoration(
-                    color: neutral, // Colore di sfondo del Container
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 2, color: neutral), // Bordo esterno del Container
-                      borderRadius: BorderRadius.circular(40), // Bordi arrotondati
-                    ),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search...", // Placeholder del campo di ricerca
-                      border: InputBorder.none, // Nessun bordo predefinito
-                      contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Padding interno del TextField
-                      suffixIcon: Row(
-                        mainAxisSize: MainAxisSize.min, // Minimizza la larghezza della Row
-                        children: <Widget>[
-                          SizedBox(width: 5),
-                          IconButton(onPressed: () {}, icon: Icon(Icons.search, color: primary)),
-                          IconButton(onPressed: () {
-                            setState(() {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                              );
-                            });
-                          }, icon: Icon(Icons.qr_code_scanner, color: primary)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+          child: SearchBar(
+            hintText: "Search...",
+            trailing: <Widget>[
+              IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+              IconButton(onPressed: (){
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                  );
+                });
+              }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
             ],
           ),
         ), // Search bar

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
-import 'package:barcode_scan2/barcode_scan2.dart';
+//import 'package:barcode_scan2/barcode_scan2.dart';
+import 'package:prove/Screens/barcode_scanner.dart';
 import 'package:prove/ScreensGuest/Scan_product_screen_guest.dart';
 
 import '../Screens/Product_main_screen.dart';
@@ -15,6 +16,58 @@ class QrScanMainScreenGuest extends StatefulWidget {
 
 class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
 
+  Widget _buildItem(BuildContext context, String label, Widget page) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: neutral,
+          ),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => page,
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: Text(label, style: const TextStyle(
+              fontSize: 25,
+              color: primary
+            ),),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 80,),
+              Image.asset("assets/images/crop_free.png"),
+              SizedBox(height: 180,),
+              _buildItem(context, 'Scan', const BarcodeScanner(),),
+              const SizedBox(height: 20),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 50),
+                child: _buildManualCodeEntry(),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  /*
   String scannedResult = "Nessun risultato";
 
   Future<void> scanBarcode() async {
@@ -53,7 +106,9 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
               Image.asset("assets/images/crop_free.png"),
               SizedBox(height: 80,),
               ElevatedButton(
-                onPressed: scanBarcode,
+                onPressed: (){
+                  BarcodeScannerSimple();
+                },
                 child: const Text('Scansiona QR Code'),
               ),
               const SizedBox(height: 20),
@@ -66,6 +121,8 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
     );
   }
 
+
+   */
   Widget _buildManualCodeEntry() {
     return Container(
       decoration: ShapeDecoration(
@@ -82,12 +139,13 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
           suffixIcon: IconButton(
             icon: Icon(Icons.backspace_outlined, color: primary),
             onPressed: () => setState(() {
-              scannedResult = "";
-              scanBarcode();
+              BarcodeScanner();
             }),
           ),
         ),
       ),
     );
   }
+
+
 }

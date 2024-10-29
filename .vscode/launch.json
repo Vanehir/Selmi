@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Selmi_revamp",
+            "name": "Selmi",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "Selmi_revamp (profile mode)",
+            "name": "Selmi (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "Selmi_revamp (release mode)",
+            "name": "Selmi (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

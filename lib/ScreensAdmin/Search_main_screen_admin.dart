@@ -42,55 +42,58 @@ class _SearchMainScreenAdminState extends State<SearchMainScreenAdmin> {
       body:
       Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 1.0, left: 8.0, right: 8.0, bottom: 1.0), // Riduce lo spazio sui lati
-            child: Column(
-              children: [
-                 SearchBar(
-                  hintText: "Search...",
-                  trailing: <Widget>[
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
-                    IconButton(onPressed: (){
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
-                        );
-                      });
-                    }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            selectedTextIndex = index;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
-                            );
-                          });
-                        },
-                        child: Container(
-                          color: selectedTextIndex == index ? primary : Colors.transparent, // Cambia colore di sfondo
-                          child: ListTile(
-                            title: Text(options[index], style: TextStyle(
-                              color: selectedTextIndex == index ? variant : primary,
-                              fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal, // Cambia spessore se selezionato
-                            ),), // Testo diverso per ciascun checkbox
-
-                          ),
+          Column(
+            children: [
+               Container(
+                color: primary,
+                 child: Padding(
+                   padding: const EdgeInsets.all(10.0),
+                   child: SearchBar(
+                    hintText: "Search...",
+                    trailing: <Widget>[
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.search,color: primary)),
+                      IconButton(onPressed: (){
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const QrScanMainScreen()),
+                          );
+                        });
+                      }, icon: const Icon(Icons.qr_code_scanner,color: primary)),
+                    ],
+                                   ),
+                 ),
+               ),
+              const SizedBox(height: 20),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: options.length, // Numero di checkbox basato sulla lunghezza della lista
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          selectedTextIndex = index;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListMachineSearchScreen(category: options[index])),
+                          );
+                        });
+                      },
+                      child: Container(
+                        color: selectedTextIndex == index ? primary : Colors.transparent, // Cambia colore di sfondo
+                        child: ListTile(
+                          title: Text(options[index], style: TextStyle(
+                            color: selectedTextIndex == index ? variant : primary,
+                            fontWeight: selectedTextIndex == index ? FontWeight.bold : FontWeight.normal, // Cambia spessore se selezionato
+                          ),), // Testo diverso per ciascun checkbox
+          
                         ),
-                      );
-                    },
-                  ),
-                ), // lista categorie
-              ],
-            ),
+                      ),
+                    );
+                  },
+                ),
+              ), // lista categorie
+            ],
           ),
           Positioned(
             bottom: 0,

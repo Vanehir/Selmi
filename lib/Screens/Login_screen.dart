@@ -6,7 +6,9 @@ import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Register_main_screen.dart';
 import 'package:prove/ScreensAdmin/Product_main_screen_admin.dart';
 import 'package:prove/ScreensGuest/Qr_scan_main_screen_guest.dart';
+ //import 'package:shared_preferences/shared_preferences.dart';
 import 'package:prove/Colors/color_palette.dart';
+
 
 class LoginScreen extends StatefulWidget {
   final String name;
@@ -30,6 +32,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final DatabaseReference _database = FirebaseDatabase.instance.ref();
+
+  //late String finaluser;
+  //late String finalpass;
   String _data = "Nessun dato ancora"; // Inizializzo il testo di default
 
   @override
@@ -38,11 +43,12 @@ class _LoginScreenState extends State<LoginScreen> {
     _readData();
   }
 
+
   // Funzione per scrivere dati nel database
   Future<void> _writeData() async {
     await _database.child('users').child('user1').set({
-      'username': 'PORCO',
-      'email': 'DIO',
+      'username': 'ciao',
+      'email': 'bello',
     });
     print('Dati scritti nel database!');
   }
@@ -74,6 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
     final username = _usernameInput.text;
     final password = _passwordInput.text;
 
+    // Assicurati che `finaluser` e `finalpass` siano inizializzati
+
     if (username == user && password == user) {
       _navigateTo(HomeScreen(
         accesso: 'user',
@@ -94,16 +102,6 @@ class _LoginScreenState extends State<LoginScreen> {
         password: widget.password,
         serialcode: widget.serialcode,
       ));
-    } else if (username == widget.username && password == widget.password) {
-      _navigateTo(HomeScreen(
-        accesso: 'user',
-        name: widget.name,
-        surname: widget.surname,
-        username: widget.username,
-        emaiil: widget.emaiil,
-        password: widget.password,
-        serialcode: widget.serialcode,
-      ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -115,6 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     }
   }
+
 
   void _navigateTo(Widget page) {
     Navigator.pushReplacement(
@@ -143,14 +142,14 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Image.asset('assets/images/selmi_logo.png'),
             const SizedBox(
-              height: 48,
+              height: 138,
             ),
             buildTextField(_usernameInput, 'Username', obscureText: false),
             const SizedBox(height: 20),
             buildTextField(
               _passwordInput,
               'Password',
-              obscureText: true,
+              obscureText: _obscureText,
               suffixIcon: IconButton(
                 icon: Image.asset(
                   _obscureText
