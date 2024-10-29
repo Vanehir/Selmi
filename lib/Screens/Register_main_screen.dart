@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prove/Colors/color_palette.dart';
 import 'package:prove/Screens/Login_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'Home_Screen.dart';
+import 'package:prove/Screens/Home_Screen.dart';
 
 class RegisterMainScreen extends StatefulWidget {
   const RegisterMainScreen({super.key});

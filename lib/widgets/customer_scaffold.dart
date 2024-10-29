@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prove/Screens/Document_main_screen.dart';
 import 'package:prove/Screens/Product_main_screen.dart';
-import 'package:prove/Screens/Home_Screen.dart';
+//import 'package:prove/Screens/Home_Screen.dart';
 import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/Saved_main_screen.dart';
 import 'package:prove/Screens/Search_main_screen.dart';
@@ -79,7 +79,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     ];
 
     return Scaffold(
-      //appBar: AppBar(backgroundColor: primary),
+      appBar: AppBar(
+      ),
       //extendBodyBehindAppBar: true,
       body: _pages[_currentIndex],
       backgroundColor: neutral,
@@ -106,9 +107,6 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget _buildHomePage() {
     return Column(
       children: [
-        /* const SizedBox(
-          height: 40,
-        ), */
         Image.asset('assets/images/selmi_logo.png', height: 38),
         const SizedBox(height: 10),
         _buildSectionTitle(context, "LAST SCANNED MACHINES"),
@@ -123,8 +121,18 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Container(
       decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(width: 2))),
-      child: Text(title, style: Theme.of(context).textTheme.headlineSmall),
+        border: Border(
+          bottom: BorderSide(),
+        )
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Text(title, style: TextStyle(fontSize: 26, color: primary )),
+          ],
+        ),
+      ),
     );
   }
 
@@ -196,7 +204,6 @@ class _CustomScaffoldState extends State<CustomScaffold> {
               color: secondary,
             ),
           ),
-          const SizedBox(width: 20),
           Text(
             item['year'],
             style: const TextStyle(

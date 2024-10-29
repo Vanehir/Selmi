@@ -5,14 +5,20 @@ import 'package:prove/Screens/Qr_scan_main_screen.dart';
 import 'package:prove/Screens/List_machine_search_screen.dart';
 
 class SearchEditScreenAdmin extends StatefulWidget {
-
   final String name;
   final String surname;
   final String username;
   final String emaiil;
   final String password;
   final String serialcode;
-  const SearchEditScreenAdmin({super.key, required this.name, required this.surname, required this.username, required this.emaiil, required this.password, required this.serialcode});
+  const SearchEditScreenAdmin(
+      {super.key,
+      required this.name,
+      required this.surname,
+      required this.username,
+      required this.emaiil,
+      required this.password,
+      required this.serialcode});
 
   @override
   State<SearchEditScreenAdmin> createState() => _SearchEditScreenAdminState();
@@ -23,7 +29,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
   int? selectedTextIndex; // Indice della selezione corrente
   bool isAscending = true;
   bool isFlipped = false;
-  bool showCheckboxes = false; // Variabile per gestire la visibilità delle checkbox
+  bool showCheckboxes =
+      false; // Variabile per gestire la visibilità delle checkbox
   List<String> filteredOptions = [];
   List<bool> checkboxStates = [];
 
@@ -49,7 +56,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
   void initState() {
     super.initState();
     filteredOptions = options;
-    checkboxStates = List.filled(options.length, false); // Stati per le checkbox
+    checkboxStates =
+        List.filled(options.length, false); // Stati per le checkbox
   }
 
   void _flipIcon() {
@@ -75,8 +83,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
         filteredOptions = options;
       } else {
         filteredOptions = options
-            .where((option) =>
-            option.toLowerCase().contains(query.toLowerCase()))
+            .where(
+                (option) => option.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -106,8 +114,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                   decoration: InputDecoration(
                     hintText: "Search...",
                     border: InputBorder.none,
-                    contentPadding:
-                    const EdgeInsets.symmetric(vertical: 15).copyWith(left: 20),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 15)
+                        .copyWith(left: 20),
                     suffixIcon: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -120,7 +128,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const QrScanMainScreen()),
+                                    builder: (context) =>
+                                        const QrScanMainScreen()),
                               );
                             },
                             icon: const Icon(Icons.qr_code_scanner,
@@ -169,7 +178,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                                       value: checkboxStates[index],
                                       onChanged: (bool? newValue) {
                                         setState(() {
-                                          checkboxStates[index] = newValue ?? false;
+                                          checkboxStates[index] =
+                                              newValue ?? false;
                                         });
                                       },
                                     ),
@@ -204,7 +214,8 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  margin: const EdgeInsets.only(left: 80, right: 80, bottom: 16),
+                  margin:
+                      const EdgeInsets.only(left: 80, right: 80, bottom: 16),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: primary, borderRadius: BorderRadius.circular(30)),
@@ -216,8 +227,14 @@ class _SearchEditScreenAdminState extends State<SearchEditScreenAdmin> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      HomeScreen(accesso: 'admin',name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode)));
+                                  builder: (context) => HomeScreen(
+                                      accesso: 'admin',
+                                      name: widget.name,
+                                      surname: widget.surname,
+                                      username: widget.username,
+                                      emaiil: widget.emaiil,
+                                      password: widget.password,
+                                      serialcode: widget.serialcode)));
                         },
                         child: const Icon(Icons.arrow_back, color: neutral),
                       ),

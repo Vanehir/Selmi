@@ -28,9 +28,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreen extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CustomScaffold(
+    return CustomScaffold(
         pages: [
           Column(
             children: <Widget>[
@@ -39,13 +37,13 @@ class _HomeScreen extends State<HomeScreen> {
               _buildLastOpenedDocumentsSection(),
             ],
           ),
-          Center(child: Text('Search Page')),
+          /* Center(child: Text('Search Page')),
           Center(child: Text('Qr Page')),
           Center(child: Text('Saved Page')),
-          Center(child: Text('Settings Page')),
+          Center(child: Text('Settings Page')), */
         ],
         accesso: widget.accesso, name: widget.name, surname: widget.surname, username: widget.username, emaiil: widget.emaiil, password: widget.password, serialcode: widget.serialcode,
-      ),
+      
     );
   }
 
@@ -53,35 +51,33 @@ class _HomeScreen extends State<HomeScreen> {
     return Column(
       children: [
         Image.asset('assets/images/selmi_logo.png', height: 200),
-        SizedBox(height: 10),
+        //SizedBox(height: 10),
         _buildSectionTitle("Last scanned machine"),
-        SizedBox(height: 0),
+        //SizedBox(height: 10),
       ],
     );
   }
 
   Widget _buildLastScannedMachinesSection() {
-    return Expanded(
-      child: FutureBuilder<List<dynamic>>(
-        future: fetchTemperaggioData(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: error)));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No data found', style: TextStyle(color: error)));
-          } else {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                var item = snapshot.data![index];
-                return _buildMachineListItem(item);
-              },
-            );
-          }
-        },
-      ),
+    return FutureBuilder<List<dynamic>>(
+      future: fetchTemperaggioData(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: error)));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return Center(child: Text('No data found', style: TextStyle(color: error)));
+        } else {
+          return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (context, index) {
+              var item = snapshot.data![index];
+              return _buildMachineListItem(item);
+            },
+          );
+        }
+      },
     );
   }
 
@@ -194,12 +190,11 @@ class _HomeScreen extends State<HomeScreen> {
 
 
   Widget _buildSectionTitle(String title) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 2)),
-      ),
-      child: Text(title, style: TextStyle(color: primary, fontSize: 25)),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(title, style: TextStyle(color: primary, fontSize: 25)),
+      ],
     );
   }
 }
