@@ -72,6 +72,7 @@ class _QrScanMainScreen extends State<QrScanMainScreen> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
