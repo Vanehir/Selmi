@@ -68,6 +68,7 @@ class _QrScanMainScreenGuestState extends State<QrScanMainScreenGuest> {
     );
   }
   /*
+
   String scannedResult = "Nessun risultato";
 
   Future<void> scanBarcode() async {
