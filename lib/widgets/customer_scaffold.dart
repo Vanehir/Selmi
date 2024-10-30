@@ -174,24 +174,42 @@ class _CustomScaffoldState extends State<CustomScaffold> {
     );
   }
 
+  void cambio (String accesso, item){
+
+    if (accesso == 'admin'){
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ProductMainScreenAdmin(
+            nome: item['nome'],
+            immagine: item['Image'],
+            name: '',
+            surname: '',
+            username: '',
+            emaiil: '',
+            password: '',
+            serialcode: '',
+          ),
+        ),
+      );
+    }
+    else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ProductMainScreen(
+            nome: item['nome'],
+            immagine: item['Image'],
+          ),
+        ),
+      );
+    }
+  }
+
   Widget _buildMachineListItem(dynamic item) {
     return ListTile(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProductMainScreenAdmin(
-              nome: item['nome'],
-              immagine: item['Image'],
-              name: '',
-              surname: '',
-              username: '',
-              emaiil: '',
-              password: '',
-              serialcode: '',
-            ),
-          ),
-        );
+        cambio(widget.accesso, item);
       },
       title: Text(
         item['nome'],
