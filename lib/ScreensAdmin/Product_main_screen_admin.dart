@@ -79,21 +79,19 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
         ),
         backgroundColor: primary,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildImageSection(),
-            const SizedBox(height: 50),
-            _buildDocumentSection("Specs", "Specifiche", "16/10/2024", "pdf"),
-            const SizedBox(height: 50),
-            _buildDocumentSection("Manual", "Manuale", "16/10/2024", "pdf"),
-            const SizedBox(height: 50),
-            _buildDocumentSection("Other", "Documento", "16/10/2024", "pdf"),
-            const SizedBox(height: 30),
-            _buildEditButton(),
-            const SizedBox(height: 30),
-          ],
-        ),
+      body: Column(
+        children: [
+          _buildImageSection(),
+          _buildSectionTitle(context, "Specs"),
+          _buildDocumentSection("Specifications", "16/10/2024", "pdf"),
+          _buildSectionTitle(context, "Manual"),
+          _buildDocumentSection("Machine manual", "16/10/2024", "pdf"),
+          _buildSectionTitle(context, "Others"),
+          _buildDocumentSection("Warranty", "16/10/2024", "pdf"),
+          const SizedBox(height: 30),
+          _buildEditButton(),
+          const SizedBox(height: 30),
+        ],
       ),
     );
   }
@@ -136,37 +134,70 @@ class _ProductMainScreenAdminState extends State<ProductMainScreenAdmin> {
     );
   }
 
-  Widget _buildDocumentSection(String title, String documentName, String uploadDate, String fileType) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      child: Row(
-        children: [
-          Image.asset("assets/images/pdf_icon.png"),
-          const SizedBox(width: 10),
-          Expanded(
-            child: InkWell(
-              onTap: navigateToDocumentScreen,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: TextStyle(fontSize: 25, color: primary)),
-                  Row(
-                    children: [
-                      Text(documentName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
-                      const Spacer(),
-                      Text(uploadDate, style: TextStyle(color: secondary)),
-                      const Spacer(),
-                      Text(fileType, style: TextStyle(color: secondary)),
-                    ],
-                  ),
-                ],
-              ),
+  Widget _buildSectionTitle(BuildContext context, String title) {
+    return Container(
+      decoration: const BoxDecoration(
+          color: primary, border: Border(
+            bottom: BorderSide(width: 2))),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 26, color: neutral),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
+
+  Widget _buildDocumentSection(String documentName, String uploadDate, String fileType) {
+    return  ListTile(
+      leading: Image.asset("assets/images/pdf_icon.png"),
+      title: Text(documentName, style: const TextStyle(fontWeight: FontWeight.bold),),
+      subtitle: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(uploadDate),
+          Text(fileType)
+        ],
+      ),
+      onTap: navigateToDocumentScreen,
+    );
+  }
+  // Widget _buildDocumentSection(String title, String documentName, String uploadDate, String fileType) {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+  //     child: Row(
+  //       children: [
+  //         Image.asset("assets/images/pdf_icon.png"),
+  //         const SizedBox(width: 10),
+  //         Expanded(
+  //           child: InkWell(
+  //             onTap: navigateToDocumentScreen,
+  //             child: Column(
+  //               crossAxisAlignment: CrossAxisAlignment.start,
+  //               children: [
+  //                 Text(title, style: TextStyle(fontSize: 25, color: primary)),
+  //                 Row(
+  //                   children: [
+  //                     Text(documentName, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: secondary)),
+  //                     const Spacer(),
+  //                     Text(uploadDate, style: TextStyle(color: secondary)),
+  //                     const Spacer(),
+  //                     Text(fileType, style: TextStyle(color: secondary)),
+  //                   ],
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildEditButton() {
     return Padding(

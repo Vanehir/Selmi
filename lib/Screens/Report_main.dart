@@ -79,7 +79,7 @@ Future buildShowDialog(context, String titolo, String testo){
             onPressed: () {
               Navigator.of(context).pop(); // Chiudi il popup
             },
-            child: Text('Chiudi'),
+            child: Text('Close'),
           ),
         ],
       );

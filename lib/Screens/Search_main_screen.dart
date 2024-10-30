@@ -76,7 +76,7 @@ class _SearchMainScreen extends State<SearchMainScreen> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only( left: 20, right: 20, top: 50, bottom: 20),
+              padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 color: primary,
               ),

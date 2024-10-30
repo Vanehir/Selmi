@@ -31,43 +31,43 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final DatabaseReference _database = FirebaseDatabase.instance.ref();
+  //final DatabaseReference _database = FirebaseDatabase.instance.ref();
 
   //late String finaluser;
   //late String finalpass;
-  String _data = "Nessun dato ancora"; // Inizializzo il testo di default
+  //String _data = "Nessun dato ancora"; // Inizializzo il testo di default
 
-  @override
-  void initState() {
-    super.initState();
-    _readData();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _readData();
+  // }
 
 
-  // Funzione per scrivere dati nel database
-  Future<void> _writeData() async {
-    await _database.child('users').child('user1').set({
-      'username': 'ciao',
-      'email': 'bello',
-    });
-    print('Dati scritti nel database!');
-  }
+  // // Funzione per scrivere dati nel database
+  // Future<void> _writeData() async {
+  //   await _database.child('users').child('user1').set({
+  //     'username': 'ciao',
+  //     'email': 'bello',
+  //   });
+  //   print('Dati scritti nel database!');
+  // }
 
   // Funzione per leggere dati dal database
-  void _readData() {
-    _database.child('users').child('user1').onValue.listen((event) {
-      final data = event.snapshot.value as Map<dynamic, dynamic>?;
-      if (data != null) {
-        setState(() {
-          _data = 'Username: ${data['username']}, Email: ${data['email']}';
-        });
-      } else {
-        setState(() {
-          _data = 'Nessun dato trovato nel database!';
-        });
-      }
-    });
-  }
+  // void _readData() {
+  //   _database.child('users').child('user1').onValue.listen((event) {
+  //     final data = event.snapshot.value as Map<dynamic, dynamic>?;
+  //     if (data != null) {
+  //       setState(() {
+  //         _data = 'Username: ${data['username']}, Email: ${data['email']}';
+  //       });
+  //     } else {
+  //       setState(() {
+  //         _data = 'Nessun dato trovato nel database!';
+  //       });
+  //     }
+  //   });
+  // }
 
   final _passwordInput = TextEditingController();
   final _usernameInput = TextEditingController();
